@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SpringBoot(3)-异常处理  拦截器  视图解析 | Control.</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <script charset="utf-8" src="/js/main.js"></script>
+    <meta name="description" content="去发光,而不是被照亮">
+    
+    <link rel="preload" href="/assets/css/0.styles.f4923bad.css" as="style"><link rel="preload" href="/assets/js/app.19543062.js" as="script"><link rel="preload" href="/assets/js/2.0ee43227.js" as="script"><link rel="preload" href="/assets/js/35.62ae3575.js" as="script"><link rel="prefetch" href="/assets/js/10.e58b7d3b.js"><link rel="prefetch" href="/assets/js/100.2a9b953a.js"><link rel="prefetch" href="/assets/js/101.859b2f1e.js"><link rel="prefetch" href="/assets/js/102.de57107f.js"><link rel="prefetch" href="/assets/js/103.810791da.js"><link rel="prefetch" href="/assets/js/104.2a858183.js"><link rel="prefetch" href="/assets/js/105.8d220a0b.js"><link rel="prefetch" href="/assets/js/106.96fc31f2.js"><link rel="prefetch" href="/assets/js/107.30ac6bd5.js"><link rel="prefetch" href="/assets/js/108.f40e9ef7.js"><link rel="prefetch" href="/assets/js/109.7354eeca.js"><link rel="prefetch" href="/assets/js/11.22d06b73.js"><link rel="prefetch" href="/assets/js/110.d2316756.js"><link rel="prefetch" href="/assets/js/111.75dd52f1.js"><link rel="prefetch" href="/assets/js/112.9d8dda4d.js"><link rel="prefetch" href="/assets/js/113.e83d3089.js"><link rel="prefetch" href="/assets/js/114.5211e116.js"><link rel="prefetch" href="/assets/js/115.720242c4.js"><link rel="prefetch" href="/assets/js/116.ffc4f30c.js"><link rel="prefetch" href="/assets/js/117.42cd696e.js"><link rel="prefetch" href="/assets/js/118.40e1432e.js"><link rel="prefetch" href="/assets/js/119.3a8957dc.js"><link rel="prefetch" href="/assets/js/12.a654ee1a.js"><link rel="prefetch" href="/assets/js/120.2b0a9300.js"><link rel="prefetch" href="/assets/js/121.04096719.js"><link rel="prefetch" href="/assets/js/122.1a58fe68.js"><link rel="prefetch" href="/assets/js/123.159dcd59.js"><link rel="prefetch" href="/assets/js/124.bd4deaf4.js"><link rel="prefetch" href="/assets/js/125.6e049d24.js"><link rel="prefetch" href="/assets/js/126.bfc57933.js"><link rel="prefetch" href="/assets/js/127.9b253d7c.js"><link rel="prefetch" href="/assets/js/128.ffcac091.js"><link rel="prefetch" href="/assets/js/129.9e23da4e.js"><link rel="prefetch" href="/assets/js/13.1c933f28.js"><link rel="prefetch" href="/assets/js/130.6a87ad19.js"><link rel="prefetch" href="/assets/js/131.231bcc33.js"><link rel="prefetch" href="/assets/js/14.6afb9e3b.js"><link rel="prefetch" href="/assets/js/15.2e4d6ff0.js"><link rel="prefetch" href="/assets/js/16.61f286cd.js"><link rel="prefetch" href="/assets/js/17.ed9f0af6.js"><link rel="prefetch" href="/assets/js/18.e84e6471.js"><link rel="prefetch" href="/assets/js/19.76e080d8.js"><link rel="prefetch" href="/assets/js/20.2b2bf9bd.js"><link rel="prefetch" href="/assets/js/21.63da56e6.js"><link rel="prefetch" href="/assets/js/22.fb3ff4f4.js"><link rel="prefetch" href="/assets/js/23.fdca031f.js"><link rel="prefetch" href="/assets/js/24.92f82c60.js"><link rel="prefetch" href="/assets/js/25.a7a9704b.js"><link rel="prefetch" href="/assets/js/26.069c1e52.js"><link rel="prefetch" href="/assets/js/27.5f9a3c75.js"><link rel="prefetch" href="/assets/js/28.03fc0a93.js"><link rel="prefetch" href="/assets/js/29.cbc373fb.js"><link rel="prefetch" href="/assets/js/3.7be5a5a6.js"><link rel="prefetch" href="/assets/js/30.8681b9c2.js"><link rel="prefetch" href="/assets/js/31.36a09955.js"><link rel="prefetch" href="/assets/js/32.3b0c91db.js"><link rel="prefetch" href="/assets/js/33.d6de13ff.js"><link rel="prefetch" href="/assets/js/34.d9c51bc9.js"><link rel="prefetch" href="/assets/js/36.58249b42.js"><link rel="prefetch" href="/assets/js/37.c15ea66a.js"><link rel="prefetch" href="/assets/js/38.4ae7765d.js"><link rel="prefetch" href="/assets/js/39.57ec096f.js"><link rel="prefetch" href="/assets/js/4.e3eff0c1.js"><link rel="prefetch" href="/assets/js/40.f6d39637.js"><link rel="prefetch" href="/assets/js/41.08935a30.js"><link rel="prefetch" href="/assets/js/42.16f30978.js"><link rel="prefetch" href="/assets/js/43.9ba5877d.js"><link rel="prefetch" href="/assets/js/44.12534072.js"><link rel="prefetch" href="/assets/js/45.17e2d9c7.js"><link rel="prefetch" href="/assets/js/46.e281b6c7.js"><link rel="prefetch" href="/assets/js/47.7ad6135f.js"><link rel="prefetch" href="/assets/js/48.30bd52b0.js"><link rel="prefetch" href="/assets/js/49.6a40dfb5.js"><link rel="prefetch" href="/assets/js/5.12a90c90.js"><link rel="prefetch" href="/assets/js/50.85a351d0.js"><link rel="prefetch" href="/assets/js/51.78da0798.js"><link rel="prefetch" href="/assets/js/52.2310f240.js"><link rel="prefetch" href="/assets/js/53.d0049f2c.js"><link rel="prefetch" href="/assets/js/54.28aa5c87.js"><link rel="prefetch" href="/assets/js/55.381915f1.js"><link rel="prefetch" href="/assets/js/56.89d6cf82.js"><link rel="prefetch" href="/assets/js/57.a66c0467.js"><link rel="prefetch" href="/assets/js/58.e58969db.js"><link rel="prefetch" href="/assets/js/59.b83e284f.js"><link rel="prefetch" href="/assets/js/6.6e2b9d44.js"><link rel="prefetch" href="/assets/js/60.e860c237.js"><link rel="prefetch" href="/assets/js/61.681c3973.js"><link rel="prefetch" href="/assets/js/62.1659a827.js"><link rel="prefetch" href="/assets/js/63.1d1cf38e.js"><link rel="prefetch" href="/assets/js/64.59592269.js"><link rel="prefetch" href="/assets/js/65.ba2fd2ad.js"><link rel="prefetch" href="/assets/js/66.7aeca197.js"><link rel="prefetch" href="/assets/js/67.465b9930.js"><link rel="prefetch" href="/assets/js/68.4fcb7ca0.js"><link rel="prefetch" href="/assets/js/69.4f596a23.js"><link rel="prefetch" href="/assets/js/7.57edeeaa.js"><link rel="prefetch" href="/assets/js/70.3e6e1486.js"><link rel="prefetch" href="/assets/js/71.e61e28bf.js"><link rel="prefetch" href="/assets/js/72.b1db453c.js"><link rel="prefetch" href="/assets/js/73.a2f3e59e.js"><link rel="prefetch" href="/assets/js/74.bbed54ec.js"><link rel="prefetch" href="/assets/js/75.ac927282.js"><link rel="prefetch" href="/assets/js/76.b8c73cb1.js"><link rel="prefetch" href="/assets/js/77.ef60f934.js"><link rel="prefetch" href="/assets/js/78.5fea10e9.js"><link rel="prefetch" href="/assets/js/79.03d5c3e2.js"><link rel="prefetch" href="/assets/js/8.b6d1b803.js"><link rel="prefetch" href="/assets/js/80.13f6c1be.js"><link rel="prefetch" href="/assets/js/81.d69dc869.js"><link rel="prefetch" href="/assets/js/82.249e8ad4.js"><link rel="prefetch" href="/assets/js/83.95546593.js"><link rel="prefetch" href="/assets/js/84.16a183f4.js"><link rel="prefetch" href="/assets/js/85.bd7c1060.js"><link rel="prefetch" href="/assets/js/86.eaf7a944.js"><link rel="prefetch" href="/assets/js/87.2bd3e7b3.js"><link rel="prefetch" href="/assets/js/88.2578814c.js"><link rel="prefetch" href="/assets/js/89.b21857df.js"><link rel="prefetch" href="/assets/js/9.c4657130.js"><link rel="prefetch" href="/assets/js/90.9bc44c6e.js"><link rel="prefetch" href="/assets/js/91.387c0822.js"><link rel="prefetch" href="/assets/js/92.b05edf47.js"><link rel="prefetch" href="/assets/js/93.7522f244.js"><link rel="prefetch" href="/assets/js/94.87fb34a3.js"><link rel="prefetch" href="/assets/js/95.d77f7cc3.js"><link rel="prefetch" href="/assets/js/96.930684d9.js"><link rel="prefetch" href="/assets/js/97.1c7c9646.js"><link rel="prefetch" href="/assets/js/98.3d1417a1.js"><link rel="prefetch" href="/assets/js/99.ad52d8a0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f4923bad.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Control.</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/20.%E6%A1%86%E6%9E%B6/04.SpringBoot/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/20.%E6%A1%86%E6%9E%B6/04.SpringBoot/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>SpringBoot基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/20.框架/04.SpringBoot/notes/1SpringBoot.html" class="sidebar-link">SpringBoot(1)-SpringBoot概述</a></li><li><a href="/20.框架/04.SpringBoot/notes/2SpringBoot.html" class="sidebar-link">SpringBoot(2)-属性解析 内容协商  Thymeleaf</a></li><li><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html" class="active sidebar-link">SpringBoot(3)-异常处理  拦截器  视图解析</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_1-先引入前端的模板和必要的依赖" class="sidebar-link">1.先引入前端的模板和必要的依赖</a></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_2-创建监听器" class="sidebar-link">2.创建监听器</a></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_3、静态资源处理" class="sidebar-link">3、静态资源处理</a></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_4-抽取公共内容" class="sidebar-link">4.抽取公共内容</a></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_1、视图解析" class="sidebar-link">1、视图解析</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_1、视图解析原理流程" class="sidebar-link">1、视图解析原理流程</a></li></ul></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_1、handlerinterceptor-接口-写一个拦截器" class="sidebar-link">1、HandlerInterceptor 接口(写一个拦截器)</a></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_2、配置拦截器" class="sidebar-link">2、配置拦截器</a></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_3-总结" class="sidebar-link">3.总结：</a></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_4、拦截器原理" class="sidebar-link">4、拦截器原理</a></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_1、页面表单" class="sidebar-link">1、页面表单</a></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_2、文件上传代码" class="sidebar-link">2、文件上传代码</a></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_3、自动配置原理" class="sidebar-link">3、自动配置原理</a></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_1、错误处理" class="sidebar-link">1、错误处理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_1、默认规则" class="sidebar-link">1、默认规则</a></li></ul></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_2、定制错误处理逻辑" class="sidebar-link">2、定制错误处理逻辑</a></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_3、异常处理自动配置原理" class="sidebar-link">3、异常处理自动配置原理</a></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_4。自定义错误可能修改的类" class="sidebar-link">4。自定义错误可能修改的类</a></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_5、异常处理步骤流程" class="sidebar-link">5、异常处理步骤流程</a></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_6-处理异常" class="sidebar-link">6.处理异常</a></li><li class="sidebar-sub-header"><a href="/20.框架/04.SpringBoot/notes/3SpringBoot.html#_7-xxx视图解析器" class="sidebar-link">7.xxx视图解析器：</a></li></ul></li><li><a href="/20.框架/04.SpringBoot/notes/4SpringBoot.html" class="sidebar-link">SpringBoot(4)-Servlet原生组件 内嵌Servlet  定制化原理</a></li><li><a href="/20.框架/04.SpringBoot/notes/5SpringBoot.html" class="sidebar-link">SpringBoot(5)-SpringBoot数据库</a></li><li><a href="/20.框架/04.SpringBoot/notes/6SpringBoot.html" class="sidebar-link">SpringBoot(6)-单元测试  指标监控 监控可视化服务器</a></li><li><a href="/20.框架/04.SpringBoot/notes/7SpringBoot.html" class="sidebar-link">SpringBoot(7)-SpringBoot原理解析</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>SpringBoot高级</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_4、构建后台管理系统"><a href="#_4、构建后台管理系统" class="header-anchor">#</a> 4、构建后台管理系统</h1> <p>如何使用thymeleaf模板
+官方文档：
+https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#setting-value-to-specific-attributes
+就是引入头标签 就可以了；
+thymeleaf 还是以html 后缀结尾的</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string">&quot;en&quot;</span> xmlns<span class="token operator">:</span>th<span class="token operator">=</span><span class="token string">&quot;http://www.thymeleaf.org&quot;</span><span class="token operator">&gt;</span>
+<span class="token generics"><span class="token punctuation">&lt;</span>head<span class="token punctuation">&gt;</span></span>
+    <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">&quot;utf-8&quot;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">&quot;viewport&quot;</span> content<span class="token operator">=</span><span class="token string">&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0&quot;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">&quot;description&quot;</span> content<span class="token operator">=</span><span class="token string">&quot;&quot;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">&quot;author&quot;</span> content<span class="token operator">=</span>&quot;<span class="token class-name">ThemeBuck</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="_1-先引入前端的模板和必要的依赖"><a href="#_1-先引入前端的模板和必要的依赖" class="header-anchor">#</a> 1.先引入前端的模板和必要的依赖</h2> <p>thymeleaf、web-starter、devtools、lombok
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-245312f439914dcd92ebec987713fa9b.png" alt="image.png">
+为什么访问8080端口会自动到发/login请求
+th:action=&quot;@{/login}&quot; @是默认加上本类的路径的；</p> <h2 id="_2-创建监听器"><a href="#_2-创建监听器" class="header-anchor">#</a> 2.创建监听器</h2> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-8f7352aa035744408ee4779582aad004.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-0c56526a460842cf9993437584d8ea0c.png" alt="image.png"></p> <h2 id="_3、静态资源处理"><a href="#_3、静态资源处理" class="header-anchor">#</a> 3、静态资源处理</h2> <p>自动配置好，我们只需要把所有静态资源放到 static 文件夹下</p> <h2 id="_4-抽取公共内容"><a href="#_4-抽取公共内容" class="header-anchor">#</a> 4.抽取公共内容</h2> <p>头 （css js代码）尾（js代码）
+侧边栏  和  顶部菜单 是一样的 ；
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-2dfdd08626d94b64b8adf5a71de71899.png" alt="image.png">
+引入的三种方式：
+th:insert/replace/include
+1.把各个js css 的应用代码变成 teamleaf 的形式 映入
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-c29514412d1543f78f463fc7930d83d6.png" alt="image.png">
+2.引入模板</p> <ul><li>给模板起个名字方式：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-00aa50b82bd34b369be5f0d7ed74d50f.png" alt="image.png"></li></ul> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-43537bb93921446cb4d66a73e590af14.png" alt="image.png"></p> <ul><li>id选择器的方式：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-ab9994e180ae42c98147a35182cf7269.png" alt="image.png"></li></ul> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-54d938465418416498288d0983420490.png" alt="image.png"></p> <p>3.引入
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-3bd0cbbffbf640c492dea8b1cabeee5f.png" alt="image.png">
+th:insert/replace/include
+insert  在原来标签的基础上 带着标签引入  插入
+include 在原来标签的基础上 不带标签引入 包含
+replace 把原来的标签去掉 带着大标签   替换
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-a65dbb3c5f894f03bf16827c8505a4b8.png" alt="image.png"></p> <p>引入页面的时候 直接修改公共的部分就 就可以全部生效；
+【【】】是行内的方式 取出数据；</p> <h1 id="_5、视图解析与模板引擎"><a href="#_5、视图解析与模板引擎" class="header-anchor">#</a> 5、视图解析与模板引擎</h1> <p>视图解析：SpringBoot默认不支持 JSP，需要引入第三方模板引擎技术实现页面渲染。</p> <h2 id="_1、视图解析"><a href="#_1、视图解析" class="header-anchor">#</a> 1、视图解析</h2> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-f26fe7da21004966b9a97166256e000c.png" alt="image.png">
+1.请求先确定 参数解析器 和 返回值解析器 ，通过 参数解析器 拿到参数；
+2.执行方法，得到返回值
+3.返回值 经过返回值处理器 进行处理；（用 return &quot;redirect:/main.html&quot;; ）返回字符串 来进行实例；
+4.选择合适的返回值处理器（HeadlerMethodReturnValueHandlerComposite处理器处理）判读的条件是 返回字符串；
+5.处理 如果是返回字符串 就放到ModelAndViewContainer 中</p> <h3 id="_1、视图解析原理流程"><a href="#_1、视图解析原理流程" class="header-anchor">#</a> 1、视图解析原理流程</h3> <h4 id="_1、目标方法处理的过程中-所有数据都会被放在-modelandviewcontainer-容器-里面。包括数据和视图地址"><a href="#_1、目标方法处理的过程中-所有数据都会被放在-modelandviewcontainer-容器-里面。包括数据和视图地址" class="header-anchor">#</a> 1、目标方法处理的过程中，所有数据都会被放在 ModelAndViewContainer （容器 ）里面。包括数据和视图地址</h4> <h4 id="_2、方法的参数是一个自定义类型对象-从请求参数中确定的-把他重新放在-modelandviewcontainer总-请求的各种值都会放在里面"><a href="#_2、方法的参数是一个自定义类型对象-从请求参数中确定的-把他重新放在-modelandviewcontainer总-请求的各种值都会放在里面" class="header-anchor">#</a> 2、方法的参数是一个自定义类型对象（从请求参数中确定的），把他重新放在 ModelAndViewContainer总 （请求的各种值都会放在里面）</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-84a8a97fb60847c391e8d871cfc81925.png" alt="image.png"></p> <h4 id="_3、任何目标方法执行完成以后都会返回-modelandview-数据和视图地址-他是从modelandviewcontainer抽取出来的-。"><a href="#_3、任何目标方法执行完成以后都会返回-modelandview-数据和视图地址-他是从modelandviewcontainer抽取出来的-。" class="header-anchor">#</a> 3、任何目标方法执行完成以后都会返回 ModelAndView（数据和视图地址）（他是从ModelAndViewContainer抽取出来的 ）。</h4> <ul><li>如果modelandView中没有视图地址就会返回到请求的发出的页面；
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-1b61ca6cdb0e4678a03bc51708431db0.png" alt="image.png"></li></ul> <h4 id="_4、processdispatchresult-处理派发结果-页面改如何响应"><a href="#_4、processdispatchresult-处理派发结果-页面改如何响应" class="header-anchor">#</a> 4、processDispatchResult  处理派发结果（页面改如何响应）</h4> <p>1）先检测有没有出现问题 之后进行渲染；
+● 1、render(mv（modelandview）, request, response); 进行页面渲染逻辑
+○ 1、根据方法的String返回值得到 View 对象【定义了页面的渲染逻辑】
+<strong>- 这里是重定向的位置：</strong>
+■ 1、所有的视图解析器尝试是否能根据当前返回值得到View对象
+如何得到View名字呢？
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-a4a6e0f64ef64535b8a1ca7e03fdb683.png" alt="image.png">
+第一个就可处理 得到  RedirectView（）对象；
+■ 2、得到了  redirect:/main.html --&gt; Thymeleaf new RedirectView()
+■ 3、ContentNegotiationViewResolver 里面包含了下面所有的视图解析器，内部还是利用下面所有视图解析器得到视图对象。
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-b29c89c1e6324ee88efe428e0f6e4ee7.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-3b992e55536444949fcc05c61219e1d8.png" alt="image.png">
+■ 4、view.render(mv.getModelInternal(), request, response);   视图对象调用自定义的render进行页面渲染工作
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-5f8e7f4519cf44dbbae973459a917406.png" alt="image.png">
+● RedirectView 如何渲染【重定向到一个页面】
+● 1、获取目标url地址
+● 2、response.sendRedirect(encodedURL);</p> <p><strong>- 下面是不需要重定向 （）</strong>
+视图解析：
+○ 返回值以 forward: 开始： new InternalResourceView(forwardUrl); --&gt;  转发request.getRequestDispatcher(path).forward(request, response);
+○ 返回值以 redirect: 开始： new RedirectView() --&gt; render就是重定向
+○ 返回值是普通字符串： new ThymeleafView（）---&gt;会把有 th标签的地方进行写入</p> <h1 id="_6-拦截器"><a href="#_6-拦截器" class="header-anchor">#</a> 6. 拦截器</h1> <h2 id="_1、handlerinterceptor-接口-写一个拦截器"><a href="#_1、handlerinterceptor-接口-写一个拦截器" class="header-anchor">#</a> 1、HandlerInterceptor 接口(写一个拦截器)</h2> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-20c658f698be4cc38f4b88b63471ffb0.png" alt="image.png"></p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>
+<span class="token comment">/**
+ * 登录检查
+ * 1、配置好拦截器要拦截哪些请求
+ * 2、把这些配置放在容器中
+ */</span>
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LoginInterceptor</span> <span class="token keyword">implements</span> <span class="token class-name">HandlerInterceptor</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">/**
+     * 目标方法执行之前
+     * @param request
+     * @param response
+     * @param handler
+     * @return
+     * @throws Exception
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">preHandle</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">,</span> <span class="token class-name">Object</span> handler<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+
+        <span class="token class-name">String</span> requestURI <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">getRequestURI</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;preHandle拦截的请求路径是{}&quot;</span><span class="token punctuation">,</span>requestURI<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//登录检查逻辑</span>
+        <span class="token class-name">HttpSession</span> session <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">getSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">Object</span> loginUser <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">&quot;loginUser&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>loginUser <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token comment">//放行</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">//拦截住。未登录。跳转到登录页</span>
+        request<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">&quot;msg&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;请先登录&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//        re.sendRedirect(&quot;/&quot;);</span>
+        request<span class="token punctuation">.</span><span class="token function">getRequestDispatcher</span><span class="token punctuation">(</span><span class="token string">&quot;/&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forward</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 目标方法执行完成以后
+     * @param request
+     * @param response
+     * @param handler
+     * @param modelAndView
+     * @throws Exception
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">postHandle</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">,</span> <span class="token class-name">Object</span> handler<span class="token punctuation">,</span> <span class="token class-name">ModelAndView</span> modelAndView<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;postHandle执行{}&quot;</span><span class="token punctuation">,</span>modelAndView<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 页面渲染以后
+     * @param request
+     * @param response
+     * @param handler
+     * @param ex
+     * @throws Exception
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">afterCompletion</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">,</span> <span class="token class-name">Object</span> handler<span class="token punctuation">,</span> <span class="token class-name">Exception</span> ex<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;afterCompletion执行异常{}&quot;</span><span class="token punctuation">,</span>ex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br></div></div><p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-4515854b5e1445b495beaad04e42b0b4.png" alt="image.png"></p> <h2 id="_2、配置拦截器"><a href="#_2、配置拦截器" class="header-anchor">#</a> 2、配置拦截器</h2> <p>加到配置SpringMVC的配置类里面：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-7b8f25257491404498ecd9d82f638d92.png" alt="image.png"></p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">/**
+ * 1、编写一个拦截器实现HandlerInterceptor接口
+ * 2、拦截器注册到容器中（实现WebMvcConfigurer的addInterceptors）
+ * 3、指定拦截规则【如果是拦截所有，静态资源也会被拦截】
+ */</span>
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AdminWebConfig</span> <span class="token keyword">implements</span> <span class="token class-name">WebMvcConfigurer</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addInterceptors</span><span class="token punctuation">(</span><span class="token class-name">InterceptorRegistry</span> registry<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        registry<span class="token punctuation">.</span><span class="token function">addInterceptor</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">LoginInterceptor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">addPathPatterns</span><span class="token punctuation">(</span><span class="token string">&quot;/**&quot;</span><span class="token punctuation">)</span>  <span class="token comment">//所有请求都被拦截包括静态资源</span>
+                <span class="token punctuation">.</span><span class="token function">excludePathPatterns</span><span class="token punctuation">(</span><span class="token string">&quot;/&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;/login&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;/css/**&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;/fonts/**&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;/images/**&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;/js/**&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//放行的请求</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>/** 是把静态的页面也进行拦截；</p> <ul><li>解决方式一：（抛去静态请求的前缀）
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-b522effea31241cabca192a71946ff08.png" alt="image.png"></li> <li>解决方式二：（给静态资源在配置文件中加上前缀）</li> <li>spring.mvc.static-path-pattern=/static/*</li></ul> <h2 id="_3-总结"><a href="#_3-总结" class="header-anchor">#</a> 3.总结：</h2> <p>/**</p> <ul><li>1、编写一个拦截器实现HandlerInterceptor接口</li> <li>2、拦截器注册到容器中（实现WebMvcConfigurer的addInterceptors）</li> <li>3、指定拦截规则【如果是拦截所有，静态资源也会被拦截】</li> <li></li> <li>@EnableWebMvc:全面接管</li> <li><div class="language- extra-class"><pre><code> 1、静态资源？视图解析器？欢迎页.....全部失效
+</code></pre></div></li></ul> <p>*/</p> <h2 id="_4、拦截器原理"><a href="#_4、拦截器原理" class="header-anchor">#</a> 4、拦截器原理</h2> <p>DispacherServlet--&gt;doDispatch--&gt;handler(谁处理这个请求)
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-de7ab59776054fb2839bec1828d3145b.png" alt="image.png">
+在方法执行之前，先进行拦截器的操作：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-1676778dd1714d22be073aee3ab47bfd.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-0fcf5d30ab464244a4fa4fe7b8a392e7.png" alt="image.png">
+目标方法执行完成之后，倒叙执行posthandle
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-b8db0cdbe4c641fe918f6de26f3c8d66.png" alt="image.png">
+过滤器操作完成：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-1f1a06b861b049e38d182ceb9eba4661.png" alt="image.png">
+渲染页面完成之后
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-a45a64920dd6493ca20bc612bc32324a.png" alt="image.png"></p> <p>1、根据当前请求，找到HandlerExecutionChain【可以处理请求的handler以及handler的所有 拦截器】
+2、先来顺序执行 所有拦截器的 preHandle方法
+● 1、如果当前拦截器prehandler返回为true。则执行下一个拦截器的preHandle
+● 2、如果当前拦截器返回为false。直接倒序执行所有已经执行了的拦截器的  afterCompletion；
+3、如果任何一个拦截器返回false。直接跳出不执行目标方法
+4、所有拦截器都返回True。执行目标方法
+5、倒序执行所有拦截器的postHandle方法。
+6、前面的步骤有任何异常都会直接倒序触发 afterCompletion
+7、页面成功渲染完成以后，也会倒序触发 afterCompletion</p> <p>拦截器的 afterCompletion 一定会触发不管是 出现什么问题</p> <h1 id="_7、文件上传"><a href="#_7、文件上传" class="header-anchor">#</a> 7、文件上传</h1> <h2 id="_1、页面表单"><a href="#_1、页面表单" class="header-anchor">#</a> 1、页面表单</h2> <div class="language-java line-numbers-mode"><pre class="language-java"><code> <span class="token operator">&lt;</span>form role<span class="token operator">=</span><span class="token string">&quot;form&quot;</span> th<span class="token operator">:</span>action<span class="token operator">=</span><span class="token string">&quot;@{https://cdn.jsdelivr.net/gh/Control-body/tuChuang}&quot;</span> method<span class="token operator">=</span><span class="token string">&quot;post&quot;</span> enctype<span class="token operator">=</span><span class="token string">&quot;multipart/form-data&quot;</span><span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;form-group&quot;</span><span class="token operator">&gt;</span>
+                                <span class="token operator">&lt;</span>label <span class="token keyword">for</span><span class="token operator">=</span><span class="token string">&quot;exampleInputEmail1&quot;</span><span class="token operator">&gt;</span>邮箱<span class="token operator">&lt;</span><span class="token operator">/</span>label<span class="token operator">&gt;</span>
+                                <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">&quot;email&quot;</span> name<span class="token operator">=</span><span class="token string">&quot;email&quot;</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;form-control&quot;</span> id<span class="token operator">=</span><span class="token string">&quot;exampleInputEmail1&quot;</span> placeholder<span class="token operator">=</span><span class="token string">&quot;Enter email&quot;</span><span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;form-group&quot;</span><span class="token operator">&gt;</span>
+                                <span class="token operator">&lt;</span>label <span class="token keyword">for</span><span class="token operator">=</span><span class="token string">&quot;exampleInputPassword1&quot;</span><span class="token operator">&gt;</span>名字<span class="token operator">&lt;</span><span class="token operator">/</span>label<span class="token operator">&gt;</span>
+                                <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">&quot;text&quot;</span> name<span class="token operator">=</span><span class="token string">&quot;username&quot;</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;form-control&quot;</span> id<span class="token operator">=</span><span class="token string">&quot;exampleInputPassword1&quot;</span> placeholder<span class="token operator">=</span><span class="token string">&quot;Password&quot;</span><span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;form-group&quot;</span><span class="token operator">&gt;</span>
+                                <span class="token operator">&lt;</span>label <span class="token keyword">for</span><span class="token operator">=</span><span class="token string">&quot;exampleInputFile&quot;</span><span class="token operator">&gt;</span>头像<span class="token operator">&lt;</span><span class="token operator">/</span>label<span class="token operator">&gt;</span>
+                                <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">&quot;file&quot;</span> name<span class="token operator">=</span><span class="token string">&quot;headerImg&quot;</span> id<span class="token operator">=</span><span class="token string">&quot;exampleInputFile&quot;</span><span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;form-group&quot;</span><span class="token operator">&gt;</span>
+                                <span class="token operator">&lt;</span>label <span class="token keyword">for</span><span class="token operator">=</span><span class="token string">&quot;exampleInputFile&quot;</span><span class="token operator">&gt;</span>生活照<span class="token operator">&lt;</span><span class="token operator">/</span>label<span class="token operator">&gt;</span>
+                                <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">&quot;file&quot;</span> name<span class="token operator">=</span><span class="token string">&quot;photos&quot;</span> multiple<span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;checkbox&quot;</span><span class="token operator">&gt;</span>
+                                <span class="token generics"><span class="token punctuation">&lt;</span>label<span class="token punctuation">&gt;</span></span>
+                                    <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">&quot;checkbox&quot;</span><span class="token operator">&gt;</span> <span class="token class-name">Check</span> me out
+                                <span class="token operator">&lt;</span><span class="token operator">/</span>label<span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                            <span class="token operator">&lt;</span>button type<span class="token operator">=</span><span class="token string">&quot;submit&quot;</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;btn btn-primary&quot;</span><span class="token operator">&gt;</span>提交<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+                        <span class="token operator">&lt;</span><span class="token operator">/</span>form<span class="token operator">&gt;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h2 id="_2、文件上传代码"><a href="#_2、文件上传代码" class="header-anchor">#</a> 2、文件上传代码</h2> <div class="language-java line-numbers-mode"><pre class="language-java"><code>    <span class="token comment">/**
+     * MultipartFile 自动封装上传过来的文件
+     * @param email
+     * @param username
+     * @param headerImg
+     * @param photos
+     * @return
+     */</span>
+    <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">&quot;https://cdn.jsdelivr.net/gh/Control-body/tuChuang&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">&quot;email&quot;</span><span class="token punctuation">)</span> <span class="token class-name">String</span> email<span class="token punctuation">,</span>
+                         <span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">&quot;username&quot;</span><span class="token punctuation">)</span> <span class="token class-name">String</span> username<span class="token punctuation">,</span>
+                         <span class="token annotation punctuation">@RequestPart</span><span class="token punctuation">(</span><span class="token string">&quot;headerImg&quot;</span><span class="token punctuation">)</span> <span class="token class-name">MultipartFile</span> headerImg<span class="token punctuation">,</span>
+                         <span class="token annotation punctuation">@RequestPart</span><span class="token punctuation">(</span><span class="token string">&quot;photos&quot;</span><span class="token punctuation">)</span> <span class="token class-name">MultipartFile</span><span class="token punctuation">[</span><span class="token punctuation">]</span> photos<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">{</span>
+
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">&quot;上传的信息：email={}，username={}，headerImg={}，photos={}&quot;</span><span class="token punctuation">,</span>
+                email<span class="token punctuation">,</span>username<span class="token punctuation">,</span>headerImg<span class="token punctuation">.</span><span class="token function">getSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>photos<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>headerImg<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token comment">//保存到文件服务器，OSS服务器</span>
+            <span class="token class-name">String</span> originalFilename <span class="token operator">=</span> headerImg<span class="token punctuation">.</span><span class="token function">getOriginalFilename</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            headerImg<span class="token punctuation">.</span><span class="token function">transferTo</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">&quot;H:\\cache\\&quot;</span><span class="token operator">+</span>originalFilename<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>photos<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">MultipartFile</span> photo <span class="token operator">:</span> photos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>photo<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token class-name">String</span> originalFilename <span class="token operator">=</span> photo<span class="token punctuation">.</span><span class="token function">getOriginalFilename</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    photo<span class="token punctuation">.</span><span class="token function">transferTo</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">&quot;H:\\cache\\&quot;</span><span class="token operator">+</span>originalFilename<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+
+        <span class="token keyword">return</span> <span class="token string">&quot;main&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-f026f3188f6e4c05925effe70033dec2.png" alt="image.png">
+上传文件 有大小的限制
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-9b41a941e2b74b4387844b1773cbd9fa.png" alt="image.png">
+文件上传的自动配置类：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-300f0039e42b476ea466852d3c27c0e5.png" alt="image.png">
+文件上传的配置类：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-5ff5ef842c4449a080e3a05c67d15c93.png" alt="image.png"></p> <h2 id="_3、自动配置原理"><a href="#_3、自动配置原理" class="header-anchor">#</a> 3、自动配置原理</h2> <p>分析 源码流程：</p> <ul><li>SpringBoiot 自动配置了那些</li> <li>Debug 调试看 流程是怎么写的</li></ul> <p>1.文件上传配类两个 bean
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-d1577f01c07d4be09bc02c4337941add.png" alt="image.png">
+文件上传解析器是 解析Servlet 的方式 传上来的方式 如果直接传上来 流 还是要自己写 解析器</p> <ol start="2"><li>流程是如何 进行的？</li></ol> <p>文件上传自动配置类-MultipartAutoConfiguration - MultipartProperties
+● 自动配置好了 StandardServletMultipartResolver   【文件上传解析器】
+● 原理步骤
+○ 1、请求进来使用文件上传解析器判断（isMultipart）并封装（resolveMultipart，返回MultipartHttpServletRequest 对象）文件上传请求
+○ 2、参数解析器来解析请求中的文件内容 封装成MultipartFile
+下面是参数的解析器：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-fa063cc069e641dd9b2caacd15c20fd6.png" alt="image.png">
+○ 3、将request中文件信息封装为一个 Map；MultiValueMap&lt;String, MultipartFile&gt;
+FileCopyUtils。实现文件流的拷贝</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>    <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">&quot;https://cdn.jsdelivr.net/gh/Control-body/tuChuang&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">&quot;email&quot;</span><span class="token punctuation">)</span> <span class="token class-name">String</span> email<span class="token punctuation">,</span>
+                         <span class="token annotation punctuation">@RequestParam</span><span class="token punctuation">(</span><span class="token string">&quot;username&quot;</span><span class="token punctuation">)</span> <span class="token class-name">String</span> username<span class="token punctuation">,</span>
+                         <span class="token annotation punctuation">@RequestPart</span><span class="token punctuation">(</span><span class="token string">&quot;headerImg&quot;</span><span class="token punctuation">)</span> <span class="token class-name">MultipartFile</span> headerImg<span class="token punctuation">,</span>
+                         <span class="token annotation punctuation">@RequestPart</span><span class="token punctuation">(</span><span class="token string">&quot;photos&quot;</span><span class="token punctuation">)</span> <span class="token class-name">MultipartFile</span><span class="token punctuation">[</span><span class="token punctuation">]</span> photos<span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h1 id="_8、异常处理"><a href="#_8、异常处理" class="header-anchor">#</a> 8、异常处理</h1> <h2 id="_1、错误处理"><a href="#_1、错误处理" class="header-anchor">#</a> 1、错误处理</h2> <h3 id="_1、默认规则"><a href="#_1、默认规则" class="header-anchor">#</a> 1、默认规则</h3> <p>● 默认情况下，Spring Boot提供/error处理所有错误的映射
+● 对于<strong>机器客户端</strong>，它将生成JSON响应，其中包含错误，HTTP状态和异常消息的详细信息。对于<strong>浏览器客户端</strong>，响应一个“ whitelabel”错误视图，以HTML格式呈现相同的数据
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-cc42c25f4a8e4782b667df4ef959c998.png" alt="image.png">
+● 要完全替换默认行为，可以实现 ErrorController 并注册该类型的Bean定义，或添加ErrorAttributes类型的组件以使用现有机制但替换其内容。
+● error/下的4xx，5xx页面会被自动解析；
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-0623b2f36e0f495b9b96762ade5ca64e.png" alt="image.png"></p> <h2 id="_2、定制错误处理逻辑"><a href="#_2、定制错误处理逻辑" class="header-anchor">#</a> 2、定制错误处理逻辑</h2> <p>● 自定义错误页
+○ error/404.html   error/5xx.html；有精确的错误状态码页面就匹配精确，没有就找 4xx.html；如果都没有就触发白页
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-ca2633872bbd40a489d4a2c8759bcf42.png" alt="image.png"></p> <p>● @ControllerAdvice+@ExceptionHandler处理全局异常；底层是 ExceptionHandlerExceptionResolver 支持的 （推荐）
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-9adca9754aea438697108b22cc3e008a.png" alt="image.png"></p> <p>这里异常处理器 就已经返回了 MV 就不需要下面的 异常视图解析器了
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-1681b851e04240b3b9a502499baa25f8.png" alt="image.png">
+● @ResponseStatus+自定义异常 ；底层是 ResponseStatusExceptionResolver ，把responsestatus注解的信息底层调用 response.sendError(statusCode, resolvedReason)；tomcat发送的/error 在经过下面的异常视图解析器 最后到 4xx 5xx
+自定义一个异常类：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-7ba3f0127d6d43bbafa414085e50dccb.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-fabc6ecbdb764924a469f3e7a461dd06.png" alt="image.png"></p> <p>● Spring底层的异常（框架抛出的），如 参数类型转换异常；DefaultHandlerExceptionResolver 处理框架底层的异常。
+○ response.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage()); 也会发送、error 请求
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-857dda7e9404472683d223500aa4868c.png" alt="image.png"></p> <p>● 自定义实现 HandlerExceptionResolver 处理异常；可以作为默认的全局异常处理规则
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-53cf7ea22fdb493db156ee557d816d34.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-a977c2413e504eb683836b395662842d.png" alt="image.png"></p> <p>● ErrorViewResolver  实现自定义处理异常；（一般不去自定义）
+○ response.sendError 。error请求就会转给controller
+○ 你的异常没有任何人能处理。tomcat底层 response.sendError。error请求就会转给controller
+○ basicErrorController 要去的页面地址是 ErrorViewResolver  ；</p> <h2 id="_3、异常处理自动配置原理"><a href="#_3、异常处理自动配置原理" class="header-anchor">#</a> 3、异常处理自动配置原理</h2> <p>● ErrorMvcAutoConfiguration  自动配置异常处理规则
+○ 容器中的组件：类型：DefaultErrorAttributes -&gt; id：errorAttributes
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-435efd6d1ebc4d72b663dcb3d3a93809.png" alt="image.png">
+■ public class DefaultErrorAttributes implements ErrorAttributes, HandlerExceptionResolver
+■ DefaultErrorAttributes：定义错误页面中可以包含哪些数据。
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-75167f150c67402c9f78e8f91316ffa8.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-37dce09bbc4e4b1db99b6b509eb3f267.png" alt="image.png"></p> <p>○ 容器中的组件：类型：BasicErrorController --&gt; id：basicErrorController（json+白页 适配响应） 处理请求
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-e3b1b2c0adf44db990852b04ee02fe0a.png" alt="image.png">
+■ 处理默认 /error 路径的请求；页面响应 new ModelAndView(&quot;error&quot;, model)；<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-f772d218fc494221a5983ebe78720d13.png" alt="image.png">
+■ 容器中有组件 View-&gt;id是error；（响应默认错误页）
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-4fd0c41f18bf491ea6a1344debdd2ca4.png" alt="image.png">
+■ 容器中放组件 BeanNameViewResolver（视图解析器）；按照返回的视图名作为组件的id去容器中找View对象。
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-86e74c2ef27f444090eb5000d7fd60c3.png" alt="image.png">
+○ 容器中的组件：类型：DefaultErrorViewResolver -&gt; id：conventionErrorViewResolver
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-aff64d375d93420d92c23d4cb855bfc2.png" alt="image.png">
+■ 如果发生错误，会以HTTP的状态码 作为视图页地址（viewName），找到真正的页面
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-5558cb90417d4c8a88f7c4db57f81528.png" alt="image.png">
+■ error/404、5xx.html
+如果想要返回页面；就会找error视图【StaticView】。(默认是一个白页)
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-86e74c2ef27f444090eb5000d7fd60c3.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-1857e4512187468893b83a09c0e7bd67.png" alt="image.png"></p> <h2 id="_4。自定义错误可能修改的类"><a href="#_4。自定义错误可能修改的类" class="header-anchor">#</a> 4。自定义错误可能修改的类</h2> <ul><li>DefaultErrorAttributes ： 修改这个可以设置返回那些信息</li> <li>BasicErrorController ：可以响应白页</li> <li>DefaultErrorViewResolver： 可以视图解析跳转错误页面到哪里</li></ul> <h2 id="_5、异常处理步骤流程"><a href="#_5、异常处理步骤流程" class="header-anchor">#</a> 5、异常处理步骤流程</h2> <p>1、执行目标方法，目标方法运行期间有任何异常都会被catch、而且标志当前请求结束；并且用 dispatchException 封装：
+2、进入视图解析流程（页面渲染？）
+processDispatchResult(processedRequest, response, mappedHandler, mv, dispatchException); 传入了 发生什么异常
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-d8fb1c88e28b403f996d47f432043664.png" alt="image.png">
+3、mv = processHandlerException；处理handler发生的异常，处理完成返回ModelAndView；
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-117dfcfba74b420e8fc977009ec4585a.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-53df99ab03f74b5a862fb9e66e8bded4.png" alt="image.png">
+● 1、遍历所有的 handlerExceptionResolvers，看谁能处理当前异常【HandlerExceptionResolver处理器异常解析器】
+系统默认的异常解析器：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-494919647f29426cb51daed005d155a1.png" alt="image.png">
+视图解析器的接口：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-ddcae42924db402abe64d6706a8af48f.png" alt="image.png">
+○ 、DefaultErrorAttributes先来处理异常。把异常信息保存到rrequest域，并且返回null；
+○ 2、默认没有任何人能处理异常，所以异常会被抛出
+■ 1、如果没有任何人能处理最终底层就会发送 /error 请求（Servlet规范）。会被底层的BasicErrorController （它里面处理了、error 请求）处理
+■ 2、解析错误视图；遍历所有的  ErrorViewResolver  看谁能解析。
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-829ed3e228994454b171997ea98e931f.png" alt="image.png">
+■ 3、默认的 DefaultErrorViewResolver ,作用是把响应状态码作为错误页的地址，error/500.html
+■ 4、模板引擎最终响应这个页面 error/500.html
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-dfadf0cf1efb490e8100e51ffb0cc91b.png" alt="image.png"></p> <h2 id="_6-处理异常"><a href="#_6-处理异常" class="header-anchor">#</a> 6.处理异常</h2> <ul><li>先调用 异常解析器 环节（看是否可以处理异常）</li> <li>如果没有就掉 异常视图解析器（跳转页面）</li></ul> <h2 id="_7-xxx视图解析器"><a href="#_7-xxx视图解析器" class="header-anchor">#</a> 7.xxx视图解析器：</h2> <p>错误视图解析器为例：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-6ff491360e434e8aaa4dbce04f062c91.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-fe2af9c534214e5da55f32f6d2f119a6.png" alt="image.png"></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">5/17/2022, 12:02:13 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/20.框架/04.SpringBoot/notes/2SpringBoot.html" class="prev">
+        SpringBoot(2)-属性解析 内容协商  Thymeleaf
+      </a></span> <span class="next"><a href="/20.框架/04.SpringBoot/notes/4SpringBoot.html">
+        SpringBoot(4)-Servlet原生组件 内嵌Servlet  定制化原理
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.19543062.js" defer></script><script src="/assets/js/2.0ee43227.js" defer></script><script src="/assets/js/35.62ae3575.js" defer></script>
+  </body>
+</html>

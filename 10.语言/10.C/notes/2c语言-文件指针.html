@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>c语言文件指针 | Control.</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <script charset="utf-8" src="/js/main.js"></script>
+    <meta name="description" content="去发光,而不是被照亮">
+    
+    <link rel="preload" href="/assets/css/0.styles.f4923bad.css" as="style"><link rel="preload" href="/assets/js/app.19543062.js" as="script"><link rel="preload" href="/assets/js/2.0ee43227.js" as="script"><link rel="preload" href="/assets/js/11.22d06b73.js" as="script"><link rel="prefetch" href="/assets/js/10.e58b7d3b.js"><link rel="prefetch" href="/assets/js/100.2a9b953a.js"><link rel="prefetch" href="/assets/js/101.859b2f1e.js"><link rel="prefetch" href="/assets/js/102.de57107f.js"><link rel="prefetch" href="/assets/js/103.810791da.js"><link rel="prefetch" href="/assets/js/104.2a858183.js"><link rel="prefetch" href="/assets/js/105.8d220a0b.js"><link rel="prefetch" href="/assets/js/106.96fc31f2.js"><link rel="prefetch" href="/assets/js/107.30ac6bd5.js"><link rel="prefetch" href="/assets/js/108.f40e9ef7.js"><link rel="prefetch" href="/assets/js/109.7354eeca.js"><link rel="prefetch" href="/assets/js/110.d2316756.js"><link rel="prefetch" href="/assets/js/111.75dd52f1.js"><link rel="prefetch" href="/assets/js/112.9d8dda4d.js"><link rel="prefetch" href="/assets/js/113.e83d3089.js"><link rel="prefetch" href="/assets/js/114.5211e116.js"><link rel="prefetch" href="/assets/js/115.720242c4.js"><link rel="prefetch" href="/assets/js/116.ffc4f30c.js"><link rel="prefetch" href="/assets/js/117.42cd696e.js"><link rel="prefetch" href="/assets/js/118.40e1432e.js"><link rel="prefetch" href="/assets/js/119.3a8957dc.js"><link rel="prefetch" href="/assets/js/12.a654ee1a.js"><link rel="prefetch" href="/assets/js/120.2b0a9300.js"><link rel="prefetch" href="/assets/js/121.04096719.js"><link rel="prefetch" href="/assets/js/122.1a58fe68.js"><link rel="prefetch" href="/assets/js/123.159dcd59.js"><link rel="prefetch" href="/assets/js/124.bd4deaf4.js"><link rel="prefetch" href="/assets/js/125.6e049d24.js"><link rel="prefetch" href="/assets/js/126.bfc57933.js"><link rel="prefetch" href="/assets/js/127.9b253d7c.js"><link rel="prefetch" href="/assets/js/128.ffcac091.js"><link rel="prefetch" href="/assets/js/129.9e23da4e.js"><link rel="prefetch" href="/assets/js/13.1c933f28.js"><link rel="prefetch" href="/assets/js/130.6a87ad19.js"><link rel="prefetch" href="/assets/js/131.231bcc33.js"><link rel="prefetch" href="/assets/js/14.6afb9e3b.js"><link rel="prefetch" href="/assets/js/15.2e4d6ff0.js"><link rel="prefetch" href="/assets/js/16.61f286cd.js"><link rel="prefetch" href="/assets/js/17.ed9f0af6.js"><link rel="prefetch" href="/assets/js/18.e84e6471.js"><link rel="prefetch" href="/assets/js/19.76e080d8.js"><link rel="prefetch" href="/assets/js/20.2b2bf9bd.js"><link rel="prefetch" href="/assets/js/21.63da56e6.js"><link rel="prefetch" href="/assets/js/22.fb3ff4f4.js"><link rel="prefetch" href="/assets/js/23.fdca031f.js"><link rel="prefetch" href="/assets/js/24.92f82c60.js"><link rel="prefetch" href="/assets/js/25.a7a9704b.js"><link rel="prefetch" href="/assets/js/26.069c1e52.js"><link rel="prefetch" href="/assets/js/27.5f9a3c75.js"><link rel="prefetch" href="/assets/js/28.03fc0a93.js"><link rel="prefetch" href="/assets/js/29.cbc373fb.js"><link rel="prefetch" href="/assets/js/3.7be5a5a6.js"><link rel="prefetch" href="/assets/js/30.8681b9c2.js"><link rel="prefetch" href="/assets/js/31.36a09955.js"><link rel="prefetch" href="/assets/js/32.3b0c91db.js"><link rel="prefetch" href="/assets/js/33.d6de13ff.js"><link rel="prefetch" href="/assets/js/34.d9c51bc9.js"><link rel="prefetch" href="/assets/js/35.62ae3575.js"><link rel="prefetch" href="/assets/js/36.58249b42.js"><link rel="prefetch" href="/assets/js/37.c15ea66a.js"><link rel="prefetch" href="/assets/js/38.4ae7765d.js"><link rel="prefetch" href="/assets/js/39.57ec096f.js"><link rel="prefetch" href="/assets/js/4.e3eff0c1.js"><link rel="prefetch" href="/assets/js/40.f6d39637.js"><link rel="prefetch" href="/assets/js/41.08935a30.js"><link rel="prefetch" href="/assets/js/42.16f30978.js"><link rel="prefetch" href="/assets/js/43.9ba5877d.js"><link rel="prefetch" href="/assets/js/44.12534072.js"><link rel="prefetch" href="/assets/js/45.17e2d9c7.js"><link rel="prefetch" href="/assets/js/46.e281b6c7.js"><link rel="prefetch" href="/assets/js/47.7ad6135f.js"><link rel="prefetch" href="/assets/js/48.30bd52b0.js"><link rel="prefetch" href="/assets/js/49.6a40dfb5.js"><link rel="prefetch" href="/assets/js/5.12a90c90.js"><link rel="prefetch" href="/assets/js/50.85a351d0.js"><link rel="prefetch" href="/assets/js/51.78da0798.js"><link rel="prefetch" href="/assets/js/52.2310f240.js"><link rel="prefetch" href="/assets/js/53.d0049f2c.js"><link rel="prefetch" href="/assets/js/54.28aa5c87.js"><link rel="prefetch" href="/assets/js/55.381915f1.js"><link rel="prefetch" href="/assets/js/56.89d6cf82.js"><link rel="prefetch" href="/assets/js/57.a66c0467.js"><link rel="prefetch" href="/assets/js/58.e58969db.js"><link rel="prefetch" href="/assets/js/59.b83e284f.js"><link rel="prefetch" href="/assets/js/6.6e2b9d44.js"><link rel="prefetch" href="/assets/js/60.e860c237.js"><link rel="prefetch" href="/assets/js/61.681c3973.js"><link rel="prefetch" href="/assets/js/62.1659a827.js"><link rel="prefetch" href="/assets/js/63.1d1cf38e.js"><link rel="prefetch" href="/assets/js/64.59592269.js"><link rel="prefetch" href="/assets/js/65.ba2fd2ad.js"><link rel="prefetch" href="/assets/js/66.7aeca197.js"><link rel="prefetch" href="/assets/js/67.465b9930.js"><link rel="prefetch" href="/assets/js/68.4fcb7ca0.js"><link rel="prefetch" href="/assets/js/69.4f596a23.js"><link rel="prefetch" href="/assets/js/7.57edeeaa.js"><link rel="prefetch" href="/assets/js/70.3e6e1486.js"><link rel="prefetch" href="/assets/js/71.e61e28bf.js"><link rel="prefetch" href="/assets/js/72.b1db453c.js"><link rel="prefetch" href="/assets/js/73.a2f3e59e.js"><link rel="prefetch" href="/assets/js/74.bbed54ec.js"><link rel="prefetch" href="/assets/js/75.ac927282.js"><link rel="prefetch" href="/assets/js/76.b8c73cb1.js"><link rel="prefetch" href="/assets/js/77.ef60f934.js"><link rel="prefetch" href="/assets/js/78.5fea10e9.js"><link rel="prefetch" href="/assets/js/79.03d5c3e2.js"><link rel="prefetch" href="/assets/js/8.b6d1b803.js"><link rel="prefetch" href="/assets/js/80.13f6c1be.js"><link rel="prefetch" href="/assets/js/81.d69dc869.js"><link rel="prefetch" href="/assets/js/82.249e8ad4.js"><link rel="prefetch" href="/assets/js/83.95546593.js"><link rel="prefetch" href="/assets/js/84.16a183f4.js"><link rel="prefetch" href="/assets/js/85.bd7c1060.js"><link rel="prefetch" href="/assets/js/86.eaf7a944.js"><link rel="prefetch" href="/assets/js/87.2bd3e7b3.js"><link rel="prefetch" href="/assets/js/88.2578814c.js"><link rel="prefetch" href="/assets/js/89.b21857df.js"><link rel="prefetch" href="/assets/js/9.c4657130.js"><link rel="prefetch" href="/assets/js/90.9bc44c6e.js"><link rel="prefetch" href="/assets/js/91.387c0822.js"><link rel="prefetch" href="/assets/js/92.b05edf47.js"><link rel="prefetch" href="/assets/js/93.7522f244.js"><link rel="prefetch" href="/assets/js/94.87fb34a3.js"><link rel="prefetch" href="/assets/js/95.d77f7cc3.js"><link rel="prefetch" href="/assets/js/96.930684d9.js"><link rel="prefetch" href="/assets/js/97.1c7c9646.js"><link rel="prefetch" href="/assets/js/98.3d1417a1.js"><link rel="prefetch" href="/assets/js/99.ad52d8a0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f4923bad.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Control.</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/10.%E8%AF%AD%E8%A8%80/10.C/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/10.%E8%AF%AD%E8%A8%80/10.C/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>C语言基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/10.语言/10.C/notes/1c环境的配置.html" class="sidebar-link">C 环境的配置</a></li><li><a href="/10.语言/10.C/notes/2c语言-文件指针.html" class="active sidebar-link">c语言文件指针</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_7-2-指针预备知识" class="sidebar-link">7.2 指针预备知识</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#指针和数组" class="sidebar-link">指针和数组</a></li></ul></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_7-3-字符数组与字符串" class="sidebar-link">7.3 字符数组与字符串</a></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_7-4-指针与函数" class="sidebar-link">7.4 指针与函数</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_7-4-1-指针作为函数参数" class="sidebar-link">7.4.1 指针作为函数参数</a></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_7-4-2-返回值为指针的的函数" class="sidebar-link">7.4.2 返回值为指针的的函数</a></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#java和c语言变量赋默认值" class="sidebar-link">java和c语言变量赋默认值</a></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_7-4-3-指向函数的指针变量" class="sidebar-link">7.4.3 指向函数的指针变量</a></li></ul></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_7-5-多级指针" class="sidebar-link">7.5 多级指针</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_7-5-2-指针数组" class="sidebar-link">7.5.2 指针数组</a></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_7-5-3-方法中的static" class="sidebar-link">7.5.3 方法中的static</a></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_7-5-3-指向多维数组的指针-行指针" class="sidebar-link">7.5.3 指向多维数组的指针 行指针</a></li></ul></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_8-结构体" class="sidebar-link">8 结构体</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_8-1-结构体概述" class="sidebar-link">8.1 结构体概述</a></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_8-2-结构体数组" class="sidebar-link">8.2 结构体数组</a></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_8-2-指向结构体指针" class="sidebar-link">8.2 指向结构体指针</a></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_8-4-结构体与函数" class="sidebar-link">8.4 结构体与函数</a></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_8-5-链表-线性表" class="sidebar-link">8.5 链表（线性表）</a></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_8-6-共用体概述" class="sidebar-link">8.6 共用体概述</a></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_8-7-类型定义符-typedef" class="sidebar-link">8.7 类型定义符 typedef</a></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_8-8-宏定义-和-typedef" class="sidebar-link">8.8 宏定义 和 typedef</a></li></ul></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#_9-文件" class="sidebar-link">9.文件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#文本和二进制的方式区别" class="sidebar-link">文本和二进制的方式区别</a></li><li class="sidebar-sub-header"><a href="/10.语言/10.C/notes/2c语言-文件指针.html#函数" class="sidebar-link">函数</a></li></ul></li></ul></li><li><a href="/10.语言/10.C/notes/3c语言的内存管理.html" class="sidebar-link">c语言的内存管理</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="_7-2-指针预备知识"><a href="#_7-2-指针预备知识" class="header-anchor">#</a> 7.2 指针预备知识</h2> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-fc261d3ebed04606b7e0061122a69db7.png" alt="image.png">
+显示器和主板之间的 IO接口就是 显卡（里面就有显存 统一编址 也可以 独立编制）
+硬盘 - 硬盘控制器
+网线 - 网卡
+音响 - 声卡  现在都集成在主板上了； 微机接口电路；
+输入输出： 站在主机的位置上来讲；</p> <h4 id="_1-问题-32位和64位的区别"><a href="#_1-问题-32位和64位的区别" class="header-anchor">#</a> 1. 问题： 32位和64位的区别？</h4> <p>32 64代表数据总线的根数；64根总线，64个二进制数，64bit -&gt; 8个字节 (一个时钟周期 就是 主频外频)
+频率不好提升，但是数据宽度可以提升；</p> <h4 id="_2-和c语言有关系的是地址总线"><a href="#_2-和c语言有关系的是地址总线" class="header-anchor">#</a> 2. 和C语言有关系的是地址总线；</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-a25514e492344a44b931d48730abda20.png" alt="image.png"></p> <h4 id="_3-为啥一个字节是八个二进制位"><a href="#_3-为啥一个字节是八个二进制位" class="header-anchor">#</a> 3.为啥一个字节是八个二进制位？</h4> <p>想存进去常用的 符号等；Ask码 100个码位；
+2的7次方 ，正好 完成，但是7和 2没有关系，就成 8位 成一个字节；</p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-a5a4e714ae6a4f6da01a18933ba53a41.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-b3022d94396b47b1834cae83b4578d65.png" alt="image.png"></p> <p>一个字节一个 地址，当多个字节，存储一个数据的时候，就用第一个地址来代表这个扩容后的空间；第一个的地址。代表这个单元的地址；</p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-822656549f0b4996b936aad83e14fa06.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-8385d2e5f1544307a0ee21f7b6f1c60c.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-6426a1ac4bba4f1fbf8787132ef3d0fb.png" alt="image.png"></p> <h4 id="_4-指针变量和指针"><a href="#_4-指针变量和指针" class="header-anchor">#</a> 4.指针变量和指针</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-961195be452d4fbea02b3234cd95f3ef.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-5b1cd016f9294a73b4f5a24ce866a5a3.png" alt="image.png"></p> <p>任何指针变量 只能指向和其类型相同类型的数据</p> <h4 id="_5-和"><a href="#_5-和" class="header-anchor">#</a> 5.* 和 &amp;</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-fbe42927e17745bbb0a718f30b868397.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-b59a973149a249fdb0a71052adfacd34.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-3214a02b019c446a8f68134940fc2b4d.png" alt="image.png"></p> <h4 id="_6-野指针的问题"><a href="#_6-野指针的问题" class="header-anchor">#</a> 6. 野指针的问题</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-45eb0afcc25e4ba38fc3af0e5417d458.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-fc835871084c448580ab1208aa345f53.png" alt="image.png"></p> <h3 id="指针和数组"><a href="#指针和数组" class="header-anchor">#</a> 指针和数组</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-fd719695b31d43d0ab752d754c025d39.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-498cf4ac321c44cb8353fd282bc52e7f.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-11c67c820e7042fbbf6be14056b5760b.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-e516021c3d614000ae4cf7ee101ed83f.png" alt="image.png"></p> <p>对于指针的 加减 是相对于他的 基类型而言的 当 int 就是加 4 double 就是加 8
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-201a01c48c7b46cc81284be1213831a7.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-cd30a11b829f4f12aec33e3a3677257e.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-185dbe1db32541b6be4446db0f5a09c5.png" alt="image.png"></p> <h4 id="不指定基类型"><a href="#不指定基类型" class="header-anchor">#</a> 不指定基类型</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-4bea4f1ee8264b818ca65e64d9edc782.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-7701eb929e6d4c14873935d2f48992ad.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-80278c12d8f44ffab471742c1877b09a.png" alt="image.png"></p> <h4 id="形参数组"><a href="#形参数组" class="header-anchor">#</a> 形参数组</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-bd859ca10457478791e2af864832439e.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-4839843b834d4d21a478b15bb3fc5181.png" alt="image.png"></p> <h2 id="_7-3-字符数组与字符串"><a href="#_7-3-字符数组与字符串" class="header-anchor">#</a> 7.3 字符数组与字符串</h2> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-38720f16746e4ddf8f3e1946571a722b.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-bf42805a1db848a2a1b04b6d0a682b62.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-23ef8fecb5114fcab012402e2da67a3e.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-3be3e5ebea8d41f8ab97c46e1e09e67c.png" alt="image.png"></p> <p>两种存储的区别:</p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-135016d8c5e04e9cbb79a80cead6c4d7.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-413eae509bf34a258190481577fcfe07.png" alt="image.png"></p> <h2 id="_7-4-指针与函数"><a href="#_7-4-指针与函数" class="header-anchor">#</a> 7.4 指针与函数</h2> <h3 id="_7-4-1-指针作为函数参数"><a href="#_7-4-1-指针作为函数参数" class="header-anchor">#</a> 7.4.1 指针作为函数参数</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-6455cb0bc6c446b6874391146b0c9fa0.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-523c89ac74b74e30a68ca9024ed24fc8.png" alt="image.png"></p> <h3 id="_7-4-2-返回值为指针的的函数"><a href="#_7-4-2-返回值为指针的的函数" class="header-anchor">#</a> 7.4.2 返回值为指针的的函数</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-032e6b68776244a89e1ee0598f2c78b0.png" alt="image.png">
+返回数组的形式:
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-02ecc48903ef483e8255dd8887eee46f.png" alt="image.png"></p> <h3 id="java和c语言变量赋默认值"><a href="#java和c语言变量赋默认值" class="header-anchor">#</a> java和c语言变量赋默认值</h3> <p>java : java 是不管是 静态变量还是 非静态 都是赋予 0 ,0.0 等
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-9ea32934c171467fb1fd6f0d900bfc90.png" alt="image.png">
+在C语言中 非静态的值是 赋予 随机数,但是静态的 值 赋予0
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-5a39f16a511e42d193695f3632aa6725.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-12776bac084a4396a0ea7dd73a2f9ae9.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-d92df78cded6487da34f8e25889e9796.png" alt="image.png"></p> <p>返回 类型为 int* 整形指针类型;</p> <p>当不是静态的时候,第一次输出是没有问题的,但是之后都有问题
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-56c596e3c84f446596f8137913d15b01.png" alt="image.png"></p> <p>原因:
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-1ff5f9e6ab8144a9ab509f9c74d21632.png" alt="image.png"></p> <h3 id="_7-4-3-指向函数的指针变量"><a href="#_7-4-3-指向函数的指针变量" class="header-anchor">#</a> 7.4.3 指向函数的指针变量</h3> <p>出现两个 <strong>小括号的时候</strong> ,就是指向函数的 指针;
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-c7291cfbae77467c85680d287234b317.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-804b7cb5f1654f1b9c9170f063eadc5d.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-6ad4ce116ee84e628f701536ee8d57fc.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-0c80cfa15c8a44319331481b7e35bc88.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-88aabbe757334d78a39376592dbc4918.png" alt="image.png"></p> <h2 id="_7-5-多级指针"><a href="#_7-5-多级指针" class="header-anchor">#</a> 7.5 多级指针</h2> <p>几乎只会 用到二级指针：（就这三种二级指针）</p> <ul><li>指向指针的指针</li> <li>指针数组的数组名</li> <li>指向多维数组的指针
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-a69bc24ea88840a08a03f11a54d2e57f.png" alt="image.png"></li></ul> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-4e80af7b61e24ac781aedfa52e9fc294.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-fe547a2de37f47249d0ba5766a50b7fb.png" alt="image.png"></p> <h3 id="_7-5-2-指针数组"><a href="#_7-5-2-指针数组" class="header-anchor">#</a> 7.5.2 指针数组</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-3476e51af76b4d4db2cbc8bd0fe23fec.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-95744091911140a395257829a7fb6fbe.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-0bd2103a63734b44b634fb7fa7d81662.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-b3132e8acf21449babbf94d3a1b9a85e.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-6187ab227bbe4cfd94af5d9f53270d70.png" alt="image.png"></p> <p>形参数组,实际本质 就是指针,根本没有自己的空间;</p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-3b6dac6083264fdc9b111d90b910372f.png" alt="image.png"></p> <h3 id="_7-5-3-方法中的static"><a href="#_7-5-3-方法中的static" class="header-anchor">#</a> 7.5.3 方法中的static</h3> <p>static 在 普通的方法中定义的静态数组，不能直接在 主函数中 使用 ，虽然static 的声明周期被延长，但是他的作用域 是不变的，需要 在方法中返回 然后主函数 接受后 ，在进行操作；</p> <h3 id="_7-5-3-指向多维数组的指针-行指针"><a href="#_7-5-3-指向多维数组的指针-行指针" class="header-anchor">#</a> 7.5.3 指向多维数组的指针 行指针</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-8f5fdfee849840dfac0a1a6e81acc3c1.png" alt="image.png"></p> <h2 id="_8-结构体"><a href="#_8-结构体" class="header-anchor">#</a> 8 结构体</h2> <h3 id="_8-1-结构体概述"><a href="#_8-1-结构体概述" class="header-anchor">#</a> 8.1 结构体概述</h3> <p>数组： 为了处理 一批相同 数据类型的 数据
+结构体： 为了处理不同的数据类型的需要；</p> <h4 id="_1-初始化"><a href="#_1-初始化" class="header-anchor">#</a> 1.初始化</h4> <p>三种方式：</p> <ul><li>常规的 先定义类型名字，然后在去定义变量；</li> <li>直接在定义结构体的时候 就定义变量</li> <li>省略名字，直接定义变量；
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-21229eded88b4f959bb3f7283c821175.png" alt="image.png"></li></ul> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-4e380d1e98744851b7ce55d9e2cd7535.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-3e33183fa6a946b981600d593e8af9c0.png" alt="image.png"></p> <h4 id="_2-结构体的内存大小"><a href="#_2-结构体的内存大小" class="header-anchor">#</a> 2.结构体的内存大小</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-d254358a4726482296d178305d8b2af7.png" alt="image.png"></p> <p>实际的内存会大一点，是内存对齐的印象；是结构体的各个
+成员在加的时候，会流出空隙，就会让内存变大；</p> <h4 id="_3-访问结构体变量"><a href="#_3-访问结构体变量" class="header-anchor">#</a> 3.访问结构体变量</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-4bb61d7b73014bd58a7dbeb424a474fe.png" alt="image.png">
+处于第一优先级的符号是：
+. () [] -&gt; 四个是第一优先级</p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-12e96e87eec64df99fe1a31c5916777e.png" alt="image.png"></p> <p>输入输出 必须是一个一个的成员单独处理 数据类型以定义的时候为准</p> <h3 id="_8-2-结构体数组"><a href="#_8-2-结构体数组" class="header-anchor">#</a> 8.2 结构体数组</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-ecc0e7ec482645f3b8fa7a27096badf1.png" alt="image.png"></p> <h3 id="_8-2-指向结构体指针"><a href="#_8-2-指向结构体指针" class="header-anchor">#</a> 8.2 指向结构体指针</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-94e22968100944399774e81df9fe9289.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-e913d81f26964dc7ac81b94ac6690981.png" alt="image.png"></p> <p>先取到地址里面的内容，然后在点 点到成员的属性；
+<strong>最常用的还是指向运算符</strong></p> <h4 id="为啥指向成员名-就可以知道成员的值呢"><a href="#为啥指向成员名-就可以知道成员的值呢" class="header-anchor">#</a> 为啥指向成员名，就可以知道成员的值呢？？？</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-7bb3db38eb714b82bae0d53a6c0e02c0.png" alt="image.png"></p> <p>在结构体编译的时候，就把成员名 编译成偏移量了；</p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-56ea792027ad43e189d7030fab7e949d.png" alt="image.png"><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-bbe146c3ba8e4b36adb72654b2803bd6.png" alt="image.png"></p> <h3 id="_8-4-结构体与函数"><a href="#_8-4-结构体与函数" class="header-anchor">#</a> 8.4 结构体与函数</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-8f8d3e0a3e7f442bb2ee9a2abfe6b562.png" alt="image.png">
+在定义数组的时候，必须是int【int 类型的常量】 其他都是错误；</p> <h3 id="_8-5-链表-线性表"><a href="#_8-5-链表-线性表" class="header-anchor">#</a> 8.5 链表（线性表）</h3> <h4 id="_8-5-1-动态内存管理"><a href="#_8-5-1-动态内存管理" class="header-anchor">#</a> 8.5.1 动态内存管理</h4> <p><strong>C语言规定：</strong>
+变量定义 数组定义 函数声明 必须按着左大括号放 在他之前是不能出现 可执行代码的； 后缀是.c 是c语言 只能用c语言编辑器 但是 .cpp 是c+ +语言代码 使用c++ 的编译器；</p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-0edcdb10875748d7a765a0552846ce4e.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-debb4fd3b1eb4a8e98601c87d26aed17.png" alt="image.png"></p> <ul><li>malloc 函数
+参数是 类型的字节数大小 返回的时候，无类型的 指针，需要进行强制类型转化才能被使用</li> <li>calloc函数
+两个参数 以一个是 n 第二个是size 的大小，calloc函数生成一个 n*size 大小的动态内存空间</li> <li>realloc（void *p， unsign int size）
+对一个已经分配好的 位置，重新分配</li> <li>free （void *p）
+释放一个 已经分配的 内存空间</li></ul> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-963c02a87c0a48bca2648b467f4fb61b.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-415d8511450149768f450fca5937d8a6.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-92b99450ba1a45a4896c409a5dcd1741.png" alt="image.png"></p> <p>栈中的可以自动释放，但是堆中的是需要程序员去释放，否则内存溢出；如果不会受就是 <strong>内存泄漏</strong> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-ee095fdc8d38470da62721fdef2e0018.png" alt="image.png"></p> <p>转换后 的地址相当与一个 数组名；可以进行加减等 操作；
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-2b30cbe8b9e24d78bea7201edf4f83cb.png" alt="image.png"></p> <h3 id="_8-6-共用体概述"><a href="#_8-6-共用体概述" class="header-anchor">#</a> 8.6 共用体概述</h3> <p>（共用体几乎退出历史舞台）</p> <h3 id="_8-7-类型定义符-typedef"><a href="#_8-7-类型定义符-typedef" class="header-anchor">#</a> 8.7 类型定义符 typedef</h3> <p>为已经 存在的类型起别名；
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-bf21848f0a1f4985944859e4d2eadd9b.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-d15ac71862954d679b904c22cf6e9f5f.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-d940fa658bb74bd09b83a6ff14ab5da3.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-af1a59025a5a478c81d653e88dcd905e.png" alt="image.png"></p> <h3 id="_8-8-宏定义-和-typedef"><a href="#_8-8-宏定义-和-typedef" class="header-anchor">#</a> 8.8 宏定义 和 typedef</h3> <p>宏定义由预处理（编译之前）完成
+typedef在编译时完成</p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-4378f50150fb40c4ac15d485c7f29e58.png" alt="image.png"></p> <h2 id="_9-文件"><a href="#_9-文件" class="header-anchor">#</a> 9.文件</h2> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-f71b82c43c954474b63584cdbd105ef3.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-d44393bcf5864312a662de2c1915f5df.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-614c09610e924f12b966d3fc0185df5d.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-b595e2a89d664be99c580a4de6ecd4fa.png" alt="image.png"></p> <h3 id="文本和二进制的方式区别"><a href="#文本和二进制的方式区别" class="header-anchor">#</a> 文本和二进制的方式区别</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-50a8772f27e44595a53df2a78cfb8842.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-a2d0ec5b549e4cb499d856208a95b763.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-74a5b1a3ee574347b25dd87f2a0a0104.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-1a6bf2d5bbc641c8bbf1aabe3236d954.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-83688e5f062e43a28b5f8c50e660a022.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-9740485f4e9146099beb355f023ac421.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-54e2d83d345b40999da0a8c03b2ad5dd.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-c369645c929d4e9db8fa4bf31603cc53.png" alt="image.png"></p> <h3 id="函数"><a href="#函数" class="header-anchor">#</a> 函数</h3> <h4 id="_1-读写字符"><a href="#_1-读写字符" class="header-anchor">#</a> 1.读写字符</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-3dd4b08c6e9a4171bb4597b1aa20341e.png" alt="image.png"></p> <h4 id="_2-字符串的函数"><a href="#_2-字符串的函数" class="header-anchor">#</a> 2.字符串的函数</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-a5adeebdd5b240d0ab118f2e00c04896.png" alt="image.png"></p> <h4 id="_3-数据块的函数"><a href="#_3-数据块的函数" class="header-anchor">#</a> 3.数据块的函数</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-bd6ba78153ce4c83a10f14e7eccdc475.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-bc16d67e169f4e7ead9422054c996782.png" alt="image.png"></p> <h4 id="_4-文件的定位"><a href="#_4-文件的定位" class="header-anchor">#</a> 4.文件的定位</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-638876069bb54ee78652bc6c01c8ca6c.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-0d20fca9e3174eb0a9d9c11817421204.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-680f380a58a64628bf15efff00a0fd92.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-12fe7437fc18444a925fe2e770570b0a.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-c4732ef5b93f49728f011814d7fa48d3.png" alt="image.png"></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">5/17/2022, 12:02:13 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/10.语言/10.C/notes/1c环境的配置.html" class="prev">
+        C 环境的配置
+      </a></span> <span class="next"><a href="/10.语言/10.C/notes/3c语言的内存管理.html">
+        c语言的内存管理
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.19543062.js" defer></script><script src="/assets/js/2.0ee43227.js" defer></script><script src="/assets/js/11.22d06b73.js" defer></script>
+  </body>
+</html>

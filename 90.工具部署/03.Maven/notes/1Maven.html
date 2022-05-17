@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Maven | Control.</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <script charset="utf-8" src="/js/main.js"></script>
+    <meta name="description" content="去发光,而不是被照亮">
+    
+    <link rel="preload" href="/assets/css/0.styles.f4923bad.css" as="style"><link rel="preload" href="/assets/js/app.19543062.js" as="script"><link rel="preload" href="/assets/js/2.0ee43227.js" as="script"><link rel="preload" href="/assets/js/108.f40e9ef7.js" as="script"><link rel="prefetch" href="/assets/js/10.e58b7d3b.js"><link rel="prefetch" href="/assets/js/100.2a9b953a.js"><link rel="prefetch" href="/assets/js/101.859b2f1e.js"><link rel="prefetch" href="/assets/js/102.de57107f.js"><link rel="prefetch" href="/assets/js/103.810791da.js"><link rel="prefetch" href="/assets/js/104.2a858183.js"><link rel="prefetch" href="/assets/js/105.8d220a0b.js"><link rel="prefetch" href="/assets/js/106.96fc31f2.js"><link rel="prefetch" href="/assets/js/107.30ac6bd5.js"><link rel="prefetch" href="/assets/js/109.7354eeca.js"><link rel="prefetch" href="/assets/js/11.22d06b73.js"><link rel="prefetch" href="/assets/js/110.d2316756.js"><link rel="prefetch" href="/assets/js/111.75dd52f1.js"><link rel="prefetch" href="/assets/js/112.9d8dda4d.js"><link rel="prefetch" href="/assets/js/113.e83d3089.js"><link rel="prefetch" href="/assets/js/114.5211e116.js"><link rel="prefetch" href="/assets/js/115.720242c4.js"><link rel="prefetch" href="/assets/js/116.ffc4f30c.js"><link rel="prefetch" href="/assets/js/117.42cd696e.js"><link rel="prefetch" href="/assets/js/118.40e1432e.js"><link rel="prefetch" href="/assets/js/119.3a8957dc.js"><link rel="prefetch" href="/assets/js/12.a654ee1a.js"><link rel="prefetch" href="/assets/js/120.2b0a9300.js"><link rel="prefetch" href="/assets/js/121.04096719.js"><link rel="prefetch" href="/assets/js/122.1a58fe68.js"><link rel="prefetch" href="/assets/js/123.159dcd59.js"><link rel="prefetch" href="/assets/js/124.bd4deaf4.js"><link rel="prefetch" href="/assets/js/125.6e049d24.js"><link rel="prefetch" href="/assets/js/126.bfc57933.js"><link rel="prefetch" href="/assets/js/127.9b253d7c.js"><link rel="prefetch" href="/assets/js/128.ffcac091.js"><link rel="prefetch" href="/assets/js/129.9e23da4e.js"><link rel="prefetch" href="/assets/js/13.1c933f28.js"><link rel="prefetch" href="/assets/js/130.6a87ad19.js"><link rel="prefetch" href="/assets/js/131.231bcc33.js"><link rel="prefetch" href="/assets/js/14.6afb9e3b.js"><link rel="prefetch" href="/assets/js/15.2e4d6ff0.js"><link rel="prefetch" href="/assets/js/16.61f286cd.js"><link rel="prefetch" href="/assets/js/17.ed9f0af6.js"><link rel="prefetch" href="/assets/js/18.e84e6471.js"><link rel="prefetch" href="/assets/js/19.76e080d8.js"><link rel="prefetch" href="/assets/js/20.2b2bf9bd.js"><link rel="prefetch" href="/assets/js/21.63da56e6.js"><link rel="prefetch" href="/assets/js/22.fb3ff4f4.js"><link rel="prefetch" href="/assets/js/23.fdca031f.js"><link rel="prefetch" href="/assets/js/24.92f82c60.js"><link rel="prefetch" href="/assets/js/25.a7a9704b.js"><link rel="prefetch" href="/assets/js/26.069c1e52.js"><link rel="prefetch" href="/assets/js/27.5f9a3c75.js"><link rel="prefetch" href="/assets/js/28.03fc0a93.js"><link rel="prefetch" href="/assets/js/29.cbc373fb.js"><link rel="prefetch" href="/assets/js/3.7be5a5a6.js"><link rel="prefetch" href="/assets/js/30.8681b9c2.js"><link rel="prefetch" href="/assets/js/31.36a09955.js"><link rel="prefetch" href="/assets/js/32.3b0c91db.js"><link rel="prefetch" href="/assets/js/33.d6de13ff.js"><link rel="prefetch" href="/assets/js/34.d9c51bc9.js"><link rel="prefetch" href="/assets/js/35.62ae3575.js"><link rel="prefetch" href="/assets/js/36.58249b42.js"><link rel="prefetch" href="/assets/js/37.c15ea66a.js"><link rel="prefetch" href="/assets/js/38.4ae7765d.js"><link rel="prefetch" href="/assets/js/39.57ec096f.js"><link rel="prefetch" href="/assets/js/4.e3eff0c1.js"><link rel="prefetch" href="/assets/js/40.f6d39637.js"><link rel="prefetch" href="/assets/js/41.08935a30.js"><link rel="prefetch" href="/assets/js/42.16f30978.js"><link rel="prefetch" href="/assets/js/43.9ba5877d.js"><link rel="prefetch" href="/assets/js/44.12534072.js"><link rel="prefetch" href="/assets/js/45.17e2d9c7.js"><link rel="prefetch" href="/assets/js/46.e281b6c7.js"><link rel="prefetch" href="/assets/js/47.7ad6135f.js"><link rel="prefetch" href="/assets/js/48.30bd52b0.js"><link rel="prefetch" href="/assets/js/49.6a40dfb5.js"><link rel="prefetch" href="/assets/js/5.12a90c90.js"><link rel="prefetch" href="/assets/js/50.85a351d0.js"><link rel="prefetch" href="/assets/js/51.78da0798.js"><link rel="prefetch" href="/assets/js/52.2310f240.js"><link rel="prefetch" href="/assets/js/53.d0049f2c.js"><link rel="prefetch" href="/assets/js/54.28aa5c87.js"><link rel="prefetch" href="/assets/js/55.381915f1.js"><link rel="prefetch" href="/assets/js/56.89d6cf82.js"><link rel="prefetch" href="/assets/js/57.a66c0467.js"><link rel="prefetch" href="/assets/js/58.e58969db.js"><link rel="prefetch" href="/assets/js/59.b83e284f.js"><link rel="prefetch" href="/assets/js/6.6e2b9d44.js"><link rel="prefetch" href="/assets/js/60.e860c237.js"><link rel="prefetch" href="/assets/js/61.681c3973.js"><link rel="prefetch" href="/assets/js/62.1659a827.js"><link rel="prefetch" href="/assets/js/63.1d1cf38e.js"><link rel="prefetch" href="/assets/js/64.59592269.js"><link rel="prefetch" href="/assets/js/65.ba2fd2ad.js"><link rel="prefetch" href="/assets/js/66.7aeca197.js"><link rel="prefetch" href="/assets/js/67.465b9930.js"><link rel="prefetch" href="/assets/js/68.4fcb7ca0.js"><link rel="prefetch" href="/assets/js/69.4f596a23.js"><link rel="prefetch" href="/assets/js/7.57edeeaa.js"><link rel="prefetch" href="/assets/js/70.3e6e1486.js"><link rel="prefetch" href="/assets/js/71.e61e28bf.js"><link rel="prefetch" href="/assets/js/72.b1db453c.js"><link rel="prefetch" href="/assets/js/73.a2f3e59e.js"><link rel="prefetch" href="/assets/js/74.bbed54ec.js"><link rel="prefetch" href="/assets/js/75.ac927282.js"><link rel="prefetch" href="/assets/js/76.b8c73cb1.js"><link rel="prefetch" href="/assets/js/77.ef60f934.js"><link rel="prefetch" href="/assets/js/78.5fea10e9.js"><link rel="prefetch" href="/assets/js/79.03d5c3e2.js"><link rel="prefetch" href="/assets/js/8.b6d1b803.js"><link rel="prefetch" href="/assets/js/80.13f6c1be.js"><link rel="prefetch" href="/assets/js/81.d69dc869.js"><link rel="prefetch" href="/assets/js/82.249e8ad4.js"><link rel="prefetch" href="/assets/js/83.95546593.js"><link rel="prefetch" href="/assets/js/84.16a183f4.js"><link rel="prefetch" href="/assets/js/85.bd7c1060.js"><link rel="prefetch" href="/assets/js/86.eaf7a944.js"><link rel="prefetch" href="/assets/js/87.2bd3e7b3.js"><link rel="prefetch" href="/assets/js/88.2578814c.js"><link rel="prefetch" href="/assets/js/89.b21857df.js"><link rel="prefetch" href="/assets/js/9.c4657130.js"><link rel="prefetch" href="/assets/js/90.9bc44c6e.js"><link rel="prefetch" href="/assets/js/91.387c0822.js"><link rel="prefetch" href="/assets/js/92.b05edf47.js"><link rel="prefetch" href="/assets/js/93.7522f244.js"><link rel="prefetch" href="/assets/js/94.87fb34a3.js"><link rel="prefetch" href="/assets/js/95.d77f7cc3.js"><link rel="prefetch" href="/assets/js/96.930684d9.js"><link rel="prefetch" href="/assets/js/97.1c7c9646.js"><link rel="prefetch" href="/assets/js/98.3d1417a1.js"><link rel="prefetch" href="/assets/js/99.ad52d8a0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f4923bad.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Control.</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/90.%E5%B7%A5%E5%85%B7%E9%83%A8%E7%BD%B2/03.Maven/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/90.%E5%B7%A5%E5%85%B7%E9%83%A8%E7%BD%B2/03.Maven/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Maven</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/90.工具部署/03.Maven/notes/1Maven.html" class="active sidebar-link">Maven</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/03.Maven/notes/1Maven.html#why" class="sidebar-link">Why?</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/03.Maven/notes/1Maven.html#_1-1-真的需要吗" class="sidebar-link">1.1 真的需要吗？</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/03.Maven/notes/1Maven.html#_1-2-究竟为什么" class="sidebar-link">1.2 究竟为什么？</a></li></ul></li><li class="sidebar-sub-header"><a href="/90.工具部署/03.Maven/notes/1Maven.html#what" class="sidebar-link">What?</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/03.Maven/notes/1Maven.html#_2-1-maven-简介" class="sidebar-link">2.1 Maven 简介</a></li></ul></li><li class="sidebar-sub-header"><a href="/90.工具部署/03.Maven/notes/1Maven.html#how" class="sidebar-link">How?</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/03.Maven/notes/1Maven.html#约定的目录结构" class="sidebar-link">约定的目录结构</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/03.Maven/notes/1Maven.html#pom" class="sidebar-link">POM</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/03.Maven/notes/1Maven.html#依赖" class="sidebar-link">依赖</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/03.Maven/notes/1Maven.html#常用的maven命令" class="sidebar-link">常用的maven命令：</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/03.Maven/notes/1Maven.html#_8-仓库" class="sidebar-link">8. 仓库</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/03.Maven/notes/1Maven.html#_9-生命周期" class="sidebar-link">9 生命周期</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/03.Maven/notes/1Maven.html#_10-插件和目标" class="sidebar-link">10 插件和目标</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/03.Maven/notes/1Maven.html#_11-继承" class="sidebar-link">11 继承</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/03.Maven/notes/1Maven.html#_12-聚合" class="sidebar-link">12 聚合</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/03.Maven/notes/1Maven.html#_13-maven-仓库" class="sidebar-link">13 Maven 仓库</a></li></ul></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p>导言：生产环境下开发不再是一个项目一个工程，而是每一个模块创建一个工程，而多个模块整合在一起就需要
+使用到像 Maven 这样的构建工具。</p> <h2 id="why"><a href="#why" class="header-anchor">#</a> Why?</h2> <h3 id="_1-1-真的需要吗"><a href="#_1-1-真的需要吗" class="header-anchor">#</a> 1.1 真的需要吗？</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-58054a814a864678b368815637c4924a.png" alt="image.png">
+Maven 是干什么用的？这是很多同学在刚开始接触 Maven 时最大的问题。之所以会提出这个问题，
+是因为即使不使用 Maven 我们仍然可以进行 B/S 结构项目的开发。从表述层、业务逻辑层到持久化层
+再到数据库都有成熟的解决方案——不使用 Maven 我们一样可以开发项目啊？</p> <p>这里给大家纠正一个误区，Maven 并不是直接用来<strong>辅助编码的</strong>，它战斗的岗位并不是以上各层。所
+以我们有必要通过企业开发中的<strong>实际需求</strong>来看一看哪些方面是我们现有技术的不足。</p> <h3 id="_1-2-究竟为什么"><a href="#_1-2-究竟为什么" class="header-anchor">#</a> 1.2 究竟为什么？</h3> <p>为什么要使用 Maven？它能帮助我们解决什么问题？</p> <h4 id="_1添加第三方-jar-包"><a href="#_1添加第三方-jar-包" class="header-anchor">#</a> ①添加第三方 jar 包</h4> <p>在今天的 JavaEE 开发领域，有大量的第三方框架和工具可以供我们使用。要使用这些 jar 包最简单
+的方法就是复制粘贴到 WEB-INF/lib 目录下。但是这会导致每次创建一个新的工程就需要将 jar 包重复复
+制到 lib 目录下，从而造成工作区中存在大量重复的文件，让我们的工程显得很臃肿。
+而使用 Maven 后每个 jar 包本身只在本地仓库中保存一份，需要 jar 包的工程只需要以坐标的方式
+简单的引用一下就可以了。不仅极大的节约了存储空间，让项目更轻巧，更避免了重复文件太多而造成
+的混乱。</p> <h4 id="_2jar-包之间的依赖关系"><a href="#_2jar-包之间的依赖关系" class="header-anchor">#</a> ②jar 包之间的依赖关系</h4> <p>jar 包往往不是孤立存在的，很多 jar 包都需要在其他 jar 包的支持下才能够正常工作，我们称之为
+jar 包之间的依赖关系。最典型的例子是：commons-fileupload-1.3.jar 依赖于 commons-io-2.0.1.jar，如果
+没有 IO 包，FileUpload 包就不能正常工作。
+那么问题来了，你知道你所使用的所有** jar 包的依赖关系**吗？当你拿到一个新的从未使用过的 jar
+包，你如何得知他需要哪些 jar 包的支持呢？如果不了解这个情况，导入的 jar 包不够，那么现有的程
+序将不能正常工作。再进一步，当你的项目中需要用到上百个 jar 包时，你还会人为的，手工的逐一确
+认它们依赖的其他 jar 包吗？这简直是不可想象的。
+而引入 Maven 后，Maven 就可以替我们自动的将当前 jar 包所依赖的其他所有 jar 包全部导入进来，
+无需人工参与，节约了我们大量的时间和精力。用实际例子来说明就是：通过 Maven 导入
+commons-fileupload-1.3.jar 后，commons-io-2.0.1.jar 会被自动导入，程序员不必了解这个依赖关系。
+下图是 Spring 所需 jar 包的部分依赖关系</p> <h4 id="_3获取第三方-jar-包"><a href="#_3获取第三方-jar-包" class="header-anchor">#</a> ③获取第三方 jar 包</h4> <p>JavaEE 开发中需要使用到的 jar 包种类繁多，几乎每个 jar 包在其本身的官网上的获取方式都不尽相
+同。为了查找一个 jar 包找遍互联网，身心俱疲，没有经历过的人或许体会不到这种折磨。不仅如此，
+费劲心血找的 jar 包里有的时候并没有你需要的那个类，又或者又同名的类没有你要的方法——以不规
+范的方式获取的 jar 包也往往是不规范的。
+使用 Maven 我们可以享受到一个完全统一规范的 jar 包管理体系。你只需要在你的项目中以坐标的
+方式依赖一个 jar 包，Maven 就会自动从中央仓库进行下载，并同时下载这个 jar 包所依赖的其他 jar 包
+——规范、完整、准确！一次性解决所有问题！
+Tips：在这里我们顺便说一下，统一的规范几乎可以说成是程序员的最高信仰。如果没有统一的规
+范，就意味着每个具体的技术都各自为政，需要以诸多不同的特殊的方式加入到项目中；好不容易加入
+进来还会和其他技术格格不入，最终受苦的是我们。而任何一个领域的统一规范都能够极大的降低程序
+员的工作难度，减少工作量。例如：USB 接口可以外接各种设备，如果每个设备都有自己独特的接口，
+那么不仅制造商需要维护各个接口的设计方案，使用者也需要详细了解每个设备对应的接口，无疑是非
+常繁琐的。</p> <h4 id="_4将项目拆分成多个工程模块"><a href="#_4将项目拆分成多个工程模块" class="header-anchor">#</a> ④将项目拆分成多个工程模块</h4> <p>随着 JavaEE 项目的规模越来越庞大，开发团队的规模也与日俱增。一个项目上千人的团队持续开
+发很多年对于 JavaEE 项目来说再正常不过。那么我们想象一下：几百上千的人开发的项目是同一个 Web
+工程。那么架构师、项目经理该如何划分项目的模块、如何分工呢？这么大的项目已经不可能通过 package 结构来划分模块，必须将项目拆分成多个工程协同开发。多个模块工程中有的是 Java 工程，有的是 Web 工程。
+那么工程拆分后又如何进行互相调用和访问呢？这就需要用到 Maven 的依赖管理机制。大家请看 我们的 Survey 调查项目拆分的情况：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-1b1f7a2b0d254daaa003cc1241a84f6f.png" alt="image.png"></p> <h2 id="what"><a href="#what" class="header-anchor">#</a> What?</h2> <h3 id="_2-1-maven-简介"><a href="#_2-1-maven-简介" class="header-anchor">#</a> 2.1 Maven 简介</h3> <p>Maven 是 Apache 软件基金会组织维护的一款自动化构建工具，专注服务于 Java 平台的项目构建和
+依赖管理。Maven 这个单词的本意是：专家，内行。读音是['meɪv(ə)n]或['mevn]
+2.2 什么是构建
+构建并不是创建，创建一个工程并不等于构建一个项目。要了解构建的含义我们应该由浅入深的从
+以下三个层面来看：
+①纯 Java 代码
+大家都知道，我们 Java 是一门编译型语言，.java 扩展名的源文件需要编译成.class 扩展名的字节码
+文件才能够执行。所以编写任何 Java 代码想要执行的话就必须经过编译得到对应的.class 文件。
+②Web 工程
+当我们需要通过浏览器访问 Java 程序时就必须将包含 Java 程序的 Web 工程编译的结果“拿”到服务
+器上的指定目录下，并启动服务器才行。这个“拿”的过程我们叫部署。
+我们可以将未编译的 Web 工程比喻为一只生的鸡，编译好的 Web 工程是一只煮熟的鸡，编译部署
+的过程就是将鸡炖熟。
+Web 工程和其编译结果的目录结构对比见下图：</p> <p>③实际项目
+在实际项目中整合第三方框架，Web 工程中除了 Java 程序和 JSP 页面、图片等静态资源之外，还
+包括第三方框架的 jar 包以及各种各样的配置文件。所有这些资源都必须按照正确的目录结构部署到服
+务器上，项目才可以运行。
+所以综上所述：构建就是以我们编写的 Java 代码、框架配置文件、国际化等其他资源文件、JSP 页
+面和图片等静态资源作为“原材料”，去“生产”出一个可以运行的项目的过程。
+那么项目构建的全过程中都包含哪些环节呢？</p> <h4 id="_2-3-构建过程的几个主要环节"><a href="#_2-3-构建过程的几个主要环节" class="header-anchor">#</a> 2.3 构建过程的几个主要环节</h4> <p>①清理：删除以前的编译结果，为重新编译做好准备。
+②编译：将 Java 源程序编译为字节码文件。
+③测试：针对项目中的关键点进行测试，确保项目在迭代开发过程中关键点的正确性。
+④报告：在每一次测试后以标准的格式	记录和展示测试结果。
+⑤打包：将一个包含诸多文件的工程封装为一个压缩文件用于安装或部署。Java 工程对应 jar 包（SpringBoot也是jar包），Web 工程对应 war 包。
+⑥安装：在 Maven 环境下特指将打包的结果——jar 包或 war 包安装到本地仓库中。
+⑦部署：将打包的结果部署到远程仓库或将 war 包部署到服务器上运行。</p> <h4 id="_2-4-自动化构建"><a href="#_2-4-自动化构建" class="header-anchor">#</a> 2.4 自动化构建</h4> <p>其实上述环节我们在 Eclipse 中都可以找到对应的操作，只是不太标准。那么既然 IDE 已经可以进
+行构建了我们为什么还要使用 Maven 这样的构建工具呢？我们来看一个小故事：
+这是阳光明媚的一天。托马斯向往常一样早早的来到了公司，冲好一杯咖啡，进入了自己的邮箱——很
+不幸，QA 小组发来了一封邮件，报告了他昨天提交的模块的测试结果——有 BUG。“好吧，反正也不是第一 次”，托马斯摇摇头，进入 IDE，运行自己的程序，编译、打包、部署到服务器上，然后按照邮件中的操作 路径进行测试。“嗯，没错，这个地方确实有问题”，托马斯说道。于是托马斯开始尝试修复这个 BUG当他 差不多有眉目的时候已经到了午饭时间。
+下午继续工作。BUG 很快被修正了，接着托马斯对模块重新进行了<strong>编译、打包、部署，测试之后确认没</strong>
+有问题了，回复了 QA 小组的邮件。
+一天就这样过去了，明媚的阳光化作了美丽的晚霞，托马斯却觉得生活并不像晚霞那样美好啊。</p> <h4 id="安装-maven"><a href="#安装-maven" class="header-anchor">#</a> 安装 Maven</h4> <ol><li>检查javaHome 的是否配置 （<strong>maven是 java写的需要虚拟机环境</strong>）</li> <li>解压 maven 的核心压缩包 放在一个文件中 （无中文 和  空格）</li> <li>配置 maven 相关的环境变量 Manven_Home 和 path</li> <li>mvn - v 查看版本
+2.5 Maven 核心概念
+Maven 能够实现自动化构建是和它的内部原理分不开的，这里我们从 Maven 的九个核心概念入手，
+看看 Maven 是如何实现自动化构建的
+①POM
+②约定的目录结构
+③坐标
+④依赖管理
+⑤仓库管理
+⑥生命周期
+⑦插件和目标
+⑧继承
+⑨聚合</li></ol> <h2 id="how"><a href="#how" class="header-anchor">#</a> How?</h2> <p>Maven 的核心程序中仅仅定义了<strong>抽象的生命周期</strong>，而具体的操作则是由 Maven 的插件来完成的。可是
+Maven 的插件并不包含在 Maven 的核心程序中，在首次使用时需要联网下载。
+下载得到的插件会被保存到本地仓库中。本地仓库默认的位置是：~.m2\repository。 （就是后面我们自己换过的地址）
+如果不能联网可以使用我们提供的 RepMaven.zip 解压得到。具体操作参见“Maven 操作指南.txt”</p> <h3 id="约定的目录结构"><a href="#约定的目录结构" class="header-anchor">#</a> 约定的目录结构</h3> <p>约定的目录结构对于 Maven 实现自动化构建而言是必不可少的一环，就拿自动编译来说，Maven 必须
+能找到** Java 源文件**，下一步才能编译，而编译之后也必须有一个准确的位置保持编译得到的字节码文件。
+我们在开发中如果需要让第三方工具或框架知道我们自己创建的资源在哪，那么基本上就是两种方式：</p> <ul><li>①通过配置的形式明确告诉它</li> <li>②基于第三方工具或框架的约定  （这里maven就是按照规定来写）</li></ul> <p>Maven 对工程目录结构的要求就属于后面的一种
+为什么 需要按这个来 写文件呢 ？（Maven想自动构建就按照maven的规矩）
+现在 JavaEE 开发领域普遍认同一个观点：约定（架构）&gt;配置（配置）&gt;编码（）。意思就是能用配置解决的问题就不编码，
+能基于约定的就不进行配置。而 Maven 正是因为指定了特定文件保存的目录才能够对我们的 Java 工程进行 自动化构建</p> <h4 id="关于联网的问题"><a href="#关于联网的问题" class="header-anchor">#</a> 关于联网的问题：</h4> <ol><li>maven 的核心工程 仅仅 定义抽象的声明周期 具体的 工作 必须由 特定的插件来完成</li> <li>当我们执行 <strong>插件</strong>的时候 maven核心程序 先会到 本地仓库 中查找</li> <li>如果没有就会 联网进行下载；
+如何修改 maven的文件库
+maven的解压目录 conf\setting.xml
+在这个文件中 找到localrepository 标签
+将localrepository 标签 修改到我们新建的 maven新的仓库的地址；</li></ol> <h3 id="pom"><a href="#pom" class="header-anchor">#</a> POM</h3> <p>Project Object Model：项目对象模型。将 Java 工程的相关信息封装为对象作为便于操作和管理的模型。
+Maven 工程的核心配置。可以说学习 Maven 就是学习 pom.xml 文件中的配置。
+坐标</p> <h4 id="_6-1-几何中的坐标"><a href="#_6-1-几何中的坐标" class="header-anchor">#</a> 6.1 几何中的坐标</h4> <p>[1]在一个平面中使用 x、y 两个向量可以唯一的确定平面中的一个点。
+[2]在空间中使用 x、y、z 三个向量可以唯一的确定空间中的一个点。</p> <h4 id="_6-2-maven-的坐标"><a href="#_6-2-maven-的坐标" class="header-anchor">#</a> 6.2 Maven 的坐标</h4> <p>使用如下三个向量在 Maven 的仓库中唯一的确定一个 Maven 工程。
+[1]groupid：公司或组织的域名倒序+当前项目名称
+[2]artifactId：当前项目的<strong>模块</strong>名称
+[3]version：当前模块的版本</p> <div class="language-pom line-numbers-mode"><pre class="language-text"><code>&lt;groupId&gt;com.atguigu.maven&lt;/groupId&gt;  当前项目名称
+&lt;artifactId&gt;Hello&lt;/artifactId&gt; 模块的名称
+&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt; 版本
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="_6-3-如何通过坐标到仓库中查找-jar-包"><a href="#_6-3-如何通过坐标到仓库中查找-jar-包" class="header-anchor">#</a> 6.3 如何通过坐标到仓库中查找 jar 包？</h4> <p>[1]将 gav 三个向量连起来
+com.atguigu.maven+Hello+0.0.1-SNAPSHOT
+[2]<strong>以连起来的字符串作为目录结构到仓库中查找 **
+com/atguigu/maven/Hello/0.0.1-SNAPSHOT/Hello-0.0.1-SNAPSHOT.jar
+※注意：我们自己的 Maven 工程必须</strong>执行安装操作**才会进入仓库。安装的命令是：mvn install</p> <h3 id="依赖"><a href="#依赖" class="header-anchor">#</a> 依赖</h3> <p>Maven 中最关键的部分，我们使用 Maven 最主要的就是使用它的依赖管理功能。要理解和掌握 Maven
+的依赖管理，我们只需要解决一下几个问题：</p> <h4 id="_1依赖的目的是什么"><a href="#_1依赖的目的是什么" class="header-anchor">#</a> ①依赖的目的是什么</h4> <p>当 A jar 包用到了 B jar 包中的某些类时，A 就对 B 产生了依赖，这是概念上的描述。那么如何在项目
+中以依赖的方式引入一个我们需要的 jar 包呢？
+答案非常简单，就是使用 dependency 标签指定被依赖 jar 包的坐标就可以了。（说的是这个依赖是用在哪里  如果 是compile那就是全部都可以用 到那时 junite就是只提供给 测试是使用）</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token generics"><span class="token punctuation">&lt;</span>dependency<span class="token punctuation">&gt;</span></span>
+<span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>com<span class="token punctuation">.</span>atguigu<span class="token punctuation">.</span>maven<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span> <span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span><span class="token class-name">Hello</span><span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span> <span class="token generics"><span class="token punctuation">&lt;</span>version<span class="token punctuation">&gt;</span></span><span class="token number">0.0</span><span class="token number">.1</span><span class="token operator">-</span>SNAPSHOT<span class="token operator">&lt;</span><span class="token operator">/</span>version<span class="token operator">&gt;</span> 
+<span class="token generics"><span class="token punctuation">&lt;</span>scope<span class="token punctuation">&gt;</span></span>compile<span class="token operator">&lt;</span><span class="token operator">/</span>scope<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">&gt;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h4 id="_2依赖的范围"><a href="#_2依赖的范围" class="header-anchor">#</a> ②依赖的范围</h4> <p>大家注意到上面的依赖信息中除了目标 jar 包的坐标还有一个 <strong>scope</strong> 设置，这是依赖的范围。依赖的范
+围有几个可选值，我们用得到的是：<strong>compile、test、provided</strong> 三个。</p> <h5 id="_1-从项目结构角度理解"><a href="#_1-从项目结构角度理解" class="header-anchor">#</a> [1]从项目结构角度理解</h5> <p>compile(都可以访问到) 和 test（只能在test的仓库中是使用） 的区别
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-3ee6b8483a6048459d5044a737e1e428.png" alt="image.png">
+结合具体例子：对于 HelloFriend 来说，Hello 就是服务于主程序的，junit 是服务于测试程序的。
+HelloFriend 主程序需要 Hello 是非常明显的，测试程序由于要调用主程序所以也需要 Hello，所以</p> <ul><li>compile 范围依赖对主程序和测试程序都应该有效。
+HelloFriend 的测试程序部分需要 junit 也是非常明显的，而主程序是不需要的，所以 test 范围依赖
+仅仅对于主程序有效。</li></ul> <h5 id="_2-从开发和运行这两个不同阶段理解"><a href="#_2-从开发和运行这两个不同阶段理解" class="header-anchor">#</a> [2]从开发和运行这两个不同阶段理解</h5> <p>compile 和 provided 的区别
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-cfe1b19bbc6a400a83fbc99ea4c497a7.png" alt="image.png">
+③依赖的传递性
+A 依赖 B，B 依赖 C，A 能否使用 C 呢？那要看 B 依赖 C 的范围是不是 compile，如果是则可用，否则不
+可用。
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-79d55b2e150045908bfa91fc1657222b.png" alt="image.png">
+④依赖的排除
+如果我们在当前工程中引入了一个依赖是 A，而 A 又依赖了 B，那么 Maven 会自动将 A 依赖的 B 引入当前工程，但是个别情况下 B 有可能是一个不稳定版，或对当前工程有不良影响。这时我们可以在引入 A 的时  候将 B 排除。
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-9e38c9c37ef847e48f14649d07499842.png" alt="image.png">
+[2]配置方式</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token generics"><span class="token punctuation">&lt;</span>dependency<span class="token punctuation">&gt;</span></span> 
+   <span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>com<span class="token punctuation">.</span>atguigu<span class="token punctuation">.</span>maven<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span>  <span class="token comment">//是那个项目的</span>
+   <span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span><span class="token class-name">HelloFriend</span><span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span> <span class="token comment">//那个模块</span>
+  <span class="token generics"><span class="token punctuation">&lt;</span>version<span class="token punctuation">&gt;</span></span><span class="token number">0.0</span><span class="token number">.1</span><span class="token operator">-</span>SNAPSHOT<span class="token operator">&lt;</span><span class="token operator">/</span>version<span class="token operator">&gt;</span> <span class="token comment">//版本</span>
+   <span class="token generics"><span class="token punctuation">&lt;</span>type<span class="token punctuation">&gt;</span></span>jar<span class="token operator">&lt;</span><span class="token operator">/</span>type<span class="token operator">&gt;</span> 
+   <span class="token generics"><span class="token punctuation">&lt;</span>scope<span class="token punctuation">&gt;</span></span>compile<span class="token operator">&lt;</span><span class="token operator">/</span>scope<span class="token operator">&gt;</span>  <span class="token comment">//全部都生效 </span>
+<span class="token generics"><span class="token punctuation">&lt;</span>exclusions<span class="token punctuation">&gt;</span></span> <span class="token comment">// 就是排除</span>
+   <span class="token generics"><span class="token punctuation">&lt;</span>exclusion<span class="token punctuation">&gt;</span></span> 
+   <span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>commons<span class="token operator">-</span>logging<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span> 
+   <span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span>commons<span class="token operator">-</span>logging<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span> 
+    <span class="token operator">&lt;</span><span class="token operator">/</span>exclusion<span class="token operator">&gt;</span> 
+ <span class="token operator">&lt;</span><span class="token operator">/</span>exclusions<span class="token operator">&gt;</span> 
+<span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">&gt;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><h3 id="常用的maven命令"><a href="#常用的maven命令" class="header-anchor">#</a> 常用的maven命令：</h3> <p>注意：执行和构建相关的Maven命令 必须进入 pom.xml所在的目录。
+常用的命令：</p> <ul><li>mvn clean： 清理<br>
+● mvn compile 编译主程序    生成target 文件就是编译的意思
+● mvn test-compile 编译测试 程序  编译test的文件
+● mvn test 执行测试<br>
+● mvn package  打包（就是生成对应的jar包 和war包）
+⑤统一管理所依赖 jar 包的版本
+对同一个框架的一组 jar 包最好使用相同的版本。为了方便升级框架，可以将 jar 包的版本信息统一提
+取出来
+[1]统一声明版本号
+<properties>
+&lt;atguigu.spring.version&gt;4.1.1.RELEASE&lt;/atguigu.spring.version&gt;
+</properties>
+其中 atguigu.spring.version 部分是自定义标签。
+[2]引用前面声明的版本号
+<dependencies><dependency><groupId>org.springframework</groupId> <artifactId>spring-core</artifactId> <version>${atguigu.spring.version}</version></dependency>
+……
+</dependencies>
+[3]其他用法
+<properties>
+&lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+</properties>
+⑥依赖的原则：解决 jar 包冲突
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-7a279dd0c9a94256b96c04f01750d182.png" alt="image.png"></li></ul> <h3 id="_8-仓库"><a href="#_8-仓库" class="header-anchor">#</a> 8. 仓库</h3> <h4 id="_8-1-分类"><a href="#_8-1-分类" class="header-anchor">#</a> 8.1 分类</h4> <p>[1]本地仓库：为当前本机电脑上的所有 Maven 工程服务。
+[2]远程仓库
+(1)私服：架设在当前局域网环境下，为当前局域网范围内的所有 Maven 工程服务。
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-f3074d0862a9411097cef420fa22786a.png" alt="image.png">
+(2)中央仓库：架设在 Internet 上，为全世界所有 Maven 工程服务。
+(3)中央仓库的镜像：架设在各个大洲，为中央仓库分担流量。减轻中央仓库的压力，同时更快的响应用户请求。</p> <h4 id="_8-2-仓库中的文件"><a href="#_8-2-仓库中的文件" class="header-anchor">#</a> 8.2 仓库中的文件</h4> <p>[1]Maven 的插件
+[2]我们自己开发的项目的模块
+[3]第三方框架或工具的 jar 包
+※不管是什么样的 jar 包，在仓库中都是按照坐标生成目录结构，所以可以通过统一的方式查询或依赖。</p> <h3 id="_9-生命周期"><a href="#_9-生命周期" class="header-anchor">#</a> 9 生命周期</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-882c97e853a240a2abbd3d90300045fe.png" alt="image.png">
+上图就是Maven的声明周期，</p> <h4 id="_9-1-什么是-maven-的生命周期"><a href="#_9-1-什么是-maven-的生命周期" class="header-anchor">#</a> 9.1 什么是 Maven 的生命周期？</h4> <p>●Maven 生命周期定义了各个构建环节的执行顺序，有了这个清单，Maven 就可以自动化的执行构建命令了。 （为了加快自动构建的过程）
+●Maven 有三套相互独立的生命周期，分别是：
+①Clean Lifecycle 在进行真正的构建之前进行一些清理工作。
+②Default Lifecycle 构建的<strong>核心部分</strong>，编译，测试，打包，安装，部署等等。
+③Site Lifecycle 生成项目报告，站点，发布站点。 （项目开发完成之后就会把我们写的带代码，作者啥的信息生成一个静态的站点 用的少）
+它们是相互独立的，你可以仅仅调用 clean 来清理工作目录，仅仅调用** site 来生成站点**。当然你也可以 直接运行 mvn clean install site 运行所有这三套生命周期。
+每套生命周期都由一组阶段(Phase)组成，我们平时在命令行输入的命令总会对应于一个特定的阶段。比
+如，运行 mvn clean，这个 clean 是 Clean 生命周期的一个阶段。有 Clean 生命周期，也有 clean 阶段。</p> <h4 id="_9-2-clean-生命周期"><a href="#_9-2-clean-生命周期" class="header-anchor">#</a> 9.2 Clean 生命周期</h4> <p>Clean 生命周期一共包含了三个阶段：
+①pre-clean 执行一些需要在 clean 之前完成的工作
+②clean 移除所有上一次构建生成的文件
+③post-clean 执行一些需要在 clean 之后立刻完成的工作</p> <h4 id="_9-3-site-生命周期"><a href="#_9-3-site-生命周期" class="header-anchor">#</a> 9.3 Site 生命周期</h4> <p>①pre-site 执行一些需要在生成站点文档之前完成的工作
+②site 生成项目的站点文档
+③post-site 执行一些需要在生成站点文档之后完成的工作，并且为部署做准备
+④site-deploy 将生成的站点文档部署到特定的服务器上
+这里经常用到的是 site 阶段和 site-deploy 阶段，用以生成和发布 Maven 站点，这可是 Maven 相当强大 的功能，Manager 比较喜欢，文档及统计数据自动生成，很好看。</p> <h4 id="_9-4-default-生命周期"><a href="#_9-4-default-生命周期" class="header-anchor">#</a> 9.4 Default 生命周期</h4> <p>Default 生命周期是 Maven 生命周期中最重要的一个，绝大部分工作都发生在这个生命周期中。这里，
+只解释一些比较重要和常用的阶段：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>下面针对main目录的：
+validate 
+generate<span class="token operator">-</span>sources 
+process<span class="token operator">-</span>sources
+generate<span class="token operator">-</span>resources 
+process<span class="token operator">-</span>resources 复制并处理资源文件，至目标目录，准备打包。 
+compile main下的源代码编译项目的源代码。 
+process<span class="token operator">-</span>classes 
+下面针对测试环境的：
+generate<span class="token operator">-</span>test<span class="token operator">-</span>sources 
+process<span class="token operator">-</span>test<span class="token operator">-</span>sources 
+generate<span class="token operator">-</span>test<span class="token operator">-</span>resources 
+process<span class="token operator">-</span>test<span class="token operator">-</span>resources 复制并处理资源文件，至目标测试目录。 
+test<span class="token operator">-</span>compile 编译测试源代码。 
+process<span class="token operator">-</span>test<span class="token operator">-</span>classes 
+test 使用合适的单元测试框架运行测试。这些测试代码不会被打包或部署。 
+打包：
+prepare<span class="token operator">-</span><span class="token keyword">package</span> 
+<span class="token keyword">package</span> 接受编译好的代码，打包成可发布的格式，如 JAR。 
+pre<span class="token operator">-</span>integration<span class="token operator">-</span>test 
+integration<span class="token operator">-</span>test 
+post<span class="token operator">-</span>integration<span class="token operator">-</span>test 
+verify 
+安装：
+install 将包安装至本地仓库，以让其它项目依赖。 
+发到服务器上：
+deploy 将最终的包复制到远程的仓库，以让其它开发人员与项目共享或部署到服务器上运行
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><p>三个生命周期是独立的，在统一个生命周期里，执行 后面的前面的也会执行；
+。</p> <h4 id="_9-5-生命周期与自动化构建"><a href="#_9-5-生命周期与自动化构建" class="header-anchor">#</a> 9.5 生命周期与自动化构建</h4> <p>运行任何一个阶段的时候，它前面的所有阶段都会被运行，例如我们运行 mvn install 的时候，代码会
+被编译，测试，打包。这就是 Maven 为什么能够自动<strong>执行构建</strong>过程的各个环节的原因。此外，Maven 的插
+件机制是完全依赖 Maven 的生命周期的，因此<strong>理解生命周期</strong>至关重要。</p> <h3 id="_10-插件和目标"><a href="#_10-插件和目标" class="header-anchor">#</a> 10 插件和目标</h3> <p>●Maven 的核心仅仅定义了抽象的生命周期，具体的任务都是交由插件完成的。
+●每个插件都能<strong>实现多个功能</strong>，每个功能就是一个插件目标。
+●Maven 的生命周期与插件目标<strong>相互绑定</strong>，以完成某个具体的构建任务。
+例如：compile 就是插件 maven-compiler-plugin 的一个目标；pre-clean 是插件 maven-clean-plugin 的一个目标。
+插件就是执行，多个生命周期的操作；</p> <h3 id="_11-继承"><a href="#_11-继承" class="header-anchor">#</a> 11 继承</h3> <h4 id="_11-1-为什么需要继承机制"><a href="#_11-1-为什么需要继承机制" class="header-anchor">#</a> 11.1 为什么需要继承机制？</h4> <p>由于非 compile 范围的依赖信息是不能在“依赖链”中传递的，所以有需要的工程只能单独配置。例如：
+每个模块的junit 库的版本都不一样 那么就 需要一个个进去手动修改那么就很不可取  所有就 有了继承
+此时如果项目需要将各个模块的junit版本统一为4.9，那么到各个工程中手动修改无疑是非常不可取的。
+使用继承机制就可以将这样的依赖信息统一提取到父工程模块中进行统一管理。</p> <h4 id="_11-2-创建父工程"><a href="#_11-2-创建父工程" class="header-anchor">#</a> 11.2 创建父工程</h4> <p>创建父工程和创建一般的 Java 工程操作一致，唯一需要注意的是：打包方式处要设置为 pom。
+11.3 在子工程中引用父工程</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token generics"><span class="token punctuation">&lt;</span>parent<span class="token punctuation">&gt;</span></span> 
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 父工程坐标 <span class="token operator">--</span><span class="token operator">&gt;</span> 
+<span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>&lt;<span class="token operator">/</span>groupId<span class="token operator">&gt;</span> 
+<span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>&lt;<span class="token operator">/</span>artifactId<span class="token operator">&gt;</span> 
+<span class="token generics"><span class="token punctuation">&lt;</span>version<span class="token punctuation">&gt;</span></span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>&lt;<span class="token operator">/</span>version<span class="token operator">&gt;</span> 
+<span class="token generics"><span class="token punctuation">&lt;</span>relativePath<span class="token punctuation">&gt;</span></span>从当前目录到父项目的 pom<span class="token punctuation">.</span>xml 文件的相对路径<span class="token operator">&lt;</span><span class="token operator">/</span>relativePath<span class="token operator">&gt;</span> 
+<span class="token operator">&lt;</span><span class="token operator">/</span>parent<span class="token operator">&gt;</span>
+<span class="token generics"><span class="token punctuation">&lt;</span>parent<span class="token punctuation">&gt;</span></span> 
+<span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>com<span class="token punctuation">.</span>atguigu<span class="token punctuation">.</span>maven<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span>
+<span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span><span class="token class-name">Parent</span><span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span>
+<span class="token generics"><span class="token punctuation">&lt;</span>version<span class="token punctuation">&gt;</span></span><span class="token number">0.0</span><span class="token number">.1</span><span class="token operator">-</span>SNAPSHOT<span class="token operator">&lt;</span><span class="token operator">/</span>version<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 指定从当前子工程的pom<span class="token punctuation">.</span>xml文件出发，查找父工程的pom<span class="token punctuation">.</span>xml的路径 <span class="token operator">--</span><span class="token operator">&gt;</span> 
+    <span class="token generics"><span class="token punctuation">&lt;</span>relativePath<span class="token punctuation">&gt;</span></span><span class="token punctuation">.</span><span class="token punctuation">.</span>/<span class="token class-name">Parent</span><span class="token operator">/</span>pom<span class="token punctuation">.</span>xml<span class="token operator">&lt;</span><span class="token operator">/</span>relativePath<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>parent<span class="token operator">&gt;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>此时如果子工程的 groupId 和 version 如果和父工程重复则可以删除</p> <h4 id="_11-4-在父工程中管理依赖"><a href="#_11-4-在父工程中管理依赖" class="header-anchor">#</a> 11.4 在父工程中管理依赖</h4> <p>将 Parent 项目中的 dependencies 标签，用 dependencyManagement 标签括起来
+junite 是不能传递的所有 可能分散在 各个模块中 所以不方便协同开发</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token generics"><span class="token punctuation">&lt;</span>dependencyManagement<span class="token punctuation">&gt;</span></span> 
+<span class="token generics"><span class="token punctuation">&lt;</span>dependencies<span class="token punctuation">&gt;</span></span> 
+<span class="token generics"><span class="token punctuation">&lt;</span>dependency<span class="token punctuation">&gt;</span></span> 
+<span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>junit<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span> 
+<span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span>junit<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span> 
+<span class="token generics"><span class="token punctuation">&lt;</span>version<span class="token punctuation">&gt;</span></span><span class="token number">4.9</span><span class="token operator">&lt;</span><span class="token operator">/</span>version<span class="token operator">&gt;</span> 
+<span class="token generics"><span class="token punctuation">&lt;</span>scope<span class="token punctuation">&gt;</span></span>test<span class="token operator">&lt;</span><span class="token operator">/</span>scope<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">&gt;</span> 
+<span class="token operator">&lt;</span><span class="token operator">/</span>dependencies<span class="token operator">&gt;</span> 
+<span class="token operator">&lt;</span><span class="token operator">/</span>dependencyManagement<span class="token operator">&gt;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>在子项目中重新指定需要的依赖，删除范围和版本号（版本号是不修改的）</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token generics"><span class="token punctuation">&lt;</span>dependencies<span class="token punctuation">&gt;</span></span> 
+<span class="token generics"><span class="token punctuation">&lt;</span>dependency<span class="token punctuation">&gt;</span></span> 
+<span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>junit<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span> 
+<span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span>junit<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span> 
+<span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">&gt;</span> 
+<span class="token operator">&lt;</span><span class="token operator">/</span>dependencies<span class="token operator">&gt;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>● 创建一个夫工程 注意打包方式是 ：pom方式</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>    <span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>com<span class="token punctuation">.</span>liubin<span class="token punctuation">.</span>maven<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span>
+    <span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span><span class="token class-name">Maven</span><span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span>
+    <span class="token generics"><span class="token punctuation">&lt;</span>version<span class="token punctuation">&gt;</span></span><span class="token number">1.0</span><span class="token operator">-</span>SNAPSHOT<span class="token operator">&lt;</span><span class="token operator">/</span>version<span class="token operator">&gt;</span>
+    <span class="token generics"><span class="token punctuation">&lt;</span>packaging<span class="token punctuation">&gt;</span></span>pom<span class="token operator">&lt;</span><span class="token operator">/</span>packaging<span class="token operator">&gt;</span> 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>● 在子工程中声明对夫工程的应用  (这是我爹)</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>    <span class="token generics"><span class="token punctuation">&lt;</span>parent<span class="token punctuation">&gt;</span></span>
+        <span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>com<span class="token punctuation">.</span>liubin<span class="token punctuation">.</span>maven<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span>
+        <span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span><span class="token class-name">Maven</span><span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span>
+        <span class="token generics"><span class="token punctuation">&lt;</span>version<span class="token punctuation">&gt;</span></span><span class="token number">1.0</span><span class="token operator">-</span>SNAPSHOT<span class="token operator">&lt;</span><span class="token operator">/</span>version<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>        以当前文件为基准的 夫工程 pom。xml 文件的相对路径<span class="token operator">--</span><span class="token operator">&gt;</span>
+        <span class="token generics"><span class="token punctuation">&lt;</span>relativePath<span class="token punctuation">&gt;</span></span><span class="token punctuation">.</span><span class="token punctuation">.</span>/model<span class="token operator">/</span>pom<span class="token punctuation">.</span>xml<span class="token operator">&lt;</span><span class="token operator">/</span>relativePath<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>parent<span class="token operator">&gt;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>● 将子工程的坐标 中和 夫工程 重复的坐标
+● 在父工程中 统一依赖</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token generics"><span class="token punctuation">&lt;</span>dependencyManagement<span class="token punctuation">&gt;</span></span>
+    <span class="token generics"><span class="token punctuation">&lt;</span>dependencies<span class="token punctuation">&gt;</span></span>
+        <span class="token generics"><span class="token punctuation">&lt;</span>dependency<span class="token punctuation">&gt;</span></span>
+            <span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>org<span class="token punctuation">.</span>projectlombok<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span>
+            <span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span>lombok<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span>
+            <span class="token generics"><span class="token punctuation">&lt;</span>version<span class="token punctuation">&gt;</span></span><span class="token number">1.18</span><span class="token number">.22</span><span class="token operator">&lt;</span><span class="token operator">/</span>version<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>dependencies<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>dependencyManagement<span class="token operator">&gt;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>● 在子工程中删的版本 来统一管理</p> <h3 id="_12-聚合"><a href="#_12-聚合" class="header-anchor">#</a> 12 聚合</h3> <h4 id="_12-1-为什么要使用聚合"><a href="#_12-1-为什么要使用聚合" class="header-anchor">#</a> 12.1 为什么要使用聚合？</h4> <p>将多个工程拆分为模块后，需要手动<strong>逐个安装到仓库后依赖才</strong>能够生效。修改源码后也需要逐个手动进行 clean 操作。而使用了聚合之后就可以批量进行 Maven 工程的安装、清理工作。</p> <h4 id="_12-2-如何配置聚合"><a href="#_12-2-如何配置聚合" class="header-anchor">#</a> 12.2 如何配置聚合？</h4> <p>在总的聚合工程中使用 modules/module 标签组合，指定模块工程的相对路径即可</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token generics"><span class="token punctuation">&lt;</span>modules<span class="token punctuation">&gt;</span></span> 
+<span class="token generics"><span class="token punctuation">&lt;</span><span class="token keyword">module</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">.</span><span class="token punctuation">.</span>/<span class="token class-name">Hello</span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token keyword">module</span><span class="token operator">&gt;</span> 
+<span class="token generics"><span class="token punctuation">&lt;</span><span class="token keyword">module</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">.</span><span class="token punctuation">.</span>/<span class="token class-name">HelloFriend</span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token keyword">module</span><span class="token operator">&gt;</span> 
+<span class="token generics"><span class="token punctuation">&lt;</span><span class="token keyword">module</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">.</span><span class="token punctuation">.</span>/<span class="token class-name">MakeFriends</span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token keyword">module</span><span class="token operator">&gt;</span> 
+<span class="token operator">&lt;</span><span class="token operator">/</span>modules<span class="token operator">&gt;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="_13-maven-仓库"><a href="#_13-maven-仓库" class="header-anchor">#</a> 13 Maven 仓库</h3> <p>我们可以到 http://mvnrepository.com/搜索需要的 jar 包的依赖信息。</p> <h4 id="_1、depencymanagement应用场景"><a href="#_1、depencymanagement应用场景" class="header-anchor">#</a> 1、DepencyManagement应用场景</h4> <p>当我们的项目模块很多的时候，我们使用Maven管理项目非常方便，帮助我们管理构建、文档、报告、依赖、scms、发布、分发的方法。可以方便的编译代码、进行依赖管理、管理二进制库等等。
+由于我们的模块很多，所以我们又抽象了一层，抽出一个itoo-base-parent来管理子项目的公共的依赖。为了项目的正确运行，必须让所有的子项目使用依赖项的统一版本，必须确保应用的各个项目的依赖项和版本一致，才能保证测试的和发布的是相同的结果。
+在我们项目顶层的POM文件中，我们会看到<strong>dependencyManagement</strong>元素。通过它元素来管理<strong>jar包的版本</strong>，让子项目中引用一个依赖而<strong>不用显示的列出版本号。</strong>
+Maven会沿着父子层次向上走，直到找到一个拥有dependencyManagement元素的项目，然后它就会使用在这个dependencyManagement元素中指定的版本号。</p> <h5 id="这样做的好处"><a href="#这样做的好处" class="header-anchor">#</a> 这样做的好处：</h5> <p>统一管理项目的版本号，确保应用的各个项目的依赖和版本一致，才能保证测试的和发布的是相同的成果，因此，在顶层pom中定义共同的依赖关系。同时可以避免在每个使用的子项目中都声明一个版本号，这样想升级或者切换到另一个版本时，只需要在父类容器里更新，不需要任何一个子项目的修改；
+如果某个子项目需要另外一个版本号时，只需要在dependencies中声明一个版本号即可。子类就会使用子类声明的版本号，不继承于父类版本号。</p> <h4 id="_2、dependencies"><a href="#_2、dependencies" class="header-anchor">#</a> 2、Dependencies</h4> <p>相对于dependencyManagement，所有生命在dependencies里的依赖都会自动引入，并默认被所有的子项目继承。</p> <h4 id="_3、区别"><a href="#_3、区别" class="header-anchor">#</a> 3、区别</h4> <p>dependencies即使在子项目中不写该依赖项，那么子项目仍然会从父项目中继承该依赖项**（全部继承）**
+dependencyManagement里只是<strong>声明依赖</strong>，并不实现引入，因此子项目需要显示的声明需要用的依赖。如果不在子项目中声明依赖，是不会从父项目中继承下来的；只有在子项目中写了该依赖项，并且没有指定具体版本，才会从父项目中继承该项，并且version和scope都读取自父pom;另外如果子项目中指定了版本号，那么会使用子项目中指定的jar版本。
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-272c25cb1d914646b9e61e2d22fcc3ad.png" alt="image.png"></p> <p>编译
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-8cfd778101b948a881f454c558534225.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-e30908f4db0d459fb6f0fb89b0be9f7d.png" alt="image.png">
+构建
+● java代码
+● WEB工程 （是java 代码 进行编码之后 放在 web文件的目录的过程部署）
+真正的类路径 就是  class 路径就是编译之后的路径
+真正运行是看编译结果的 文件地址的
+构建文件的各个环节：</p> <ol><li>清理： 把之前的编译的到的旧的字节码文件删除 为下一次编译做准备</li> <li>编译 将java 编译成 class 测试</li> <li>测试 ：自动测试 maven自动调用 <strong>测试代码</strong>  自动调用 junite</li> <li>报告; 测试程序的 结果</li> <li>打包： 将web工程打war包 java工程 打jar包</li> <li>安装：MAven的特定概念 打包 得到的文件赋值到 “仓库” 中</li> <li>将web 工程生成 的war包 赋值到 Servlet容器的指定位置</li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">5/17/2022, 12:02:13 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.19543062.js" defer></script><script src="/assets/js/2.0ee43227.js" defer></script><script src="/assets/js/108.f40e9ef7.js" defer></script>
+  </body>
+</html>

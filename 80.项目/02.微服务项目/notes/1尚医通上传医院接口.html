@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>尚医通-上传医院接口 | Control.</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <script charset="utf-8" src="/js/main.js"></script>
+    <meta name="description" content="去发光,而不是被照亮">
+    
+    <link rel="preload" href="/assets/css/0.styles.f4923bad.css" as="style"><link rel="preload" href="/assets/js/app.19543062.js" as="script"><link rel="preload" href="/assets/js/2.0ee43227.js" as="script"><link rel="preload" href="/assets/js/96.930684d9.js" as="script"><link rel="prefetch" href="/assets/js/10.e58b7d3b.js"><link rel="prefetch" href="/assets/js/100.2a9b953a.js"><link rel="prefetch" href="/assets/js/101.859b2f1e.js"><link rel="prefetch" href="/assets/js/102.de57107f.js"><link rel="prefetch" href="/assets/js/103.810791da.js"><link rel="prefetch" href="/assets/js/104.2a858183.js"><link rel="prefetch" href="/assets/js/105.8d220a0b.js"><link rel="prefetch" href="/assets/js/106.96fc31f2.js"><link rel="prefetch" href="/assets/js/107.30ac6bd5.js"><link rel="prefetch" href="/assets/js/108.f40e9ef7.js"><link rel="prefetch" href="/assets/js/109.7354eeca.js"><link rel="prefetch" href="/assets/js/11.22d06b73.js"><link rel="prefetch" href="/assets/js/110.d2316756.js"><link rel="prefetch" href="/assets/js/111.75dd52f1.js"><link rel="prefetch" href="/assets/js/112.9d8dda4d.js"><link rel="prefetch" href="/assets/js/113.e83d3089.js"><link rel="prefetch" href="/assets/js/114.5211e116.js"><link rel="prefetch" href="/assets/js/115.720242c4.js"><link rel="prefetch" href="/assets/js/116.ffc4f30c.js"><link rel="prefetch" href="/assets/js/117.42cd696e.js"><link rel="prefetch" href="/assets/js/118.40e1432e.js"><link rel="prefetch" href="/assets/js/119.3a8957dc.js"><link rel="prefetch" href="/assets/js/12.a654ee1a.js"><link rel="prefetch" href="/assets/js/120.2b0a9300.js"><link rel="prefetch" href="/assets/js/121.04096719.js"><link rel="prefetch" href="/assets/js/122.1a58fe68.js"><link rel="prefetch" href="/assets/js/123.159dcd59.js"><link rel="prefetch" href="/assets/js/124.bd4deaf4.js"><link rel="prefetch" href="/assets/js/125.6e049d24.js"><link rel="prefetch" href="/assets/js/126.bfc57933.js"><link rel="prefetch" href="/assets/js/127.9b253d7c.js"><link rel="prefetch" href="/assets/js/128.ffcac091.js"><link rel="prefetch" href="/assets/js/129.9e23da4e.js"><link rel="prefetch" href="/assets/js/13.1c933f28.js"><link rel="prefetch" href="/assets/js/130.6a87ad19.js"><link rel="prefetch" href="/assets/js/131.231bcc33.js"><link rel="prefetch" href="/assets/js/14.6afb9e3b.js"><link rel="prefetch" href="/assets/js/15.2e4d6ff0.js"><link rel="prefetch" href="/assets/js/16.61f286cd.js"><link rel="prefetch" href="/assets/js/17.ed9f0af6.js"><link rel="prefetch" href="/assets/js/18.e84e6471.js"><link rel="prefetch" href="/assets/js/19.76e080d8.js"><link rel="prefetch" href="/assets/js/20.2b2bf9bd.js"><link rel="prefetch" href="/assets/js/21.63da56e6.js"><link rel="prefetch" href="/assets/js/22.fb3ff4f4.js"><link rel="prefetch" href="/assets/js/23.fdca031f.js"><link rel="prefetch" href="/assets/js/24.92f82c60.js"><link rel="prefetch" href="/assets/js/25.a7a9704b.js"><link rel="prefetch" href="/assets/js/26.069c1e52.js"><link rel="prefetch" href="/assets/js/27.5f9a3c75.js"><link rel="prefetch" href="/assets/js/28.03fc0a93.js"><link rel="prefetch" href="/assets/js/29.cbc373fb.js"><link rel="prefetch" href="/assets/js/3.7be5a5a6.js"><link rel="prefetch" href="/assets/js/30.8681b9c2.js"><link rel="prefetch" href="/assets/js/31.36a09955.js"><link rel="prefetch" href="/assets/js/32.3b0c91db.js"><link rel="prefetch" href="/assets/js/33.d6de13ff.js"><link rel="prefetch" href="/assets/js/34.d9c51bc9.js"><link rel="prefetch" href="/assets/js/35.62ae3575.js"><link rel="prefetch" href="/assets/js/36.58249b42.js"><link rel="prefetch" href="/assets/js/37.c15ea66a.js"><link rel="prefetch" href="/assets/js/38.4ae7765d.js"><link rel="prefetch" href="/assets/js/39.57ec096f.js"><link rel="prefetch" href="/assets/js/4.e3eff0c1.js"><link rel="prefetch" href="/assets/js/40.f6d39637.js"><link rel="prefetch" href="/assets/js/41.08935a30.js"><link rel="prefetch" href="/assets/js/42.16f30978.js"><link rel="prefetch" href="/assets/js/43.9ba5877d.js"><link rel="prefetch" href="/assets/js/44.12534072.js"><link rel="prefetch" href="/assets/js/45.17e2d9c7.js"><link rel="prefetch" href="/assets/js/46.e281b6c7.js"><link rel="prefetch" href="/assets/js/47.7ad6135f.js"><link rel="prefetch" href="/assets/js/48.30bd52b0.js"><link rel="prefetch" href="/assets/js/49.6a40dfb5.js"><link rel="prefetch" href="/assets/js/5.12a90c90.js"><link rel="prefetch" href="/assets/js/50.85a351d0.js"><link rel="prefetch" href="/assets/js/51.78da0798.js"><link rel="prefetch" href="/assets/js/52.2310f240.js"><link rel="prefetch" href="/assets/js/53.d0049f2c.js"><link rel="prefetch" href="/assets/js/54.28aa5c87.js"><link rel="prefetch" href="/assets/js/55.381915f1.js"><link rel="prefetch" href="/assets/js/56.89d6cf82.js"><link rel="prefetch" href="/assets/js/57.a66c0467.js"><link rel="prefetch" href="/assets/js/58.e58969db.js"><link rel="prefetch" href="/assets/js/59.b83e284f.js"><link rel="prefetch" href="/assets/js/6.6e2b9d44.js"><link rel="prefetch" href="/assets/js/60.e860c237.js"><link rel="prefetch" href="/assets/js/61.681c3973.js"><link rel="prefetch" href="/assets/js/62.1659a827.js"><link rel="prefetch" href="/assets/js/63.1d1cf38e.js"><link rel="prefetch" href="/assets/js/64.59592269.js"><link rel="prefetch" href="/assets/js/65.ba2fd2ad.js"><link rel="prefetch" href="/assets/js/66.7aeca197.js"><link rel="prefetch" href="/assets/js/67.465b9930.js"><link rel="prefetch" href="/assets/js/68.4fcb7ca0.js"><link rel="prefetch" href="/assets/js/69.4f596a23.js"><link rel="prefetch" href="/assets/js/7.57edeeaa.js"><link rel="prefetch" href="/assets/js/70.3e6e1486.js"><link rel="prefetch" href="/assets/js/71.e61e28bf.js"><link rel="prefetch" href="/assets/js/72.b1db453c.js"><link rel="prefetch" href="/assets/js/73.a2f3e59e.js"><link rel="prefetch" href="/assets/js/74.bbed54ec.js"><link rel="prefetch" href="/assets/js/75.ac927282.js"><link rel="prefetch" href="/assets/js/76.b8c73cb1.js"><link rel="prefetch" href="/assets/js/77.ef60f934.js"><link rel="prefetch" href="/assets/js/78.5fea10e9.js"><link rel="prefetch" href="/assets/js/79.03d5c3e2.js"><link rel="prefetch" href="/assets/js/8.b6d1b803.js"><link rel="prefetch" href="/assets/js/80.13f6c1be.js"><link rel="prefetch" href="/assets/js/81.d69dc869.js"><link rel="prefetch" href="/assets/js/82.249e8ad4.js"><link rel="prefetch" href="/assets/js/83.95546593.js"><link rel="prefetch" href="/assets/js/84.16a183f4.js"><link rel="prefetch" href="/assets/js/85.bd7c1060.js"><link rel="prefetch" href="/assets/js/86.eaf7a944.js"><link rel="prefetch" href="/assets/js/87.2bd3e7b3.js"><link rel="prefetch" href="/assets/js/88.2578814c.js"><link rel="prefetch" href="/assets/js/89.b21857df.js"><link rel="prefetch" href="/assets/js/9.c4657130.js"><link rel="prefetch" href="/assets/js/90.9bc44c6e.js"><link rel="prefetch" href="/assets/js/91.387c0822.js"><link rel="prefetch" href="/assets/js/92.b05edf47.js"><link rel="prefetch" href="/assets/js/93.7522f244.js"><link rel="prefetch" href="/assets/js/94.87fb34a3.js"><link rel="prefetch" href="/assets/js/95.d77f7cc3.js"><link rel="prefetch" href="/assets/js/97.1c7c9646.js"><link rel="prefetch" href="/assets/js/98.3d1417a1.js"><link rel="prefetch" href="/assets/js/99.ad52d8a0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f4923bad.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Control.</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/80.%E9%A1%B9%E7%9B%AE/02.%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%A1%B9%E7%9B%AE/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/80.%E9%A1%B9%E7%9B%AE/02.%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%A1%B9%E7%9B%AE/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>尚医通</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/80.项目/02.微服务项目/notes/1尚医通上传医院接口.html" class="active sidebar-link">尚医通-上传医院接口</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/80.项目/02.微服务项目/notes/1尚医通上传医院接口.html#一、上传医院接口" class="sidebar-link">一、上传医院接口</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/80.项目/02.微服务项目/notes/1尚医通上传医院接口.html#_1、集成mongodb" class="sidebar-link">1、集成mongodb</a></li><li class="sidebar-sub-header"><a href="/80.项目/02.微服务项目/notes/1尚医通上传医院接口.html#_3、上传医院" class="sidebar-link">3、上传医院</a></li><li class="sidebar-sub-header"><a href="/80.项目/02.微服务项目/notes/1尚医通上传医院接口.html#增加安全性-添加签名" class="sidebar-link">增加安全性 添加签名：</a></li><li class="sidebar-sub-header"><a href="/80.项目/02.微服务项目/notes/1尚医通上传医院接口.html#流程" class="sidebar-link">流程：</a></li><li class="sidebar-sub-header"><a href="/80.项目/02.微服务项目/notes/1尚医通上传医院接口.html#上传科室接口" class="sidebar-link">上传科室接口</a></li><li class="sidebar-sub-header"><a href="/80.项目/02.微服务项目/notes/1尚医通上传医院接口.html#上传实体类" class="sidebar-link">上传实体类</a></li><li class="sidebar-sub-header"><a href="/80.项目/02.微服务项目/notes/1尚医通上传医院接口.html#创建-dao" class="sidebar-link">创建 Dao</a></li><li class="sidebar-sub-header"><a href="/80.项目/02.微服务项目/notes/1尚医通上传医院接口.html#创建service" class="sidebar-link">创建Service</a></li><li class="sidebar-sub-header"><a href="/80.项目/02.微服务项目/notes/1尚医通上传医院接口.html#创建controller" class="sidebar-link">创建Controller</a></li><li class="sidebar-sub-header"><a href="/80.项目/02.微服务项目/notes/1尚医通上传医院接口.html#来写查询科室的接口" class="sidebar-link">来写查询科室的接口</a></li></ul></li><li class="sidebar-sub-header"><a href="/80.项目/02.微服务项目/notes/1尚医通上传医院接口.html#医院排班的接口" class="sidebar-link">医院排班的接口</a></li></ul></li><li><a href="/80.项目/02.微服务项目/notes/2尚医通NginxMongoDB.html" class="sidebar-link">尚医通nginx+MongoDB</a></li><li><a href="/80.项目/02.微服务项目/notes/3尚医通SpringCacheRedis.html" class="sidebar-link">尚医通Spring Cache+Redis</a></li><li><a href="/80.项目/02.微服务项目/notes/4尚医通后台系统.html" class="sidebar-link">后台系统-医院管理</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="一、上传医院接口"><a href="#一、上传医院接口" class="header-anchor">#</a> 一、上传医院接口</h2> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-268bc56aa00847458ab4c1c6ed690c39.png" alt="image.png">
+参考《尚医通API接口文档.docx》业务接口4.1上传医院
+参考《医院接口模拟系统.docx》进行接口测试与数据上传
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-53af3cf580ac49b6b604ce334d1eabc4.png" alt="image.png"></p> <h3 id="_1、集成mongodb"><a href="#_1、集成mongodb" class="header-anchor">#</a> 1、集成mongodb</h3> <h4 id="_1-1添加依赖"><a href="#_1-1添加依赖" class="header-anchor">#</a> 1.1添加依赖</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-831dc92c6233441a8d6ae9095b2ca22f.png" alt="image.png">
+####看接口是 如何实现的：</p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-42ef2de752884b6592a8ab977ace5c05.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-b736894cc4734b4aad2d25322398bfc4.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-fb7066dc8ae845f18fe3547c5693cc24.png" alt="image.png"></p> <ol><li>先整合工具类
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-83507ff0c0a4488d99b6b06ee28d2794.png" alt="image.png"></li></ol> <p>2.service——hosp 映入相关的依赖</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token generics"><span class="token punctuation">&lt;</span>dependency<span class="token punctuation">&gt;</span></span>
+<span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span>
+<span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span>spring<span class="token operator">-</span>boot<span class="token operator">-</span>starter<span class="token operator">-</span>data<span class="token operator">-</span>mongodb<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">&gt;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-6862cdedaf77418ebbd85ed0e3de7e53.png" alt="image.png"></p> <h4 id="_1-2-医院相关-科室相关-排班相关"><a href="#_1-2-医院相关-科室相关-排班相关" class="header-anchor">#</a> 1.2 医院相关 科室相关 排班相关</h4> <h5 id="医院开发"><a href="#医院开发" class="header-anchor">#</a> 医院开发</h5> <p>2、添加医院基础类</p> <h4 id="_2-1-添加model"><a href="#_2-1-添加model" class="header-anchor">#</a> 2.1 添加model</h4> <p>说明：由于实体对象没有逻辑，我们已经统一导入
+com.atguigu.yygh.model.hosp.Hospital</p> <h4 id="_2-2-添加repository-用来使用-mongo-db-数据库"><a href="#_2-2-添加repository-用来使用-mongo-db-数据库" class="header-anchor">#</a> 2.2 添加Repository  **用来使用 mongo DB 数据库 **</h4> <div class="language-@Repository line-numbers-mode"><pre class="language-text"><code>public interface HospitalRepository extends MongoRepository&lt;Hospital,String&gt; {
+    
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="_2-3-添加service接口及实现类"><a href="#_2-3-添加service接口及实现类" class="header-anchor">#</a> 2.3 添加service接口及实现类</h4> <p>1，添加com.atguigu.yygh.hosp.service.HospitalService接口</p> <div class="language-public interface HospitalService { line-numbers-mode"><pre class="language-text"><code> 
+}
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>2，添加com.atguigu.yygh.hosp.service.impl.HospitalServiceImpl接口实现
+package com.atguigu.yygh.hosp.service.impl;</p> <p>@Service
+public class HospitalServiceImpl implements HospitalService {</p> <p>@Autowired
+private HospitalRepository hospitalRepository;</p> <p>}</p> <h4 id="_2-4-添加controller"><a href="#_2-4-添加controller" class="header-anchor">#</a> 2.4 添加controller</h4> <p>添加com.atguigu.yygh.hosp.api.ApiController
+package com.atguigu.yygh.hosp.api;</p> <p>@Api(tags = &quot;医院管理API接口&quot;)
+@RestController
+@RequestMapping(&quot;/api/hosp&quot;)
+public class ApiController {</p> <p>@Autowired
+private HospitalService hospitalService;</p> <p>}</p> <p>说明：平台对外开发的接口都写在该Controller类</p> <h3 id="_3、上传医院"><a href="#_3、上传医院" class="header-anchor">#</a> 3、上传医院</h3> <p>参考《尚医通API接口文档.doc》业务接口4.1上传医院
+医院编号是平台分配的，全局唯一，上传医院接口可以多次调用，如果存在相同编号的为更新操作</p> <h4 id="_3-1-接口数据分析"><a href="#_3-1-接口数据分析" class="header-anchor">#</a> 3.1 接口数据分析</h4> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token punctuation">{</span>
+<span class="token string">&quot;hoscode&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1000_0&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;hosname&quot;</span><span class="token operator">:</span> <span class="token string">&quot;北京协和医院&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;hostype&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;provinceCode&quot;</span><span class="token operator">:</span> <span class="token string">&quot;110000&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;cityCode&quot;</span><span class="token operator">:</span> <span class="token string">&quot;110100&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;districtCode&quot;</span><span class="token operator">:</span> <span class="token string">&quot;110102&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;address&quot;</span><span class="token operator">:</span> <span class="token string">&quot;大望路&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;intro&quot;</span><span class="token operator">:</span> <span class="token string">&quot;北京协和医院是集医疗、教学、科研于一体的大型三级甲等综合医院，是国家卫生计生委...目标而继续努力。&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;route&quot;</span><span class="token operator">:</span> <span class="token string">&quot;东院区乘车路线：106、...更多乘车路线详见须知。&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;logoData&quot;</span><span class="token operator">:</span> <span class="token string">&quot;iVBORw0KGgoAAAA...NSUhEUg==&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;bookingRule&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+<span class="token string">&quot;cycle&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;releaseTime&quot;</span><span class="token operator">:</span> <span class="token string">&quot;08:30&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;stopTime&quot;</span><span class="token operator">:</span> <span class="token string">&quot;11:30&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;quitDay&quot;</span><span class="token operator">:</span> <span class="token string">&quot;-1&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;quitTime&quot;</span><span class="token operator">:</span> <span class="token string">&quot;15:30&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;rule&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+<span class="token string">&quot;西院区预约号取号地点：西院区门诊楼一层大厅挂号窗口取号&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;东院区预约号取号地点：东院区老门诊楼一层大厅挂号窗口或新门诊楼各楼层挂号/收费窗口取号&quot;</span>
+<span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token comment">//是对象的 结构需要我们 字节写映射文件</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p>说明：
+1，数据分为<strong>医院基本信息</strong>与<strong>预约规则信息</strong>
+2，医院logo转换为base64字符串
+3，预约规则信息属于医院基本信息的一个属性
+4，预约规则rule，以数组形式传递
+5，数据传递过来我们还要验证签名，只允许平台开通的医院可以上传数据，保证数据安全性</p> <h4 id="_3-2-添加service接口"><a href="#_3-2-添加service接口" class="header-anchor">#</a> 3.2 添加service接口</h4> <p>1、在HospitalService 类添加接口
+/**</p> <ul><li>上传医院信息</li> <li>@param paramMap
+*/
+void save(Map&lt;String, Object&gt; paramMap);</li></ul> <p>说明：参数使用<strong>Map</strong>，减少<strong>对象封装</strong>，有利于签名校验，后续会体验到</p> <p>2、在HospitalServiceImpl类添加实现</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">save</span><span class="token punctuation">(</span><span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> paramMap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token class-name">JSONObject</span><span class="token punctuation">.</span><span class="token function">toJSONString</span><span class="token punctuation">(</span>paramMap<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">Hospital</span> hospital <span class="token operator">=</span> <span class="token class-name">JSONObject</span><span class="token punctuation">.</span><span class="token function">parseObject</span><span class="token punctuation">(</span><span class="token class-name">JSONObject</span><span class="token punctuation">.</span><span class="token function">toJSONString</span><span class="token punctuation">(</span>paramMap<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token class-name">Hospital</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token comment">//判断是否存在</span>
+<span class="token class-name">Hospital</span> targetHospital <span class="token operator">=</span> hospitalRepository<span class="token punctuation">.</span><span class="token function">getHospitalByHoscode</span><span class="token punctuation">(</span>hospital<span class="token punctuation">.</span><span class="token function">getHoscode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">null</span> <span class="token operator">!=</span> targetHospital<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      hospital<span class="token punctuation">.</span><span class="token function">setStatus</span><span class="token punctuation">(</span>targetHospital<span class="token punctuation">.</span><span class="token function">getStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      hospital<span class="token punctuation">.</span><span class="token function">setCreateTime</span><span class="token punctuation">(</span>targetHospital<span class="token punctuation">.</span><span class="token function">getCreateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      hospital<span class="token punctuation">.</span><span class="token function">setUpdateTime</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      hospital<span class="token punctuation">.</span><span class="token function">setIsDeleted</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+hospitalRepository<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>hospital<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+<span class="token comment">//0：未上线 1：已上线</span>
+hospital<span class="token punctuation">.</span><span class="token function">setStatus</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      hospital<span class="token punctuation">.</span><span class="token function">setCreateTime</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      hospital<span class="token punctuation">.</span><span class="token function">setUpdateTime</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      hospital<span class="token punctuation">.</span><span class="token function">setIsDeleted</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+hospitalRepository<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>hospital<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>说明：
+Hospital hospital = JSONObject.parseObject(JSONObject.toJSONString(paramMap),Hospital.class);
+Map转换为Hospital对象时，预约规则<strong>bookingRule</strong>为一个对象属性，rule为一个数组属性，因此在转换时我们要重新对应的set方法，不然转换不会成功</p> <h4 id="实验-测试成功"><a href="#实验-测试成功" class="header-anchor">#</a> 实验 ： 测试成功</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-53af3cf580ac49b6b604ce334d1eabc4.png" alt="image.png"></p> <h3 id="增加安全性-添加签名"><a href="#增加安全性-添加签名" class="header-anchor">#</a> 增加安全性 添加签名：</h3> <p>debug调试：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-258ab6ef15de4ec3846d9e11e4b6fd36.png" alt="image.png"></p> <h3 id="流程"><a href="#流程" class="header-anchor">#</a> 流程：</h3> <p>在 模拟医院 客户端 前台 传递数据 转递到后台（医院模拟服务器的后台）然后查询对应 hostcode 的医院 然后 给他加入 sign （就是md5加密后的值）
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-e4c3bd6fdb314ae79736d982ea69ef63.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-7a597123f6bf494e871b3875060f811f.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-fb7066dc8ae845f18fe3547c5693cc24.png" alt="image.png">
+然后 传递给 医院系统 管理后台 ，
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-1090aeef0e9e4a5bae8b317f6e7ed60d.png" alt="image.png">
+加入成功 返回页面</p> <h3 id="上传科室接口"><a href="#上传科室接口" class="header-anchor">#</a> 上传科室接口</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-06e5da2f09324ebdbc4c5d5b46109617.png" alt="image.png"></p> <h3 id="上传实体类"><a href="#上传实体类" class="header-anchor">#</a> 上传实体类</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-4044a2e0e2cf40a8bb8024a8f01ca226.png" alt="image.png"></p> <h3 id="创建-dao"><a href="#创建-dao" class="header-anchor">#</a> 创建 Dao</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-db22ebc35a0b4c51ad7150e2f2459f67.png" alt="image.png"></p> <h3 id="创建service"><a href="#创建service" class="header-anchor">#</a> 创建Service</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-154e798008404764ba3149d9ffedcd87.png" alt="image.png"></p> <h3 id="创建controller"><a href="#创建controller" class="header-anchor">#</a> 创建Controller</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-420d0ba500c04983ae5648bbf08d7b30.png" alt="image.png"></p> <p>下面看 医院模拟 系统：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-f83dbf3d1d1640e1a83e4ffe5ec8fd4d.png" alt="image.png">
+上传科室上传 成功
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-2465459b4b7e4a7f879fca308f4a0379.png" alt="image.png"></p> <h3 id="来写查询科室的接口"><a href="#来写查询科室的接口" class="header-anchor">#</a> 来写查询科室的接口</h3> <p>先看医院 模拟系统的 API是如何写的
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-e8a272e9816449eba65a107957791b06.png" alt="image.png">
+写 医院系统的 Api接口
+写两个 接口 一个是显示 全部的接口
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-c86bfa95380a48249b3500ceac450fa9.png" alt="image.png">
+第二个就是 删除的接口
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-c67426a05ebd4ec2bf64f6b44aeb3818.png" alt="image.png"></p> <h4 id="出现问题-两个-小时-已经怀疑人生"><a href="#出现问题-两个-小时-已经怀疑人生" class="header-anchor">#</a> 出现问题（两个 小时 已经怀疑人生）</h4> <p>找出 由于自己 在传递 选择对象的 时候（赋值赋值错了 导致 查询不到）
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-f047fd1f34eb4765990b4eec0fab4d78.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-86b317caf3c54e56ab26df76237a81e7.png" alt="image.png"></p> <p>在删除的时候 又出现 签名错误：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-e39b2b4fb2554600ab980a1edc255450.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-e385d967fa674faf8e0d466a5be867b6.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-b039c631ef344c759bf3654537bac8ea.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-31db8882e3614976a13b2969f30fcc29.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-b1cdb2cfc2ce4bbf978a1f815fc37a79.png" alt="image.png"></p> <h2 id="医院排班的接口"><a href="#医院排班的接口" class="header-anchor">#</a> 医院排班的接口</h2> <h4 id="先把-实体类-接入"><a href="#先把-实体类-接入" class="header-anchor">#</a> 先把 实体类 接入</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-96a593d72f50499690c47e1516b91b9b.png" alt="image.png"></p> <h4 id="写入dao-操作类"><a href="#写入dao-操作类" class="header-anchor">#</a> 写入dao 操作类</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-57c7d9bc6dfb4ffb88ece9598d61e7ad.png" alt="image.png"></p> <h4 id="写-service-实现类和接口"><a href="#写-service-实现类和接口" class="header-anchor">#</a> 写 Service 实现类和接口</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-a192e1afba2d43e38759aff8525c1118.png" alt="image.png">
+看 传过来 了什么数据  然后进行 封装（来查询操作）
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-34b5d831e4984ddda4274ad625786673.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-d2428f0c787f46139649fa1494f2e480.png" alt="image.png"></p> <h4 id="总结"><a href="#总结" class="header-anchor">#</a> 总结 ：</h4> <p>医院 模拟客户端 开发完成：
+模拟客户端 ：就是
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-269ac7de922a47acae9d395df0a7c2e7.png" alt="image.png">
+院长 先添加自己的 医院
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-62030fc37c5942caa74d38f4371d776f.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-414f0263ab524defa84995969735b7bc.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-48c744d458a2459e847c577558e319c9.png" alt="image.png"></p> <p>医院 管理系统这边 需要 四个 板块 就是 四个 Service 由于是 给 医院模拟系统 提供 接口 就是 全部都写在 了apiController 中
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-8a3c5263417144d0af146ef8c9a10263.png" alt="image.png">
+对应 医院 操作系统的 Api 接口
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-f44d83ca32f948ac922c880932f60e86.png" alt="image.png">
+这是 四个 对应的 Dao
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-3681cebd0e264e0c8be538424b40b7ec.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-443faf1253104fdbbcf711651817fcbd.png" alt="image.png">
+下面是 四个 service 的接口实现 ：四个几口 是 一致的
+都是 先进行 添加 数据（加到 mongodb数据库中 ）
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-468a0daee09648e1bdedeb1bb12ba235.png" alt="image.png">
+然后 查找全部：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-bf45ff5a42ce44879eb8f2de630ccddf.png" alt="image.png">
+删除：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-3a00b280425840c7a41a09146f2e954a.png" alt="image.png"></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">5/17/2022, 12:02:13 PM</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/80.项目/02.微服务项目/notes/2尚医通NginxMongoDB.html">
+        尚医通nginx+MongoDB
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.19543062.js" defer></script><script src="/assets/js/2.0ee43227.js" defer></script><script src="/assets/js/96.930684d9.js" defer></script>
+  </body>
+</html>

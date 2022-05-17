@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Linux之Shell编程(尚硅谷) | Control.</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <script charset="utf-8" src="/js/main.js"></script>
+    <meta name="description" content="去发光,而不是被照亮">
+    
+    <link rel="preload" href="/assets/css/0.styles.f4923bad.css" as="style"><link rel="preload" href="/assets/js/app.19543062.js" as="script"><link rel="preload" href="/assets/js/2.0ee43227.js" as="script"><link rel="preload" href="/assets/js/102.de57107f.js" as="script"><link rel="prefetch" href="/assets/js/10.e58b7d3b.js"><link rel="prefetch" href="/assets/js/100.2a9b953a.js"><link rel="prefetch" href="/assets/js/101.859b2f1e.js"><link rel="prefetch" href="/assets/js/103.810791da.js"><link rel="prefetch" href="/assets/js/104.2a858183.js"><link rel="prefetch" href="/assets/js/105.8d220a0b.js"><link rel="prefetch" href="/assets/js/106.96fc31f2.js"><link rel="prefetch" href="/assets/js/107.30ac6bd5.js"><link rel="prefetch" href="/assets/js/108.f40e9ef7.js"><link rel="prefetch" href="/assets/js/109.7354eeca.js"><link rel="prefetch" href="/assets/js/11.22d06b73.js"><link rel="prefetch" href="/assets/js/110.d2316756.js"><link rel="prefetch" href="/assets/js/111.75dd52f1.js"><link rel="prefetch" href="/assets/js/112.9d8dda4d.js"><link rel="prefetch" href="/assets/js/113.e83d3089.js"><link rel="prefetch" href="/assets/js/114.5211e116.js"><link rel="prefetch" href="/assets/js/115.720242c4.js"><link rel="prefetch" href="/assets/js/116.ffc4f30c.js"><link rel="prefetch" href="/assets/js/117.42cd696e.js"><link rel="prefetch" href="/assets/js/118.40e1432e.js"><link rel="prefetch" href="/assets/js/119.3a8957dc.js"><link rel="prefetch" href="/assets/js/12.a654ee1a.js"><link rel="prefetch" href="/assets/js/120.2b0a9300.js"><link rel="prefetch" href="/assets/js/121.04096719.js"><link rel="prefetch" href="/assets/js/122.1a58fe68.js"><link rel="prefetch" href="/assets/js/123.159dcd59.js"><link rel="prefetch" href="/assets/js/124.bd4deaf4.js"><link rel="prefetch" href="/assets/js/125.6e049d24.js"><link rel="prefetch" href="/assets/js/126.bfc57933.js"><link rel="prefetch" href="/assets/js/127.9b253d7c.js"><link rel="prefetch" href="/assets/js/128.ffcac091.js"><link rel="prefetch" href="/assets/js/129.9e23da4e.js"><link rel="prefetch" href="/assets/js/13.1c933f28.js"><link rel="prefetch" href="/assets/js/130.6a87ad19.js"><link rel="prefetch" href="/assets/js/131.231bcc33.js"><link rel="prefetch" href="/assets/js/14.6afb9e3b.js"><link rel="prefetch" href="/assets/js/15.2e4d6ff0.js"><link rel="prefetch" href="/assets/js/16.61f286cd.js"><link rel="prefetch" href="/assets/js/17.ed9f0af6.js"><link rel="prefetch" href="/assets/js/18.e84e6471.js"><link rel="prefetch" href="/assets/js/19.76e080d8.js"><link rel="prefetch" href="/assets/js/20.2b2bf9bd.js"><link rel="prefetch" href="/assets/js/21.63da56e6.js"><link rel="prefetch" href="/assets/js/22.fb3ff4f4.js"><link rel="prefetch" href="/assets/js/23.fdca031f.js"><link rel="prefetch" href="/assets/js/24.92f82c60.js"><link rel="prefetch" href="/assets/js/25.a7a9704b.js"><link rel="prefetch" href="/assets/js/26.069c1e52.js"><link rel="prefetch" href="/assets/js/27.5f9a3c75.js"><link rel="prefetch" href="/assets/js/28.03fc0a93.js"><link rel="prefetch" href="/assets/js/29.cbc373fb.js"><link rel="prefetch" href="/assets/js/3.7be5a5a6.js"><link rel="prefetch" href="/assets/js/30.8681b9c2.js"><link rel="prefetch" href="/assets/js/31.36a09955.js"><link rel="prefetch" href="/assets/js/32.3b0c91db.js"><link rel="prefetch" href="/assets/js/33.d6de13ff.js"><link rel="prefetch" href="/assets/js/34.d9c51bc9.js"><link rel="prefetch" href="/assets/js/35.62ae3575.js"><link rel="prefetch" href="/assets/js/36.58249b42.js"><link rel="prefetch" href="/assets/js/37.c15ea66a.js"><link rel="prefetch" href="/assets/js/38.4ae7765d.js"><link rel="prefetch" href="/assets/js/39.57ec096f.js"><link rel="prefetch" href="/assets/js/4.e3eff0c1.js"><link rel="prefetch" href="/assets/js/40.f6d39637.js"><link rel="prefetch" href="/assets/js/41.08935a30.js"><link rel="prefetch" href="/assets/js/42.16f30978.js"><link rel="prefetch" href="/assets/js/43.9ba5877d.js"><link rel="prefetch" href="/assets/js/44.12534072.js"><link rel="prefetch" href="/assets/js/45.17e2d9c7.js"><link rel="prefetch" href="/assets/js/46.e281b6c7.js"><link rel="prefetch" href="/assets/js/47.7ad6135f.js"><link rel="prefetch" href="/assets/js/48.30bd52b0.js"><link rel="prefetch" href="/assets/js/49.6a40dfb5.js"><link rel="prefetch" href="/assets/js/5.12a90c90.js"><link rel="prefetch" href="/assets/js/50.85a351d0.js"><link rel="prefetch" href="/assets/js/51.78da0798.js"><link rel="prefetch" href="/assets/js/52.2310f240.js"><link rel="prefetch" href="/assets/js/53.d0049f2c.js"><link rel="prefetch" href="/assets/js/54.28aa5c87.js"><link rel="prefetch" href="/assets/js/55.381915f1.js"><link rel="prefetch" href="/assets/js/56.89d6cf82.js"><link rel="prefetch" href="/assets/js/57.a66c0467.js"><link rel="prefetch" href="/assets/js/58.e58969db.js"><link rel="prefetch" href="/assets/js/59.b83e284f.js"><link rel="prefetch" href="/assets/js/6.6e2b9d44.js"><link rel="prefetch" href="/assets/js/60.e860c237.js"><link rel="prefetch" href="/assets/js/61.681c3973.js"><link rel="prefetch" href="/assets/js/62.1659a827.js"><link rel="prefetch" href="/assets/js/63.1d1cf38e.js"><link rel="prefetch" href="/assets/js/64.59592269.js"><link rel="prefetch" href="/assets/js/65.ba2fd2ad.js"><link rel="prefetch" href="/assets/js/66.7aeca197.js"><link rel="prefetch" href="/assets/js/67.465b9930.js"><link rel="prefetch" href="/assets/js/68.4fcb7ca0.js"><link rel="prefetch" href="/assets/js/69.4f596a23.js"><link rel="prefetch" href="/assets/js/7.57edeeaa.js"><link rel="prefetch" href="/assets/js/70.3e6e1486.js"><link rel="prefetch" href="/assets/js/71.e61e28bf.js"><link rel="prefetch" href="/assets/js/72.b1db453c.js"><link rel="prefetch" href="/assets/js/73.a2f3e59e.js"><link rel="prefetch" href="/assets/js/74.bbed54ec.js"><link rel="prefetch" href="/assets/js/75.ac927282.js"><link rel="prefetch" href="/assets/js/76.b8c73cb1.js"><link rel="prefetch" href="/assets/js/77.ef60f934.js"><link rel="prefetch" href="/assets/js/78.5fea10e9.js"><link rel="prefetch" href="/assets/js/79.03d5c3e2.js"><link rel="prefetch" href="/assets/js/8.b6d1b803.js"><link rel="prefetch" href="/assets/js/80.13f6c1be.js"><link rel="prefetch" href="/assets/js/81.d69dc869.js"><link rel="prefetch" href="/assets/js/82.249e8ad4.js"><link rel="prefetch" href="/assets/js/83.95546593.js"><link rel="prefetch" href="/assets/js/84.16a183f4.js"><link rel="prefetch" href="/assets/js/85.bd7c1060.js"><link rel="prefetch" href="/assets/js/86.eaf7a944.js"><link rel="prefetch" href="/assets/js/87.2bd3e7b3.js"><link rel="prefetch" href="/assets/js/88.2578814c.js"><link rel="prefetch" href="/assets/js/89.b21857df.js"><link rel="prefetch" href="/assets/js/9.c4657130.js"><link rel="prefetch" href="/assets/js/90.9bc44c6e.js"><link rel="prefetch" href="/assets/js/91.387c0822.js"><link rel="prefetch" href="/assets/js/92.b05edf47.js"><link rel="prefetch" href="/assets/js/93.7522f244.js"><link rel="prefetch" href="/assets/js/94.87fb34a3.js"><link rel="prefetch" href="/assets/js/95.d77f7cc3.js"><link rel="prefetch" href="/assets/js/96.930684d9.js"><link rel="prefetch" href="/assets/js/97.1c7c9646.js"><link rel="prefetch" href="/assets/js/98.3d1417a1.js"><link rel="prefetch" href="/assets/js/99.ad52d8a0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f4923bad.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Control.</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/90.%E5%B7%A5%E5%85%B7%E9%83%A8%E7%BD%B2/01.Linux/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/90.%E5%B7%A5%E5%85%B7%E9%83%A8%E7%BD%B2/01.Linux/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Linux</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/90.工具部署/01.Linux/notes/1Linux基础.html" class="sidebar-link">Linux基础</a></li><li><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html" class="active sidebar-link">Linux之Shell编程(尚硅谷)</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_1-linux-提供的-shell-解析器有" class="sidebar-link">1）Linux 提供的 Shell 解析器有</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_2-bash-和-sh-的关系" class="sidebar-link">2）bash 和 sh 的关系</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_3-centos-默认的解析器是" class="sidebar-link">3）Centos 默认的解析器是</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_1-脚本格式" class="sidebar-link">1）脚本格式</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_2-第一个-shell-脚本-helloworld-sh" class="sidebar-link">2）第一个 Shell 脚本：helloworld.sh</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_3-脚本的常用执行方式" class="sidebar-link">（3）脚本的常用执行方式</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_3-1-系统预定义变量" class="sidebar-link">3.1 系统预定义变量</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_3-2-自定义变量" class="sidebar-link">3.2 自定义变量</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_1-基本语法" class="sidebar-link">1）基本语法</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_2-变量定义规则" class="sidebar-link">2）变量定义规则</a></li></ul></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_3-3-特殊变量" class="sidebar-link">3.3 特殊变量</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_3-3-1-n" class="sidebar-link">3.3.1 $n</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_3-3-2" class="sidebar-link">3.3.2 $#</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_3-3-3-、" class="sidebar-link">3.3.3 $*、$@</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_3-3-4" class="sidebar-link">3.3.4 $？</a></li></ul></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_1-基本语法-3" class="sidebar-link">1）基本语法</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_2-案例实操-2" class="sidebar-link">2）案例实操：</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_1-基本语法-4" class="sidebar-link">1）基本语法</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_2-常用判断条件" class="sidebar-link">2）常用判断条件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_1-两个整数之间比较" class="sidebar-link">（1）两个整数之间比较</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_2-按照文件权限进行判断" class="sidebar-link">（2）按照文件权限进行判断</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_3-案例实操" class="sidebar-link">3）案例实操</a></li></ul></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_6-1-if-判断" class="sidebar-link">6.1 if 判断</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_1-基本语法-5" class="sidebar-link">1）基本语法</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_2-案例实操-3" class="sidebar-link">2）案例实操</a></li></ul></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_6-2-case-语句" class="sidebar-link">6.2 case 语句</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_1-基本语法-6" class="sidebar-link">1）基本语法</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_6-3-for-循环" class="sidebar-link">6.3 for 循环</a></li></ul></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_6-4-while-循环" class="sidebar-link">6.4 while 循环</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_1-基本语法-7" class="sidebar-link">1）基本语法</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_2-案例实操-4" class="sidebar-link">2）案例实操</a></li></ul></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_1-基本语法-read-选项-参数" class="sidebar-link">1）基本语法 read (选项) (参数)</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_2-案例实操-5" class="sidebar-link">2）案例实操</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_8-1-系统函数" class="sidebar-link">8.1 系统函数</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_8-1-1-basename-得到文件名" class="sidebar-link">8.1.1 basename （得到文件名）</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_8-1-2-dirname-得到文件的路径" class="sidebar-link">8.1.2 dirname (得到文件的路径)</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_8-2-自定义函数" class="sidebar-link">8.2 自定义函数</a></li></ul></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_9-1-常规匹配-一串不包含特殊字符的正则表达式匹配它自己-例如" class="sidebar-link">9.1 常规匹配 一串不包含特殊字符的正则表达式匹配它自己，例如：</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_9-2-常用特殊字符" class="sidebar-link">9.2 常用特殊字符</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_1-特殊字符" class="sidebar-link">1）特殊字符：^</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_2-特殊字符" class="sidebar-link">2）特殊字符：$</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_3-特殊字符" class="sidebar-link">3）特殊字符：.</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_4-特殊字符" class="sidebar-link">4）特殊字符：*</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_5-字符区间-中括号" class="sidebar-link">5）字符区间（中括号）：[ ]</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_6-特殊字符" class="sidebar-link">6）特殊字符：\</a></li></ul></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_10-1-cut" class="sidebar-link">10.1 cut</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_10-2-awk" class="sidebar-link">10.2 awk</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_11-1-归档文件" class="sidebar-link">11.1 归档文件</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/01.Linux/notes/2Linux之Shell编程.html#_11-2-发送消息" class="sidebar-link">11.2 发送消息</a></li></ul></li><li><a href="/90.工具部署/01.Linux/notes/3Linux.html" class="sidebar-link">Linux基础(尚硅谷)</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="第-1-章-shell-概述"><a href="#第-1-章-shell-概述" class="header-anchor">#</a> 第 1 章 Shell 概述</h1> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-f3a5e13fa636492e99b2fd8b18e2f035.png" alt="image.png"></p> <h2 id="_1-linux-提供的-shell-解析器有"><a href="#_1-linux-提供的-shell-解析器有" class="header-anchor">#</a> 1）Linux 提供的 Shell 解析器有</h2> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token punctuation">[</span>atguigu<span class="token annotation punctuation">@hadoop101</span> <span class="token operator">~</span><span class="token punctuation">]</span>$ 
+cat <span class="token operator">/</span>etc<span class="token operator">/</span>shells 
+<span class="token operator">/</span>bin<span class="token operator">/</span>sh 
+<span class="token operator">/</span>bin<span class="token operator">/</span>bash 
+<span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>sh 
+<span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>bash 
+<span class="token operator">/</span>bin<span class="token operator">/</span>tcsh 
+<span class="token operator">/</span>bin<span class="token operator">/</span>csh
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-5a7218fa42bf43dbb906704bbb1200ae.png" alt="image.png"></p> <h2 id="_2-bash-和-sh-的关系"><a href="#_2-bash-和-sh-的关系" class="header-anchor">#</a> 2）bash 和 sh 的关系</h2> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token punctuation">[</span>atguigu<span class="token annotation punctuation">@hadoop101</span> bin<span class="token punctuation">]</span>$ ll <span class="token operator">|</span> grep bash 
+<span class="token operator">-</span>rwxr<span class="token operator">-</span>xr<span class="token operator">-</span>x<span class="token punctuation">.</span> <span class="token number">1</span> root root <span class="token number">941880</span> <span class="token number">5</span> 月 <span class="token number">11</span> <span class="token number">2016</span> bash 
+lrwxrwxrwx<span class="token punctuation">.</span> <span class="token number">1</span> root root <span class="token number">4</span> <span class="token number">5</span> 月 <span class="token number">27</span> <span class="token number">2017</span> sh <span class="token operator">-&gt;</span> bash 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="_3-centos-默认的解析器是"><a href="#_3-centos-默认的解析器是" class="header-anchor">#</a> 3）Centos 默认的解析器是</h2> <p>bash [atguigu@hadoop101 bin]$ echo $SHELL /bin/bash</p> <h1 id="第-2-章-shell-脚本入门"><a href="#第-2-章-shell-脚本入门" class="header-anchor">#</a> 第 2 章 Shell 脚本入门</h1> <h2 id="_1-脚本格式"><a href="#_1-脚本格式" class="header-anchor">#</a> 1）脚本格式</h2> <p>脚本以#!/bin/bash 开头（指定解析器）
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-44c80470b819468ba7e22adabf6e4b01.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-16578b06549d4f1194481232bf43c7ce.png" alt="image.png"></p> <h2 id="_2-第一个-shell-脚本-helloworld-sh"><a href="#_2-第一个-shell-脚本-helloworld-sh" class="header-anchor">#</a> 2）第一个 Shell 脚本：helloworld.sh</h2> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-a55532e93f9c4eeabf97a32f188196c5.png" alt="image.png">
+（1）需求：创建一个 Shell 脚本，输出 helloworld
+（2）案例实操：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token punctuation">[</span>atguigu<span class="token annotation punctuation">@hadoop101</span> shells<span class="token punctuation">]</span>$ touch helloworld<span class="token punctuation">.</span>sh 
+<span class="token punctuation">[</span>atguigu<span class="token annotation punctuation">@hadoop101</span> shells<span class="token punctuation">]</span>$ vim helloworld<span class="token punctuation">.</span>sh 
+在 helloworld<span class="token punctuation">.</span>sh 中输入如下内容 
+#<span class="token operator">!</span><span class="token operator">/</span>bin<span class="token operator">/</span>bash echo <span class="token string">&quot;helloworld&quot;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h2 id="_3-脚本的常用执行方式"><a href="#_3-脚本的常用执行方式" class="header-anchor">#</a> （3）脚本的常用执行方式</h2> <p>第一种：采用 bash 或 sh+脚本的相对路径或绝对路径（不用赋予脚本+x 权限）</p> <ul><li>sh+脚本的相对路径
+[atguigu@hadoop101 shells]$ sh ./helloworld.sh
+Helloworld</li> <li>sh+脚本的绝对路径 [atguigu@hadoop101 shells]$ sh /home/atguigu/shells/helloworld.sh
+helloworld
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-379ac6546ed34f2f81b40a7651d17c2d.png" alt="image.png"></li> <li>bash+脚本的相对路径
+[atguigu@hadoop101 shells]$ bash ./helloworld.sh
+Helloworld</li> <li>bash+脚本的绝对路径
+[atguigu@hadoop101 shells]$ bash /home/atguigu/shells/helloworld.sh
+Helloworld</li></ul> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-79dca032836e4069bac2a1fe7442bb72.png" alt="image.png"></p> <p>第二种：采用输入脚本的绝对路径或相对路径执行脚本（必须具有可执行权限+x）
+①首先要赋予 helloworld.sh 脚本的+x 权限
+[atguigu@hadoop101 shells]$ chmod +x helloworld.sh
+②执行脚本</p> <ul><li>相对路径
+[atguigu@hadoop101 shells]$ ./helloworld.sh
+Helloworld</li> <li>绝对路径
+[atguigu@hadoop101 shells]$ /home/atguigu/shells/helloworld.sh
+Helloworld
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-a6174d265d9e4ac6b66f3325186297e0.png" alt="image.png"></li></ul> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-b3007b34c9bb44f281b809a6a4656cb2.png" alt="image.png"></p> <p>注意：第一种执行方法，本质是 bash 解析器帮你执行脚本，所以脚本本身不需要执行 权限。
+第二种执行方法，本质是脚本需要自己执行，所以需要执行权限。</p> <p>【了解】第三种：在脚本的路径前加上“.”或者 source
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-e5bf67c09f2948449e149de78cf6c23f.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-6f151b85e7554168a78732d97a1df39d.png" alt="image.png">
+原因：
+前两种方式都是在当前 shell 中打开一个子 shell 来执行脚本内容，当脚本内容结束，则 子 shell 关闭，回到父 shell 中。
+第三种，也就是使用在脚本路径前加“.”或者 source 的方式，可以使脚本内容在当前 shell 里执行，而无需打开子 shell！这也是为什么我们每次要修改完/etc/profile 文件以后，需 要 source 一下的原因。
+开子 shell 与不开子 shell 的区别就在于，环境变量的继承关系，如在子 shell 中设置的 当前变量，父 shell 是不可见的。
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-9192bf7ec17b4e499f92f5df6c6e5d39.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-0860dd146ad242ae81690f5dd84e49f8.png" alt="image.png"></p> <h1 id="第-3-章-变量"><a href="#第-3-章-变量" class="header-anchor">#</a> 第 3 章 变量</h1> <h2 id="_3-1-系统预定义变量"><a href="#_3-1-系统预定义变量" class="header-anchor">#</a> 3.1 系统预定义变量</h2> <p>1）常用系统变量
+$HOME、$PWD、$SHELL（默认使用的编辑器）、$USER（当前的用户） 等
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-54a428417f98455abbd5a95a1e68578f.png" alt="image.png">
+env 和 printenv
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-63999d1a908448229f58d4f3d065b6ca.png" alt="image.png">
+2）案例实操
+（1）查看系统变量的值
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-321e0a0054134ec786f0df0a8946323a.png" alt="image.png">
+（2）显示当前 Shell 中所有变量：set
+以后自己定义的 局部变量 也是可以查看到的
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-0cc197a5ff4141379575ed066462fa2a.png" alt="image.png"></p> <h2 id="_3-2-自定义变量"><a href="#_3-2-自定义变量" class="header-anchor">#</a> 3.2 自定义变量</h2> <h3 id="_1-基本语法"><a href="#_1-基本语法" class="header-anchor">#</a> 1）基本语法</h3> <p>（1）定义变量：
+变量名=变量值，注意，<strong>=号前后不能有空格</strong> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-92d0f6012da6496a93c0c86ebb6d4ea8.png" alt="image.png"></p> <p>（2）撤销变量：
+unset 变量名
+（3）声明静态变量：
+readonly 变量，注意：不能 unset</p> <h3 id="_2-变量定义规则"><a href="#_2-变量定义规则" class="header-anchor">#</a> 2）变量定义规则</h3> <p>（1）变量名称可以由字母、数字和下划线组成，但是不能以数字开头，环境变量名建 议大写。
+（2）等号两侧不能有空格
+（3）在 bash 中，变量默认类型都是字符串类型，无法直接进行数值运算用 （（））或者 【】。
+（4）变量的值如果有空格，需要使用双引号或单引号括起来。
+3）案例实操
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-ce7c0bdfe09648b6bcd9ed202a0fc6e6.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-e3bd8e3914d542f0a55c7a33109943af.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-6c7d681e2a6e4e729fbbd3a7fcf2ad8c.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-61830c63eed643dab1d6b4d7e8325cfe.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-f21072f9b273417cb563327602836877.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-8e2bfcde79124ff688944a5176d87ecf.png" alt="image.png">
+环境变量的修改；
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-77ebb7a4c0c84dcf926f6acf79ad5e70.png" alt="image.png"></p> <h2 id="_3-3-特殊变量"><a href="#_3-3-特殊变量" class="header-anchor">#</a> 3.3 特殊变量</h2> <h3 id="_3-3-1-n"><a href="#_3-3-1-n" class="header-anchor">#</a> 3.3.1 $n</h3> <p>1）基本语法
+$n （功能描述：n 为数字，$0 代表该脚本名称，$1-$9 代表第一到第九个参数，十以 上的参数，十以上的参数需要用大括号包含，如${10}）
+2）案例实操
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-a6f947b58f474eeab023b3df2a3c04a9.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-eb006c907a0b48e2aec9660d44995c41.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-46b3afcbcc2441ca9ee8d3e3f82a0b98.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-2c63304d2cc14a7abc208076196bbd08.png" alt="image.png"></p> <h3 id="_3-3-2"><a href="#_3-3-2" class="header-anchor">#</a> 3.3.2 $#</h3> <p>1）基本语法 $# （功能描述：获取所有输入参数个数，常用于循环,判断参数的个数是否正确以及 加强脚本的健壮性）。
+2）案例实操
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-76200733d4794ddd819461d5ee662349.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-41e4439d1e854fb1a3cfc2fdcc399116.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-05a03e1b1b884483909ac16c1f7df2d4.png" alt="image.png"></p> <h3 id="_3-3-3-、"><a href="#_3-3-3-、" class="header-anchor">#</a> 3.3.3 $*、$@</h3> <p>1）基本语法
+$* （功能描述：这个变量代表命令行中所有的参数，$*把所有的参数看成<strong>一个整体</strong>）
+$@ （功能描述：这个变量也代表命令行中所有的参数，不过$@把每个参数区分对待） 得到的是参数的集合，
+2）案例实操
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-3702ab64f19b4641801d5658e9827b48.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-b8fbbd32bd30489ea901f38d980770cc.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-8caa709204da4d12af0bc5b85b7e0a03.png" alt="image.png"></p> <h3 id="_3-3-4"><a href="#_3-3-4" class="header-anchor">#</a> 3.3.4 $？</h3> <h4 id="_1-基本语法-2"><a href="#_1-基本语法-2" class="header-anchor">#</a> 1）基本语法</h4> <p>$？ （功能描述：最后一次执行的命令的<strong>返回状态</strong>。如果这个变量的值为 0，证明上一 个命令正确执行；如果这个变量的值为非 0（具体是哪个数，由命令自己来决定），则证明 上一个命令执行不正确了。）</p> <h4 id="_2-案例实操"><a href="#_2-案例实操" class="header-anchor">#</a> 2）案例实操</h4> <p>判断 helloworld.sh 脚本是否正确执行
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-c8d7f01b2ac24eeaaa4aa7ade15c8bfe.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-a554c138989646babb213d9bb0373b8c.png" alt="image.png"></p> <h1 id="第-4-章-运算符"><a href="#第-4-章-运算符" class="header-anchor">#</a> 第 4 章 运算符</h1> <h2 id="_1-基本语法-3"><a href="#_1-基本语法-3" class="header-anchor">#</a> 1）基本语法</h2> <p>“$((运算式))” 或 “$[运算式]”</p> <h2 id="_2-案例实操-2"><a href="#_2-案例实操-2" class="header-anchor">#</a> 2）案例实操：</h2> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-a9ed1c1315514ddfad90fbc0c2bb2db8.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-b766d5e7a7ce4fefb6a1fd44a364ac2d.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-05e09d7c51b144649d7df86aee5db210.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-2ddfb58dc5ea4650b2394009d3f89e9c.png" alt="image.png"></p> <h1 id="第-5-章-条件判断"><a href="#第-5-章-条件判断" class="header-anchor">#</a> 第 5 章 条件判断</h1> <h2 id="_1-基本语法-4"><a href="#_1-基本语法-4" class="header-anchor">#</a> 1）基本语法</h2> <p>（1）test condition
+（2）[ condition ]（注意 condition 前后要有空格） 注意：条件非空即为 true，[ atguigu ]返回 true，[ ] 返回 false。</p> <h2 id="_2-常用判断条件"><a href="#_2-常用判断条件" class="header-anchor">#</a> 2）常用判断条件</h2> <h3 id="_1-两个整数之间比较"><a href="#_1-两个整数之间比较" class="header-anchor">#</a> （1）两个整数之间比较</h3> <p>-eq 等于（equal）
+-ne 不等于（not equal）
+-lt 小于（less than）
+-le 小于等于（less equal）
+-gt 大于（greater than）
+-ge 大于等于（greater equal）
+注：如果是字符串之间的比较 ，用等号“=”判断相等；用“!=”判断不等。
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-960bd2c7fb1248479f89e2a7d1eb1701.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-ab76eeff3e844c2c8af8008ef7875a76.png" alt="image.png"></p> <h3 id="_2-按照文件权限进行判断"><a href="#_2-按照文件权限进行判断" class="header-anchor">#</a> （2）按照文件权限进行判断</h3> <p>-r 有读的权限（read）
+-w 有写的权限（write）
+-x 有执行的权限（execute）
+（3）按照文件类型进行判断
+-e 文件存在（existence）
+-f 文件存在并且是一个常规的文件（file）
+-d 文件存在并且是一个目录（directory）</p> <h3 id="_3-案例实操"><a href="#_3-案例实操" class="header-anchor">#</a> 3）案例实操</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-cedb2b60a54342909e6afba3a2939148.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-51b390378e1148a09e65b7da635877c1.png" alt="image.png">
+第四个 实操会 实现高级语言的三元运算符</p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-e803a7b6593b4c2cbf3a1efbd337d979.png" alt="image.png"></p> <h1 id="第-6-章-流程控制-重点"><a href="#第-6-章-流程控制-重点" class="header-anchor">#</a> 第 6 章 流程控制（重点）</h1> <h2 id="_6-1-if-判断"><a href="#_6-1-if-判断" class="header-anchor">#</a> 6.1 if 判断</h2> <h3 id="_1-基本语法-5"><a href="#_1-基本语法-5" class="header-anchor">#</a> 1）基本语法</h3> <p>（1）单分支
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-2e48b2f6628c429682e5b529d4520bfa.png" alt="image.png"></p> <p>注意事项：
+①[ 条件判断式 ]，中括号和条件判断式之间必须有空格
+②if 后要有空格</p> <h3 id="_2-案例实操-3"><a href="#_2-案例实操-3" class="header-anchor">#</a> 2）案例实操</h3> <p>输入一个数字，如果是 1，则输出 banzhang zhen shuai，如果是 2，则输出 cls zhen mei， 如果是其它，什么也不输出。</p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-8fbcbcd20ba849ddb184b001629fb4e5.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-8b0bf08446114089b41213e1c30c2da0.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-cd31890a7802477b873d646dccb62db8.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-2bb8cc7522fe4ff2b94cfafaf9063617.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-7ebae92c881f4d4e9b6cd76ec49ee5da.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-cd0908dc31db4ebbb28e55a9cac85606.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-8e93686e14cd42628ff65cab43a37aa4.png" alt="image.png"></p> <h2 id="_6-2-case-语句"><a href="#_6-2-case-语句" class="header-anchor">#</a> 6.2 case 语句</h2> <h3 id="_1-基本语法-6"><a href="#_1-基本语法-6" class="header-anchor">#</a> 1）基本语法</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-db66b1c009064394b621f5c95dd07d7a.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-5f3fcc720dc745cd854cf7e883b3a991.png" alt="image.png">
+注意事项：
+（1）case 行尾必须为单词“in”，每一个模式匹配必须以右括号“）”结束。
+（2）双分号“;;”表示命令序列结束，相当于 java 中的 break。
+（3）最后的“*）”表示默认模式，相当于 java 中的 default。</p> <h3 id="_6-3-for-循环"><a href="#_6-3-for-循环" class="header-anchor">#</a> 6.3 for 循环</h3> <h4 id="_1-基本语法-1"><a href="#_1-基本语法-1" class="header-anchor">#</a> 1）基本语法 1</h4> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">(</span> 初始值<span class="token punctuation">;</span>循环控制条件<span class="token punctuation">;</span>变量变化 <span class="token punctuation">)</span><span class="token punctuation">)</span> 
+<span class="token keyword">do</span> 
+     程序 
+done
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>在 双小括号中 可以写 之前的数学表达式 的形式；
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-edd7bbbe86f244c3a2255dc9f4a488c2.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-795d2a0e4fd44a5b87ead6917f879166.png" alt="image.png"></p> <h4 id="_3-基本语法-2"><a href="#_3-基本语法-2" class="header-anchor">#</a> 3）基本语法 2</h4> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">for</span> 变量 in 值 <span class="token number">1</span> 值 <span class="token number">2</span> 值 <span class="token number">3</span>… 
+<span class="token keyword">do</span> 
+      程序 
+done
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-de4b3d93df3c4c43997e9949a1d89d30.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-861dda1306da4d458056b189eb700d09.png" alt="image.png"></p> <h4 id="_2-比较-和-区别"><a href="#_2-比较-和-区别" class="header-anchor">#</a> （2）比较$*和$@区别</h4> <p>$*和$@都表示传递给函数或脚本的所有参数，不被双引号“”包含时，都以$1 $2 …$n 的形式输出所有参数</p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-db3a519a06ff44bb9ec4085fa0c81d32.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-03ef06640b8746508efd33eae952c42d.png" alt="image.png"></p> <p>在不加引号的 是两个是没有 区别的
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-ab6dc0f49e214a42bc5398840d4a6404.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-da3d827c6ecc44829f64b924a477d16d.png" alt="image.png">
+当它们被双引号“”包含时，
+$*会将所有的参数作为一个整体，以“$1 $2 …$n”的形式输 出所有参数；
+$@会将各个参数分开，以“$1” “$2”…“$n”的形式输出所有参数。</p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-01abc7a4f8ed49aba10b02bea87f5842.png" alt="image.png"></p> <h2 id="_6-4-while-循环"><a href="#_6-4-while-循环" class="header-anchor">#</a> 6.4 while 循环</h2> <h3 id="_1-基本语法-7"><a href="#_1-基本语法-7" class="header-anchor">#</a> 1）基本语法</h3> <p>while [ 条件判断式 ] do 程序 done</p> <h3 id="_2-案例实操-4"><a href="#_2-案例实操-4" class="header-anchor">#</a> 2）案例实操</h3> <p>从 1 加到 100
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-f4c222c761e04da0950f7d058f25005e.png" alt="image.png">
+踩坑经验：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-688cdf88836747bca9f845c8e952c627.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-4df7f6c7e5654c13a9bfc38173b96e92.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-9bed82bd8bc64cc5a0411f1827ea5e57.png" alt="image.png"></p> <h1 id="第-7-章-read-读取控制台输入"><a href="#第-7-章-read-读取控制台输入" class="header-anchor">#</a> 第 7 章 read 读取控制台输入</h1> <h2 id="_1-基本语法-read-选项-参数"><a href="#_1-基本语法-read-选项-参数" class="header-anchor">#</a> 1）基本语法 read (选项) (参数)</h2> <p>①选项：
+-p：指定读取值时的提示符；
+-t：指定读取值时等待的时间（秒）如果-t 不加表示一直等待
+②参数变量：指定读取值的变量名  （在执行的时候 后面的参数是 $1 和 $2等）</p> <h2 id="_2-案例实操-5"><a href="#_2-案例实操-5" class="header-anchor">#</a> 2）案例实操</h2> <p>提示 7 秒内，读取控制台输入的名称
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-4369e7e6fabd4cbf8adfd859bccb6a94.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-4bd664611aba485ab38a80f124a43880.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-99f0034558a64d9da8f68dd515316ddd.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-fac9d682da9d4f858890da18125f739d.png" alt="image.png"></p> <h1 id="第-8-章-函数"><a href="#第-8-章-函数" class="header-anchor">#</a> 第 8 章 函数</h1> <ul><li>问： 脚本和函数的区别？</li> <li>答
+虽然 功能是大差不差的，都差不多，
+但是，脚本是没有返回值的（），但是函数就有返回值的；
+函数比较轻量集，使用也比较方便</li></ul> <h2 id="_8-1-系统函数"><a href="#_8-1-系统函数" class="header-anchor">#</a> 8.1 系统函数</h2> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-f6752e9542a7426086529cf540fb0e0f.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-a17e13b6a57f447cb0a0dbae46e54305.png" alt="image.png"></p> <h3 id="_8-1-1-basename-得到文件名"><a href="#_8-1-1-basename-得到文件名" class="header-anchor">#</a> 8.1.1 basename （得到文件名）</h3> <h4 id="_1-基本语法-8"><a href="#_1-基本语法-8" class="header-anchor">#</a> 1）基本语法</h4> <p>basename [string / pathname] [suffix]
+（功能描述：basename 命令会删掉所有的前 缀包括最后一个（‘/’）字符，然后将字符串显示出来。 basename 可以理解为取路径里的文件名称
+选项：
+suffix 为后缀，如果 suffix 被指定了，basename 会将 pathname 或 string 中的 suffix 去掉。</p> <h4 id="_2-案例实操-6"><a href="#_2-案例实操-6" class="header-anchor">#</a> 2）案例实操</h4> <p>截取该/home/atguigu/banzhang.txt 路径的文件名称
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-0e2fec75f0564ec2a015f51a1b01f4fc.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-d4e724db779e44d0919b43fa034bd7cf.png" alt="image.png"></p> <h3 id="_8-1-2-dirname-得到文件的路径"><a href="#_8-1-2-dirname-得到文件的路径" class="header-anchor">#</a> 8.1.2 dirname (得到文件的路径)</h3> <p>1）基本语法
+dirname 文件绝对路径<br>
+（功能描述：从给定的包含绝对路径的文件名中去除文件名 （非目录的部分），然后返回剩下的路径（目录的部分）） dirname 可以理解为取文件路径的绝对路径名称
+2）案例实操 获取 banzhang.txt 文件的路径。
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-9099a109a48248d3b23c148be9cfa458.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-fc2dbd863f1c4b92ab4facee7155be23.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-0d20d1a42bdd420295c41ef9f9b32835.png" alt="image.png"></p> <h3 id="_8-2-自定义函数"><a href="#_8-2-自定义函数" class="header-anchor">#</a> 8.2 自定义函数</h3> <h4 id="_1-基本语法-9"><a href="#_1-基本语法-9" class="header-anchor">#</a> 1）基本语法</h4> <p>[ function ] funname[()]
+{
+Action;
+[return int;]
+}
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-bbe23dd8057c4511986bd165986dcc4d.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-524a2c7ed9ec401b97e65e51fde94b0b.png" alt="image.png"></p> <h4 id="_2-经验技巧"><a href="#_2-经验技巧" class="header-anchor">#</a> 2）经验技巧</h4> <p>（1）必须在调用函数地方之前，先声明函数，shell 脚本是逐行运行。不会像其它语言一 样先编译。
+（2）函数返回值，只能通过$?系统变量获得，可以显示加：return 返回，如果不加，将 以最后一条命令运行结果，作为返回值。return 后跟数值 n(0-255)
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-f650010e0d4a40bf86dbd0656a3412a5.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-62699d8c0e3f4a9d9e9de43bd932ba14.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-34b305c338f5435fb16a794e1248746e.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-236f1d9495274f47af5d79d426958242.png" alt="image.png"></p> <h4 id="_3-案例实操-2"><a href="#_3-案例实操-2" class="header-anchor">#</a> 3）案例实操</h4> <p>计算两个输入参数的和。
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-7c7d27adffe44bdaa725d08ee692f0c6.png" alt="image.png"></p> <h1 id="第-9-章-正则表达式入门"><a href="#第-9-章-正则表达式入门" class="header-anchor">#</a> 第 9 章 正则表达式入门</h1> <p>正则表达式使用单个字符串来描述、匹配一系列符合某个语法规则的字符串。在很多文 本编辑器里，正则表达式通常被用来检索、替换那些符合某个模式的文本。在 Linux 中，grep， sed，awk 等文本处理工具都支持通过正则表达式进行模式匹配。</p> <h2 id="_9-1-常规匹配-一串不包含特殊字符的正则表达式匹配它自己-例如"><a href="#_9-1-常规匹配-一串不包含特殊字符的正则表达式匹配它自己-例如" class="header-anchor">#</a> 9.1 常规匹配 一串不包含特殊字符的正则表达式匹配它自己，例如：</h2> <div class="language-java line-numbers-mode"><pre class="language-java"><code> <span class="token punctuation">[</span>atguigu<span class="token annotation punctuation">@hadoop101</span> shells<span class="token punctuation">]</span>$ cat <span class="token operator">/</span>etc<span class="token operator">/</span>passwd <span class="token operator">|</span> grep atguigu 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>就会匹配所有包含 atguigu 的行。</p> <h2 id="_9-2-常用特殊字符"><a href="#_9-2-常用特殊字符" class="header-anchor">#</a> 9.2 常用特殊字符</h2> <h3 id="_1-特殊字符"><a href="#_1-特殊字符" class="header-anchor">#</a> 1）特殊字符：^</h3> <p>^ 匹配一行的开头，例如：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token punctuation">[</span>atguigu<span class="token annotation punctuation">@hadoop101</span> shells<span class="token punctuation">]</span>$ cat <span class="token operator">/</span>etc<span class="token operator">/</span>passwd <span class="token operator">|</span> grep <span class="token operator">^</span>a 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>会匹配出所有以 a 开头的行</p> <h3 id="_2-特殊字符"><a href="#_2-特殊字符" class="header-anchor">#</a> 2）特殊字符：$</h3> <p>$ 匹配一行的结束，例如</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token punctuation">[</span>atguigu<span class="token annotation punctuation">@hadoop101</span> shells<span class="token punctuation">]</span>$ cat <span class="token operator">/</span>etc<span class="token operator">/</span>passwd <span class="token operator">|</span> grep t$ 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>会匹配出所有以 t 结尾的行 思考：^$ 匹配什么？</p> <h3 id="_3-特殊字符"><a href="#_3-特殊字符" class="header-anchor">#</a> 3）特殊字符：.</h3> <p>. 匹配一个任意的字符，例如</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token punctuation">[</span>atguigu<span class="token annotation punctuation">@hadoop101</span> shells<span class="token punctuation">]</span>$ cat <span class="token operator">/</span>etc<span class="token operator">/</span>passwd <span class="token operator">|</span> grep r<span class="token punctuation">.</span><span class="token punctuation">.</span>t 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>会匹配包含 rabt,rbbt,rxdt,root 等的所有行</p> <h3 id="_4-特殊字符"><a href="#_4-特殊字符" class="header-anchor">#</a> 4）特殊字符：*</h3> <ul><li>不单独使用，他和上一个字符连用，表示匹配上一个字符 0 次或多次，
+例如</li></ul> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token punctuation">[</span>atguigu<span class="token annotation punctuation">@hadoop101</span> shells<span class="token punctuation">]</span>$ cat <span class="token operator">/</span>etc<span class="token operator">/</span>passwd <span class="token operator">|</span> grep ro<span class="token operator">*</span>t 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>会匹配 rt, rot, root, rooot, roooot 等所有行
+思考：.* 匹配什么？
+点是 任意字符 ，* 是出现n次</p> <h3 id="_5-字符区间-中括号"><a href="#_5-字符区间-中括号" class="header-anchor">#</a> 5）字符区间（中括号）：[ ]</h3> <p>[ ] 表示匹配某个范围内的一个字符，
+例如
+[6,8]------匹配 6 或者 8
+[0-9]------匹配一个 0-9 的数字
+[0-9]<em>------匹配任意长度的数字字符串
+[a-z]------匹配一个 a-z 之间的字符
+[a-z]</em> ------匹配任意长度的字母字符串
+[a-c, e-f]-匹配 a-c 或者 e-f 之间的任意字符
+[atguigu@hadoop101 shells]$ cat /etc/passwd | grep r[a,b,c]*t
+会匹配 rt,rat, rbt, rabt, rbact,rabccbaaacbt 等等所有行</p> <h3 id="_6-特殊字符"><a href="#_6-特殊字符" class="header-anchor">#</a> 6）特殊字符：\</h3> <p>\ 表示转义，并不会单独使用。由于所有特殊字符都有其特定匹配模式，当我们想匹配 某一特殊字符本身时（例如，我想找出所有包含 '$' 的行），就会碰到困难。此时我们就要 将转义字符和特殊字符连用，来表示特殊字符本身，
+例如</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token punctuation">[</span>atguigu<span class="token annotation punctuation">@hadoop101</span> shells<span class="token punctuation">]</span>$ cat <span class="token operator">/</span>etc<span class="token operator">/</span>passwd <span class="token operator">|</span> grep ‘a\$b’ 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>就会匹配所有包含 a$b 的行。注意需要使用单引号将表达式引起来。
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-522eced4d93640fab13fd7107bd4e445.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-7e85143ccfc14ce4986eae9900b2b3ca.png" alt="image.png"></p> <h1 id="第-10-章-文本处理工具"><a href="#第-10-章-文本处理工具" class="header-anchor">#</a> 第 10 章 文本处理工具</h1> <h2 id="_10-1-cut"><a href="#_10-1-cut" class="header-anchor">#</a> 10.1 cut</h2> <p>cut 的工作就是“剪”，具体的说就是在文件中负责剪切数据用的。cut 命令从文件的每 一行剪切字节、字符和字段并将这些字节、字符和字段输出。
+1）基本用法
+cut [选项参数] filename 说明：默认分隔符是制表符
+2）选项参数说明
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-94453f5d7e834b4280fe165f50f67a25.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-f6e343b1393e4530b84809838b0de5bc.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-ba1610f3ddf84264b7356425e9e41545.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-8d45e6afd7ec46a6bb547b736838b843.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-ff2c4a437bd146ea9b131579cacd33ec.png" alt="image.png"></p> <h2 id="_10-2-awk"><a href="#_10-2-awk" class="header-anchor">#</a> 10.2 awk</h2> <p>一个强大的文本分析工具，把文件逐行的读入，以空格为默认分隔符将每行切片，切开 的部分再进行分析处理。
+1）基本用法
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-6bad3d7a5a9a4c569156c6333349f852.png" alt="image.png">
+2）选项参数说明
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-b707b7d781f44e4a87f439e39c50fe41.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-9110b36b6b00459a91235f9e3735873b.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-d00007fc162741c3923c6fe657ffbf55.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-38322c96135445cdad30b9a1facec165.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-a0240a09ae1c419ea23296b56d541513.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-33b3c4efd5af4f51ac4d9e78f248e826.png" alt="image.png"></p> <h1 id="第-11-章-综合应用案例"><a href="#第-11-章-综合应用案例" class="header-anchor">#</a> 第 11 章 综合应用案例</h1> <h2 id="_11-1-归档文件"><a href="#_11-1-归档文件" class="header-anchor">#</a> 11.1 归档文件</h2> <p>实际生产应用中，往往需要对重要数据进行归档备份。
+需求：实现一个每天对指定目录归档备份的脚本，输入一个目录名称（末尾不带/）， 将目录下所有文件按天归档保存，并将归档日期附加在归档文件名上，放在/root/archive 下。 这里用到了归档命令：tar
+后面可以加上-c 选项表示归档，加上-z 选项表示同时进行压缩，得到的文件后缀名 为.tar.gz。 脚本实现如下：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>#<span class="token operator">!</span><span class="token operator">/</span>bin<span class="token operator">/</span>bash 
+# 首先判断输入参数个数是否为 <span class="token number">1</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-eee51a1927e24602836fae1242a98076.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-99410251137f4d838ecce38f560d6fb1.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-ba36d4911cc64e2f96115c956010d11d.png" alt="image.png"></p> <h2 id="_11-2-发送消息"><a href="#_11-2-发送消息" class="header-anchor">#</a> 11.2 发送消息</h2> <p>我们可以利用 Linux 自带的 mesg 和 write 工具，向其它用户发送消息。</p> <p>需求：
+实现一个向某个用户快速发送消息的脚本，输入用户名作为第一个参数，后面直 接跟要发送的消息。脚本需要检测用户是否登录在系统中、是否打开消息功能，以及当前发 送消息是否为空。
+脚本实现如下：
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-1c4812a62d5c44fe9886d84bf281c3e8.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-adf57b8500f04ad58eccd0e3e039f3ca.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-c3fc7931199f4e10ae9ff8ac08510207.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-a103a35561f44e8f8bc50b2d9ac5b332.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-9c8eff2012924b7dbed2fa0adfb36859.png" alt="image.png"></p> <p>发现直接使用 上面的 就可以 发送消息 ：
+缺点： 还需要我们去 查看是否开启，消息机制，然后 在发送请求</p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-db58f8c9e55d421fa27f629f019e1ae3.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-90ba4abbe58e4b2ca3ad84b3e5b847e6.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-177e672791fb419486eee34f280d9796.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-61ddaf484b014963bd25b4c302096acc.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-6875e07226364fbbaa123ec45bbcedf9.png" alt="image.png"></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">5/17/2022, 12:02:13 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/90.工具部署/01.Linux/notes/1Linux基础.html" class="prev">
+        Linux基础
+      </a></span> <span class="next"><a href="/90.工具部署/01.Linux/notes/3Linux.html">
+        Linux基础(尚硅谷)
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.19543062.js" defer></script><script src="/assets/js/2.0ee43227.js" defer></script><script src="/assets/js/102.de57107f.js" defer></script>
+  </body>
+</html>

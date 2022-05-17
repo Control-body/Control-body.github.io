@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Spring(2)-注解Bean的创建过程 | Control.</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <script charset="utf-8" src="/js/main.js"></script>
+    <meta name="description" content="去发光,而不是被照亮">
+    
+    <link rel="preload" href="/assets/css/0.styles.f4923bad.css" as="style"><link rel="preload" href="/assets/js/app.19543062.js" as="script"><link rel="preload" href="/assets/js/2.0ee43227.js" as="script"><link rel="preload" href="/assets/js/16.61f286cd.js" as="script"><link rel="prefetch" href="/assets/js/10.e58b7d3b.js"><link rel="prefetch" href="/assets/js/100.2a9b953a.js"><link rel="prefetch" href="/assets/js/101.859b2f1e.js"><link rel="prefetch" href="/assets/js/102.de57107f.js"><link rel="prefetch" href="/assets/js/103.810791da.js"><link rel="prefetch" href="/assets/js/104.2a858183.js"><link rel="prefetch" href="/assets/js/105.8d220a0b.js"><link rel="prefetch" href="/assets/js/106.96fc31f2.js"><link rel="prefetch" href="/assets/js/107.30ac6bd5.js"><link rel="prefetch" href="/assets/js/108.f40e9ef7.js"><link rel="prefetch" href="/assets/js/109.7354eeca.js"><link rel="prefetch" href="/assets/js/11.22d06b73.js"><link rel="prefetch" href="/assets/js/110.d2316756.js"><link rel="prefetch" href="/assets/js/111.75dd52f1.js"><link rel="prefetch" href="/assets/js/112.9d8dda4d.js"><link rel="prefetch" href="/assets/js/113.e83d3089.js"><link rel="prefetch" href="/assets/js/114.5211e116.js"><link rel="prefetch" href="/assets/js/115.720242c4.js"><link rel="prefetch" href="/assets/js/116.ffc4f30c.js"><link rel="prefetch" href="/assets/js/117.42cd696e.js"><link rel="prefetch" href="/assets/js/118.40e1432e.js"><link rel="prefetch" href="/assets/js/119.3a8957dc.js"><link rel="prefetch" href="/assets/js/12.a654ee1a.js"><link rel="prefetch" href="/assets/js/120.2b0a9300.js"><link rel="prefetch" href="/assets/js/121.04096719.js"><link rel="prefetch" href="/assets/js/122.1a58fe68.js"><link rel="prefetch" href="/assets/js/123.159dcd59.js"><link rel="prefetch" href="/assets/js/124.bd4deaf4.js"><link rel="prefetch" href="/assets/js/125.6e049d24.js"><link rel="prefetch" href="/assets/js/126.bfc57933.js"><link rel="prefetch" href="/assets/js/127.9b253d7c.js"><link rel="prefetch" href="/assets/js/128.ffcac091.js"><link rel="prefetch" href="/assets/js/129.9e23da4e.js"><link rel="prefetch" href="/assets/js/13.1c933f28.js"><link rel="prefetch" href="/assets/js/130.6a87ad19.js"><link rel="prefetch" href="/assets/js/131.231bcc33.js"><link rel="prefetch" href="/assets/js/14.6afb9e3b.js"><link rel="prefetch" href="/assets/js/15.2e4d6ff0.js"><link rel="prefetch" href="/assets/js/17.ed9f0af6.js"><link rel="prefetch" href="/assets/js/18.e84e6471.js"><link rel="prefetch" href="/assets/js/19.76e080d8.js"><link rel="prefetch" href="/assets/js/20.2b2bf9bd.js"><link rel="prefetch" href="/assets/js/21.63da56e6.js"><link rel="prefetch" href="/assets/js/22.fb3ff4f4.js"><link rel="prefetch" href="/assets/js/23.fdca031f.js"><link rel="prefetch" href="/assets/js/24.92f82c60.js"><link rel="prefetch" href="/assets/js/25.a7a9704b.js"><link rel="prefetch" href="/assets/js/26.069c1e52.js"><link rel="prefetch" href="/assets/js/27.5f9a3c75.js"><link rel="prefetch" href="/assets/js/28.03fc0a93.js"><link rel="prefetch" href="/assets/js/29.cbc373fb.js"><link rel="prefetch" href="/assets/js/3.7be5a5a6.js"><link rel="prefetch" href="/assets/js/30.8681b9c2.js"><link rel="prefetch" href="/assets/js/31.36a09955.js"><link rel="prefetch" href="/assets/js/32.3b0c91db.js"><link rel="prefetch" href="/assets/js/33.d6de13ff.js"><link rel="prefetch" href="/assets/js/34.d9c51bc9.js"><link rel="prefetch" href="/assets/js/35.62ae3575.js"><link rel="prefetch" href="/assets/js/36.58249b42.js"><link rel="prefetch" href="/assets/js/37.c15ea66a.js"><link rel="prefetch" href="/assets/js/38.4ae7765d.js"><link rel="prefetch" href="/assets/js/39.57ec096f.js"><link rel="prefetch" href="/assets/js/4.e3eff0c1.js"><link rel="prefetch" href="/assets/js/40.f6d39637.js"><link rel="prefetch" href="/assets/js/41.08935a30.js"><link rel="prefetch" href="/assets/js/42.16f30978.js"><link rel="prefetch" href="/assets/js/43.9ba5877d.js"><link rel="prefetch" href="/assets/js/44.12534072.js"><link rel="prefetch" href="/assets/js/45.17e2d9c7.js"><link rel="prefetch" href="/assets/js/46.e281b6c7.js"><link rel="prefetch" href="/assets/js/47.7ad6135f.js"><link rel="prefetch" href="/assets/js/48.30bd52b0.js"><link rel="prefetch" href="/assets/js/49.6a40dfb5.js"><link rel="prefetch" href="/assets/js/5.12a90c90.js"><link rel="prefetch" href="/assets/js/50.85a351d0.js"><link rel="prefetch" href="/assets/js/51.78da0798.js"><link rel="prefetch" href="/assets/js/52.2310f240.js"><link rel="prefetch" href="/assets/js/53.d0049f2c.js"><link rel="prefetch" href="/assets/js/54.28aa5c87.js"><link rel="prefetch" href="/assets/js/55.381915f1.js"><link rel="prefetch" href="/assets/js/56.89d6cf82.js"><link rel="prefetch" href="/assets/js/57.a66c0467.js"><link rel="prefetch" href="/assets/js/58.e58969db.js"><link rel="prefetch" href="/assets/js/59.b83e284f.js"><link rel="prefetch" href="/assets/js/6.6e2b9d44.js"><link rel="prefetch" href="/assets/js/60.e860c237.js"><link rel="prefetch" href="/assets/js/61.681c3973.js"><link rel="prefetch" href="/assets/js/62.1659a827.js"><link rel="prefetch" href="/assets/js/63.1d1cf38e.js"><link rel="prefetch" href="/assets/js/64.59592269.js"><link rel="prefetch" href="/assets/js/65.ba2fd2ad.js"><link rel="prefetch" href="/assets/js/66.7aeca197.js"><link rel="prefetch" href="/assets/js/67.465b9930.js"><link rel="prefetch" href="/assets/js/68.4fcb7ca0.js"><link rel="prefetch" href="/assets/js/69.4f596a23.js"><link rel="prefetch" href="/assets/js/7.57edeeaa.js"><link rel="prefetch" href="/assets/js/70.3e6e1486.js"><link rel="prefetch" href="/assets/js/71.e61e28bf.js"><link rel="prefetch" href="/assets/js/72.b1db453c.js"><link rel="prefetch" href="/assets/js/73.a2f3e59e.js"><link rel="prefetch" href="/assets/js/74.bbed54ec.js"><link rel="prefetch" href="/assets/js/75.ac927282.js"><link rel="prefetch" href="/assets/js/76.b8c73cb1.js"><link rel="prefetch" href="/assets/js/77.ef60f934.js"><link rel="prefetch" href="/assets/js/78.5fea10e9.js"><link rel="prefetch" href="/assets/js/79.03d5c3e2.js"><link rel="prefetch" href="/assets/js/8.b6d1b803.js"><link rel="prefetch" href="/assets/js/80.13f6c1be.js"><link rel="prefetch" href="/assets/js/81.d69dc869.js"><link rel="prefetch" href="/assets/js/82.249e8ad4.js"><link rel="prefetch" href="/assets/js/83.95546593.js"><link rel="prefetch" href="/assets/js/84.16a183f4.js"><link rel="prefetch" href="/assets/js/85.bd7c1060.js"><link rel="prefetch" href="/assets/js/86.eaf7a944.js"><link rel="prefetch" href="/assets/js/87.2bd3e7b3.js"><link rel="prefetch" href="/assets/js/88.2578814c.js"><link rel="prefetch" href="/assets/js/89.b21857df.js"><link rel="prefetch" href="/assets/js/9.c4657130.js"><link rel="prefetch" href="/assets/js/90.9bc44c6e.js"><link rel="prefetch" href="/assets/js/91.387c0822.js"><link rel="prefetch" href="/assets/js/92.b05edf47.js"><link rel="prefetch" href="/assets/js/93.7522f244.js"><link rel="prefetch" href="/assets/js/94.87fb34a3.js"><link rel="prefetch" href="/assets/js/95.d77f7cc3.js"><link rel="prefetch" href="/assets/js/96.930684d9.js"><link rel="prefetch" href="/assets/js/97.1c7c9646.js"><link rel="prefetch" href="/assets/js/98.3d1417a1.js"><link rel="prefetch" href="/assets/js/99.ad52d8a0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f4923bad.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Control.</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/20.%E6%A1%86%E6%9E%B6/01.Spring/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/20.%E6%A1%86%E6%9E%B6/01.Spring/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Spring基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/20.框架/01.Spring/notes/1Spring.html" class="sidebar-link">Spring(1)-IOC_IOC DI注入</a></li><li><a href="/20.框架/01.Spring/notes/2Spring.html" class="active sidebar-link">Spring(2)-注解Bean的创建过程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_1-注解驱动的意义" class="sidebar-link">1)注解驱动的意义</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_1-1-什么是注解驱动" class="sidebar-link">1.1)什么是注解驱动</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_1-2-注解驱动的弊端" class="sidebar-link">1.2)注解驱动的弊端</a></li></ul></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_2-常用注解" class="sidebar-link">2)常用注解</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_2-1-启动注解功能" class="sidebar-link">2.1)启动注解功能</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_2-2-bean的定义-增加可读性" class="sidebar-link">2.2)bean的定义 （增加可读性）</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_2-3-bean的作用域" class="sidebar-link">2.3)bean的作用域</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_2-4-bean的生命周期" class="sidebar-link">2.4)bean的生命周期</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_2-5-加载第三方资源" class="sidebar-link">2.5)加载第三方资源</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_2-6-bean的非引用类型属性注入" class="sidebar-link">2.6)bean的非引用类型属性注入</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_2-7-bean的引用类型属性注入" class="sidebar-link">2.7)bean的引用类型属性注入</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_2-8-bean的引用类型属性注入" class="sidebar-link">2.8)bean的引用类型属性注入</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_2-9-bean的引用类型属性注入" class="sidebar-link">2.9)bean的引用类型属性注入</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_2-10-加载properties文件" class="sidebar-link">2.10)加载properties文件</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_2-11-纯注解格式" class="sidebar-link">2.11)纯注解格式</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_2-12-第三方bean配置与管理" class="sidebar-link">2.12)第三方bean配置与管理</a></li></ul></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_3-bean加载控制" class="sidebar-link">3)bean加载控制</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_3-1-依赖加载" class="sidebar-link">3.1)依赖加载</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_3-2-依赖加载应用场景" class="sidebar-link">3.2)依赖加载应用场景</a></li></ul></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_4-整合第三方技术" class="sidebar-link">4)整合第三方技术</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_4-1-综合案例改版-注解整合mybatis" class="sidebar-link">4.1)综合案例改版（注解整合MyBatis）</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_4-2-注解整合mybatis分析" class="sidebar-link">4.2)注解整合MyBatis分析</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_4-3-注解整合mybatis步骤" class="sidebar-link">4.3)注解整合MyBatis步骤</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_4-4-综合案例改版-注解整合junit" class="sidebar-link">4.4)综合案例改版（注解整合Junit）</a></li></ul></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_5-ioc底层核心原理" class="sidebar-link">5)IoC底层核心原理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_5-1-ioc核心接口" class="sidebar-link">5.1)IoC核心接口</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_5-2-组件扫描器" class="sidebar-link">5.2)组件扫描器</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_5-3-设定组件扫描加载过滤器" class="sidebar-link">5.3)设定组件扫描加载过滤器</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_5-4-自定义组件过滤器" class="sidebar-link">5.4)自定义组件过滤器</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_5-5-自定义导入器-springmvc用" class="sidebar-link">5.5)自定义导入器 SpringMVC用</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_5-6-自定义注册器" class="sidebar-link">5.6)自定义注册器</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_5-7-bean初始化过程解析" class="sidebar-link">5.7)bean初始化过程解析</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_5-8-bean初始化过程解析" class="sidebar-link">5.8)bean初始化过程解析</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_5-9-bean初始化过程解析" class="sidebar-link">5.9)bean初始化过程解析</a></li><li class="sidebar-sub-header"><a href="/20.框架/01.Spring/notes/2Spring.html#_5-10-繁琐的bean初始化过程处理" class="sidebar-link">5.10)繁琐的bean初始化过程处理</a></li></ul></li></ul></li><li><a href="/20.框架/01.Spring/notes/3Spring.html" class="sidebar-link">Spring(3)-AOP xml配置 注解配置 AOP原理</a></li><li><a href="/20.框架/01.Spring/notes/4Spring.html" class="sidebar-link">Spring(3)-事务 注解 完全注解开发</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Spring高级</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="注解开发"><a href="#注解开发" class="header-anchor">#</a> 注解开发</h1> <h2 id="_1-注解驱动的意义"><a href="#_1-注解驱动的意义" class="header-anchor">#</a> 1)注解驱动的意义</h2> <h3 id="_1-1-什么是注解驱动"><a href="#_1-1-什么是注解驱动" class="header-anchor">#</a> 1.1)什么是注解驱动</h3> <p>注解启动时使用注解的形式替代xml配置，将繁杂的spring配置文件从工程中彻底消除掉，简化书写
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-e40a7a718b2c43fc90136d8622218edd.png" alt="image.png"></p> <h3 id="_1-2-注解驱动的弊端"><a href="#_1-2-注解驱动的弊端" class="header-anchor">#</a> 1.2)注解驱动的弊端</h3> <ul><li><p>为了 变的更加复杂</p></li> <li><p>XML中配置第三方开发的资源是很方便的，但使用注解驱动无法在第三方开发的资源中进行编辑，因此会增大开发工作量
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-7c5af181d3004660aba72da721fb9647.png" alt="image.png"></p></li></ul> <h2 id="_2-常用注解"><a href="#_2-常用注解" class="header-anchor">#</a> 2)常用注解</h2> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-74db9a9584b64ccdaa3da16eb7e678b7.png" alt="image.png"></p> <h3 id="_2-1-启动注解功能"><a href="#_2-1-启动注解功能" class="header-anchor">#</a> 2.1)启动注解功能</h3> <p>（那个包下的bean进行注解的扫描，也在context包中）</p> <ul><li><p>启动注解扫描，加载类中配置的注解项</p> <div class="language-xml line-numbers-mode"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>component-scan</span> <span class="token attr-name">base-package</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>需要的扫描注解的包<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></li> <li><p>说明：</p> <ul><li><p>在进行包所扫描时，会对配置的包及其子包中所有文件进行扫描</p></li> <li><p>扫描过程是以文件夹递归迭代的形式进行的</p></li> <li><p>扫描过程仅读取合法的java文件</p></li> <li><p>扫描时仅读取spring可识别的注解</p></li> <li><p>扫描结束后会将可识别的有效注解转化为spring对应的资源加入IoC容器</p></li></ul></li> <li><p>注意：</p> <ul><li><p>无论是<strong>注解格式</strong>还是<strong>XML配置格式</strong>，最终都是将资源加载到IoC容器中，差别仅仅是数据读取方式不同</p></li> <li><p>从加载效率上来说<strong>注解优于XML配置文件</strong></p></li></ul></li></ul> <h3 id="_2-2-bean的定义-增加可读性"><a href="#_2-2-bean的定义-增加可读性" class="header-anchor">#</a> 2.2)bean的定义 （增加可读性）</h3> <ul><li><p>名称：@Component （衍生下面三个）   @Controller    @Service    @Repository</p></li> <li><p>类型：<strong>类注解</strong></p></li> <li><p>位置：类定义上方</p></li> <li><p>作用：设置该类为spring管理的bean</p></li> <li><p>范例：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ClassName</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></li> <li><p>说明：</p> <ul><li>@Controller、@Service 、@Repository是@Component的衍生注解，功能同@Component</li></ul></li> <li><p>相关属性</p> <ul><li>value（默认）：定义bean的访问id</li></ul></li></ul> <h3 id="_2-3-bean的作用域"><a href="#_2-3-bean的作用域" class="header-anchor">#</a> 2.3)bean的作用域</h3> <ul><li><p>名称：@Scope</p></li> <li><p>类型：<strong>类注解</strong></p></li> <li><p>位置：类定义上方</p></li> <li><p>作用：设置该类作为bean对应的scope属性</p></li> <li><p>范例：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Scope</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ClassName</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></li> <li><p>相关属性</p> <ul><li>value（默认）：定义bean的作用域，默认为singleton</li></ul></li></ul> <h3 id="_2-4-bean的生命周期"><a href="#_2-4-bean的生命周期" class="header-anchor">#</a> 2.4)bean的生命周期</h3> <ul><li><p>名称：@PostConstruct、@PreDestroy</p></li> <li><p>类型：<strong>方法注解</strong></p></li> <li><p>位置：方法定义上方</p></li> <li><p>作用：设置该类作为bean对应的生命周期方法</p></li> <li><p>范例：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@PostConstruct</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;init...&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></li></ul> <h3 id="_2-5-加载第三方资源"><a href="#_2-5-加载第三方资源" class="header-anchor">#</a> 2.5)加载第三方资源</h3> <ul><li><p>名称：@Bean</p></li> <li><p>类型：<strong>方法注解</strong></p></li> <li><p>位置：方法定义上方</p></li> <li><p>作用：设置该方法的返回值作为spring管理的bean</p></li> <li><p>范例：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span><span class="token string">&quot;dataSource&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">DruidDataSource</span> <span class="token function">createDataSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">return</span> ……<span class="token punctuation">;</span>    <span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></li> <li><p>说明：</p> <ul><li><p>因为第三方bean无法在其源码上进行修改，使用@Bean解决第三方bean的引入问题</p></li> <li><p>该注解用于替代XML配置中的静态工厂与实例工厂创建bean，不区分方法是否为静态或非静态</p></li> <li><p>@Bean所在的类必须被spring扫描加载，否则该注解无法生效</p></li></ul></li> <li><p>相关属性</p> <ul><li>value（默认）：定义bean的访问id</li></ul></li></ul> <h3 id="_2-6-bean的非引用类型属性注入"><a href="#_2-6-bean的非引用类型属性注入" class="header-anchor">#</a> 2.6)bean的非引用类型属性注入</h3> <ul><li><p>名称：@Value</p></li> <li><p>类型：<strong>属性注解、方法注解</strong></p></li> <li><p>位置：属性定义上方，方法定义上方</p></li> <li><p>作用：设置对应属性的值或对方法进行传参</p></li> <li><p>范例：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">&quot;${jdbc.username}&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> username<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></li> <li><p>说明：</p> <ul><li><p>value值仅支持非引用类型数据，赋值时对方法的所有参数全部赋值</p></li> <li><p>value值支持读取properties文件中的属性值，通过类属性将properties中数据传入类中</p></li> <li><p>value值支持SpEL</p></li> <li><p>@value注解如果添加在属性上方，可以省略set方法（set方法的目的是为属性赋值）</p></li></ul></li> <li><p>相关属性</p> <ul><li>value（默认）：定义对应的属性值或参数值</li></ul></li></ul> <h3 id="_2-7-bean的引用类型属性注入"><a href="#_2-7-bean的引用类型属性注入" class="header-anchor">#</a> 2.7)bean的引用类型属性注入</h3> <ul><li><p>名称：@Autowired（按照类型注入）、@Qualifier（按照类型注入必须搭配@Autowired使用） @Resource （按照名称进行装配）</p></li> <li><p>类型：<strong>属性注解、方法注解</strong></p></li> <li><p>位置：属性定义上方，方法定义上方</p></li> <li><p>作用：设置对应属性的对象或对方法进行引用类型传参</p></li> <li><p>范例：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Autowired</span><span class="token punctuation">(</span>required <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">&quot;userDao&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">private</span> <span class="token class-name">UserDao</span> userDao<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div></li> <li><p>说明：</p> <ul><li>@Autowired默认按类型装配，指定@Qualifier后可以指定自动装配的bean的id</li></ul></li> <li><p>相关属性</p> <ul><li>required：定义该属性是否允许为null</li></ul></li></ul> <h3 id="_2-8-bean的引用类型属性注入"><a href="#_2-8-bean的引用类型属性注入" class="header-anchor">#</a> 2.8)bean的引用类型属性注入</h3> <ul><li><p>名称：@Primary</p></li> <li><p>类型：<strong>类注解</strong></p></li> <li><p>位置：类定义上方</p></li> <li><p>作用：设置类对应的bean按<strong>类型装配时优先装配</strong></p></li> <li><p>范例：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Primary</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ClassName</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div></li> <li><p>说明：</p> <ul><li>@Autowired默认按类型装配，当出现相同类型的bean，使用@Primary提高按类型自动装配的优先级，多个@Primary会导致优先级设置无效</li></ul></li></ul> <h3 id="_2-9-bean的引用类型属性注入"><a href="#_2-9-bean的引用类型属性注入" class="header-anchor">#</a> 2.9)bean的引用类型属性注入</h3> <ul><li><p>名称：@Inject、@Named、@Resource</p></li> <li><p>说明：</p> <ul><li>@Inject与@Named是JSR330规范中的注解，功能与@Autowired和@Qualifier完全相同，适用于不同架构场景</li> <li>@Resource是JSR250规范中的注解，可以简化书写格式</li></ul></li> <li><p>@Resource相关属性</p> <ul><li><p>name：设置注入的bean的id</p></li> <li><p>type：设置注入的bean的类型，接收的参数为Class类型</p></li></ul></li></ul> <h3 id="_2-10-加载properties文件"><a href="#_2-10-加载properties文件" class="header-anchor">#</a> 2.10)加载properties文件</h3> <ul><li><p>名称：@PropertySource</p></li> <li><p>类型：<strong>类注解</strong></p></li> <li><p>位置：类定义上方</p></li> <li><p>作用：加载properties文件中的属性值</p></li> <li><p>范例：
+如果直接写在方法的set 方法中就会，解析失败，由于@PropertyScource 已经将配置文件注入到容器中了，我们先注入到属性中，然后在set进即可；</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@PropertySource</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;classpath:filename.properties&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ClassName</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">&quot;${propertiesAttributeName}&quot;</span><span class="token punctuation">)</span> 
+    <span class="token keyword">private</span> <span class="token class-name">String</span> attributeName<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div></li> <li><p>说明：</p> <ul><li>不支持*通配格式，一旦加载，所有spring控制的bean中均可使用对应属性值</li></ul></li> <li><p>相关属性</p> <ul><li><p>value（默认）：设置加载的properties文件名</p></li> <li><p>ignoreResourceNotFound：如果资源未找到，是否忽略，默认为false</p></li></ul></li></ul> <h3 id="_2-11-纯注解格式"><a href="#_2-11-纯注解格式" class="header-anchor">#</a> 2.11)纯注解格式</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-21db355fe3884aa09f3ea0a88436ec54.png" alt="image.png"></p> <ul><li><p>名称：@Configuration、@ComponentScan</p></li> <li><p>类型：<strong>类注解</strong></p></li> <li><p>位置：类定义上方</p></li> <li><p>作用：设置当前类为spring核心配置加载类</p></li> <li><p>范例：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Configuration</span>
+<span class="token annotation punctuation">@ComponentScan</span><span class="token punctuation">(</span><span class="token string">&quot;scan PackageName&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SpringConfigClassName</span><span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div></li> <li><p>说明：</p> <ul><li><p>核心配合类用于替换spring核心配置文件，此类可以设置空的，不设置变量与属性</p></li> <li><p>bean扫描工作使用注解@ComponentScan替代</p></li></ul></li></ul> <p><strong>AnnotationConfigApplicationContext</strong></p> <ul><li><p>加载纯注解格式上下文对象，需要使用AnnotationConfigApplicationContext</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token class-name">AnnotationConfigApplicationContext</span> ctx <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AnnotationConfigApplicationContext</span><span class="token punctuation">(</span><span class="token class-name">SpringConfig</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></li></ul> <h3 id="_2-12-第三方bean配置与管理"><a href="#_2-12-第三方bean配置与管理" class="header-anchor">#</a> 2.12)第三方bean配置与管理</h3> <ul><li><p>名称：@Import</p></li> <li><p>类型：<strong>类注解</strong></p></li> <li><p>位置：类定义上方</p></li> <li><p>作用：导入第三方bean作为spring控制的资源 （一般引入配类，里面是一个字符串数组的形式）</p></li> <li><p>范例：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Configuration</span>
+<span class="token annotation punctuation">@Import</span><span class="token punctuation">(</span><span class="token class-name">OtherClassName</span><span class="token punctuation">.</span><span class="token keyword">class</span>，xxxxConfig<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ClassName</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div></li> <li><p>说明：</p> <ul><li><p>@Import注解在同一个类上，仅允许添加一次，如果需要导入多个，使用数组的形式进行设定</p></li> <li><p>在被导入的类中可以继续使用@Import导入其他资源（了解）</p></li> <li><p>@Bean所在的类可以使用导入的形式进入spring容器，无需声明为bean</p></li></ul></li></ul> <h2 id="_3-bean加载控制"><a href="#_3-bean加载控制" class="header-anchor">#</a> 3)bean加载控制</h2> <h3 id="_3-1-依赖加载"><a href="#_3-1-依赖加载" class="header-anchor">#</a> 3.1)依赖加载</h3> <p>(1)@DependsOn</p> <ul><li><p>名称：@DependsOn</p></li> <li><p>类型：类注解、方法注解</p></li> <li><p>位置：bean定义的位置（类上或方法上）</p></li> <li><p>作用：控制bean的加载顺序，使其在指定bean加载完毕后再加载</p></li> <li><p>范例：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@DependsOn</span><span class="token punctuation">(</span><span class="token string">&quot;beanId&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ClassName</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div></li> <li><p>说明：</p> <ul><li><p>配置在方法上，使@DependsOn指定的bean优先于@Bean配置的bean进行加载</p></li> <li><p>配置在类上，使@DependsOn指定的bean优先于当前类中所有@Bean配置的bean进行加载</p></li> <li><p>配置在类上，使@DependsOn指定的bean优先于@Component等配置的bean进行加载</p></li></ul></li> <li><p>相关属性</p> <ul><li>value（默认）：设置当前bean所依赖的bean的id</li></ul></li></ul> <p>(2)@Order</p> <ul><li><p>名称：@Order</p></li> <li><p>类型：<strong>配置类注解</strong></p></li> <li><p>位置：配置类定义的位置（类上）</p></li> <li><p>作用：控制配置类的加载顺序</p></li> <li><p>范例：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Order</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SpringConfigClassName</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div></li></ul> <p>(3)@Lazy</p> <ul><li><p>名称：@Lazy</p></li> <li><p>类型：<strong>类注解、方法注解</strong></p></li> <li><p>位置：bean定义的位置（类上或方法上）</p></li> <li><p>作用：控制bean的加载时机，使其延迟加载</p></li> <li><p>范例：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Lazy</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ClassName</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div></li></ul> <h3 id="_3-2-依赖加载应用场景"><a href="#_3-2-依赖加载应用场景" class="header-anchor">#</a> <strong>3.2)依赖加载应用场景</strong></h3> <p>@DependsOn</p> <ul><li><p>微信订阅号，发布消息和订阅消息的bean的加载顺序控制</p></li> <li><p>双11活动期间，零点前是结算策略A，零点后是结算策略B，策略B操作的数据为促销数据。策略B加载顺序与促销数据的加载顺序</p></li></ul> <p>@Lazy</p> <ul><li>程序灾难出现后对应的应急预案处理是启动容器时加载时机</li></ul> <p>@Order</p> <ul><li>多个种类的配置出现后，优先加载系统级的，然后加载业务级的，避免细粒度的加载控制</li></ul> <h2 id="_4-整合第三方技术"><a href="#_4-整合第三方技术" class="header-anchor">#</a> 4)整合第三方技术</h2> <h3 id="_4-1-综合案例改版-注解整合mybatis"><a href="#_4-1-综合案例改版-注解整合mybatis" class="header-anchor">#</a> 4.1)综合案例改版（注解整合MyBatis）</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-fa56efcdfede453b8ee9503e300be50f.png" alt="image.png"></p> <h3 id="_4-2-注解整合mybatis分析"><a href="#_4-2-注解整合mybatis分析" class="header-anchor">#</a> 4.2)注解整合MyBatis分析</h3> <ul><li><p>业务类使用注解形式声明bean，属性采用注解注入</p></li> <li><p>建立独立的配置管理类，分类管理外部资源，根据功能进行分类，并提供对应的方法获取bean</p></li> <li><p>使用注解形式启动bean扫描，加载所有注解配置的资源（bean）</p></li> <li><p>使用AnnotationConfigApplicationContext对象加载所有的启动配置类，内部使用导入方式进行关联</p></li></ul> <h3 id="_4-3-注解整合mybatis步骤"><a href="#_4-3-注解整合mybatis步骤" class="header-anchor">#</a> 4.3)注解整合MyBatis步骤</h3> <p>1.修改mybatis外部配置文件格式为注解格式</p> <p>2.业务类使用@Component声明bean，使用@Autowired注入对象</p> <p>3.建立配置文件JDBCConfig与MyBatisConfig类，并将其导入到核心配置类SpringConfig</p> <p>4.开启注解扫描</p> <p>5.使用AnnotationConfigApplicationContext对象加载配置项</p> <h3 id="_4-4-综合案例改版-注解整合junit"><a href="#_4-4-综合案例改版-注解整合junit" class="header-anchor">#</a> 4.4)综合案例改版（注解整合Junit）</h3> <p>1.Spring接管Junit的运行权，使用Spring专用的Junit类加载器</p> <p>2.为Junit测试用例设定对应的spring容器：</p> <ul><li><p>从Spring5.0以后，要求Junit的版本必须是4.12及以上</p></li> <li><p>Junit仅用于单元测试，不能将Junit的测试类配置成spring的bean，否则该配置将会被打包进入工程中</p></li></ul> <p>导入Spring整合Junit坐标</p> <div class="language-xml line-numbers-mode"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>junit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>junit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>4.12<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>5.1.9.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>在测试类中，每次都要创建容器对象，然后在调用Bean很麻烦，直接用Spring-test（Spring整合test 的 jar包），在代码中直接注入就可以；
+Spring整合Junit测试用例注解格式</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@RunWith</span><span class="token punctuation">(</span><span class="token class-name">SpringJUnit4ClassRunner</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token comment">//注解替换原来的运行期</span>
+<span class="token annotation punctuation">@ContextConfiguration</span><span class="token punctuation">(</span>classes <span class="token operator">=</span> <span class="token class-name">SpringConfig</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token comment">//指定配置文件</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserServiceTest</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="_5-ioc底层核心原理"><a href="#_5-ioc底层核心原理" class="header-anchor">#</a> 5)IoC底层核心原理</h2> <h3 id="_5-1-ioc核心接口"><a href="#_5-1-ioc核心接口" class="header-anchor">#</a> 5.1)IoC核心接口</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-cd1f41f5e43c4feeba3c03b7b8f83f3c.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-8899a0c5134445e1ab649dc55420fac7.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-dca7a1f3fd1547bfaae4c19630718824.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-5e920813f1904140914a44cf607ed667.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-f4e773e83e7b479b8b97a51c95292839.png" alt="image.png"></p> <h3 id="_5-2-组件扫描器"><a href="#_5-2-组件扫描器" class="header-anchor">#</a> <strong>5.2)组件扫描器</strong></h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-9d50e92f1e69475c9f121d12b9a7b48d.png" alt="image.png"></p> <ul><li>开发过程中，需要根据需求加载必要的bean，排除指定bean
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-ed5f35212e4d402eafd879e6842d96ef.png" alt="image.png"></li></ul> <h3 id="_5-3-设定组件扫描加载过滤器"><a href="#_5-3-设定组件扫描加载过滤器" class="header-anchor">#</a> <strong>5.3)设定组件扫描加载过滤器</strong></h3> <ul><li><p>名称：@ComponentScan</p></li> <li><p>类型：<strong>类注解</strong></p></li> <li><p>位置：类定义上方</p></li> <li><p>作用：设置spring配置加载类扫描规则</p></li> <li><p>范例：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@ComponentScan</span><span class="token punctuation">(</span>
+    value<span class="token operator">=</span><span class="token string">&quot;com.itheima&quot;</span><span class="token punctuation">,</span>	           <span class="token comment">//设置基础扫描路径</span>
+    excludeFilters <span class="token operator">=</span>                          <span class="token comment">//设置过滤规则，当前为排除过滤</span>
+	<span class="token annotation punctuation">@ComponentScan.Filter</span><span class="token punctuation">(</span>            <span class="token comment">//设置过滤器</span>
+	    type<span class="token operator">=</span> <span class="token class-name">FilterType</span><span class="token punctuation">.</span>ANNOTATION<span class="token punctuation">,</span>  <span class="token comment">//设置过滤方式为按照注解进行过滤</span>
+	    classes<span class="token operator">=</span><span class="token class-name">Repository</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>     <span class="token comment">//设置具体的过滤项，过滤所有@Repository修饰的bean</span>
+    <span class="token punctuation">)</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div></li></ul> <p>​	includeFilters：设置包含性过滤器</p> <p>​	excludeFilters：设置排除性过滤器</p> <p>​	type：设置过滤器类型
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-d1c7689b8866417c9fbacaadcde04c61.png" alt="image.png"></p> <h3 id="_5-4-自定义组件过滤器"><a href="#_5-4-自定义组件过滤器" class="header-anchor">#</a> <strong>5.4)自定义组件过滤器</strong></h3> <p>需要在@ComponentScan（）中的
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-8caf9faef3c74292ae748611f7ffdc1a.png" alt="image.png"></p> <ul><li><p>名称：TypeFilter</p></li> <li><p>类型：<strong>接口</strong></p></li> <li><p>作用：自定义类型过滤器</p></li> <li><p>范例：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyTypeFilter</span> <span class="token keyword">implements</span> <span class="token class-name">TypeFilter</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">match</span><span class="token punctuation">(</span><span class="token class-name">MetadataReader</span> mr<span class="token punctuation">,</span> <span class="token class-name">MetadataReaderFactory</span> mrf<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">{</span>
+        <span class="token class-name">ClassMetadata</span> cm <span class="token operator">=</span> metadataReader<span class="token punctuation">.</span><span class="token function">getClassMetadata</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        tring className <span class="token operator">=</span> cm<span class="token punctuation">.</span><span class="token function">getClassName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>className<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">&quot;com.itheima.dao.impl.BookDaoImpl&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div></li></ul> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-08d6814a8fc34957a845e2b836a0ed86.png" alt="image.png"></p> <h3 id="_5-5-自定义导入器-springmvc用"><a href="#_5-5-自定义导入器-springmvc用" class="header-anchor">#</a> <strong>5.5)自定义导入器 SpringMVC用</strong></h3> <p>需要在启动类上加 @import（类的名字）</p> <ul><li><p>bean只有通过配置才可以进入spring容器，被spring加载并控制</p></li> <li><p>配置bean的方式如下：</p> <ul><li><p>XML文件中使用<bean></bean>标签配置</p></li> <li><p>使用@Component及衍生注解配置</p></li></ul></li> <li><p>企业开发过程中，通常需要配置大量的bean，需要一种快速高效配置大量bean的方式</p></li></ul> <p><strong>ImportSelector</strong></p> <ul><li><p>名称： ImportSelector</p></li> <li><p>类型：<strong>接口</strong></p></li> <li><p>作用：自定义bean导入器</p></li> <li><p>范例：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyImportSelector</span> <span class="token keyword">implements</span> <span class="token class-name">ImportSelector</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">selectImports</span><span class="token punctuation">(</span><span class="token class-name">AnnotationMetadata</span> icm<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token string">&quot;com.itheima.dao.impl.AccountDaoImpl&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div></li></ul> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-daa2a4d3837649d6a67c0b2a070c8fe5.png" alt="image.png"></p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Configuration</span>
+<span class="token annotation punctuation">@ComponentScan</span><span class="token punctuation">(</span><span class="token string">&quot;com.itheima&quot;</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Import</span><span class="token punctuation">(</span><span class="token class-name">MyImportSelector</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SpringConfig</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-c7cd17fb2a024d3c9ba049ce480db723.png" alt="image.png"></p> <h3 id="_5-6-自定义注册器"><a href="#_5-6-自定义注册器" class="header-anchor">#</a> <strong>5.6)自定义注册器</strong></h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-157ff3ed79314a9898a9434965ed865c.png" alt="image.png">
+需要在启动类上加 @import（类的名字）</p> <ul><li><p>名称：ImportBeanDefinitionRegistrar</p></li> <li><p>类型：<strong>接口</strong></p></li> <li><p>作用：自定义bean定义注册器</p></li> <li><p>范例：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyImportBeanDefinitionRegistrar</span> <span class="token keyword">implements</span> <span class="token class-name">ImportBeanDefinitionRegistrar</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">registerBeanDefinitions</span><span class="token punctuation">(</span><span class="token class-name">AnnotationMetadata</span> icm<span class="token punctuation">,</span> <span class="token class-name">BeanDefinitionRegistry</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">ClassPathBeanDefinitionScanner</span> scanner <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ClassPathBeanDefinitionScanner</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//定义一个扫描器</span>
+        <span class="token class-name">TypeFilter</span> tf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TypeFilter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">match</span><span class="token punctuation">(</span><span class="token class-name">MetadataReader</span> mr<span class="token punctuation">,</span> <span class="token class-name">MetadataReaderFactory</span> mrf<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        scanner<span class="token punctuation">.</span><span class="token function">addIncludeFilter</span><span class="token punctuation">(</span>tf<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//scanner.addExcludeFilter(tf);</span>
+        scanner<span class="token punctuation">.</span><span class="token function">scan</span><span class="token punctuation">(</span><span class="token string">&quot;com.itheima&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div></li></ul> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-0ce16594606445fe8548b34f4d22cdf3.png" alt="image.png"></p> <h3 id="_5-7-bean初始化过程解析"><a href="#_5-7-bean初始化过程解析" class="header-anchor">#</a> 5.7)bean初始化过程解析</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-06e525432cf540a89895840a3a3085a8.png" alt="image.png"></p> <h3 id="_5-8-bean初始化过程解析"><a href="#_5-8-bean初始化过程解析" class="header-anchor">#</a> 5.8)bean初始化过程解析</h3> <p>下满的类，都需要交给Bean容器，容器就会自动执行</p> <ul><li><p>BeanFactoryPostProcessor</p> <ul><li><p>作用：定义了在bean<strong>工厂对象创建后</strong>，bean对象创建前执行的动作，用于对工厂进行创建后业务处理</p></li> <li><p>运行时机：当前操作用于对工厂进行处理，仅运行一次</p></li></ul></li> <li><p>BeanPostProcessor</p> <ul><li><p>作用：定义了所有bean初始化前后进行的统一动作，用于对bean进行创建<strong>前业务处理</strong>与创建<strong>后业务处理</strong></p></li> <li><p>运行时机：当前操作伴随着每个bean的创建过程，每次创建bean均运行该操作</p></li></ul></li> <li><p>InitializingBean</p> <ul><li><p>作用：定义了每个<strong>bean的初始化前进行</strong>的动作，属于非统一性动作，用于对bean进行创建前业务处理</p></li> <li><p>运行时机：当前操作伴随着任意一个bean的创建过程，保障其个性化业务处理</p></li></ul></li> <li><p>注意：上述操作均需要被spring容器加载放可运行</p></li></ul> <h3 id="_5-9-bean初始化过程解析"><a href="#_5-9-bean初始化过程解析" class="header-anchor">#</a> 5.9)bean初始化过程解析</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-c9d8bdbb176d41fc9b844e7d2cc864f2.png" alt="image.png"></p> <h3 id="_5-10-繁琐的bean初始化过程处理"><a href="#_5-10-繁琐的bean初始化过程处理" class="header-anchor">#</a> 5.10)繁琐的bean初始化过程处理</h3> <ul><li>FactoryBean
+<ul><li>对单一的bean的初始化过程进行封装，达到简化配置的目的</li></ul></li></ul> <p><strong>FactoryBean与BeanFactory区别</strong></p> <ul><li><p>FactoryBean：封装单个bean的创建过程</p></li> <li><p>BeanFactory：Spring容器顶层接口，定义了bean相关的获取操作(用来获取bean的)</p></li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">5/17/2022, 12:02:13 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/20.框架/01.Spring/notes/1Spring.html" class="prev">
+        Spring(1)-IOC_IOC DI注入
+      </a></span> <span class="next"><a href="/20.框架/01.Spring/notes/3Spring.html">
+        Spring(3)-AOP xml配置 注解配置 AOP原理
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.19543062.js" defer></script><script src="/assets/js/2.0ee43227.js" defer></script><script src="/assets/js/16.61f286cd.js" defer></script>
+  </body>
+</html>

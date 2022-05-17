@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>第一节 位运算|算法是什么|简单排序 | Control.</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <script charset="utf-8" src="/js/main.js"></script>
+    <meta name="description" content="去发光,而不是被照亮">
+    
+    <link rel="preload" href="/assets/css/0.styles.f4923bad.css" as="style"><link rel="preload" href="/assets/js/app.19543062.js" as="script"><link rel="preload" href="/assets/js/2.0ee43227.js" as="script"><link rel="preload" href="/assets/js/45.17e2d9c7.js" as="script"><link rel="prefetch" href="/assets/js/10.e58b7d3b.js"><link rel="prefetch" href="/assets/js/100.2a9b953a.js"><link rel="prefetch" href="/assets/js/101.859b2f1e.js"><link rel="prefetch" href="/assets/js/102.de57107f.js"><link rel="prefetch" href="/assets/js/103.810791da.js"><link rel="prefetch" href="/assets/js/104.2a858183.js"><link rel="prefetch" href="/assets/js/105.8d220a0b.js"><link rel="prefetch" href="/assets/js/106.96fc31f2.js"><link rel="prefetch" href="/assets/js/107.30ac6bd5.js"><link rel="prefetch" href="/assets/js/108.f40e9ef7.js"><link rel="prefetch" href="/assets/js/109.7354eeca.js"><link rel="prefetch" href="/assets/js/11.22d06b73.js"><link rel="prefetch" href="/assets/js/110.d2316756.js"><link rel="prefetch" href="/assets/js/111.75dd52f1.js"><link rel="prefetch" href="/assets/js/112.9d8dda4d.js"><link rel="prefetch" href="/assets/js/113.e83d3089.js"><link rel="prefetch" href="/assets/js/114.5211e116.js"><link rel="prefetch" href="/assets/js/115.720242c4.js"><link rel="prefetch" href="/assets/js/116.ffc4f30c.js"><link rel="prefetch" href="/assets/js/117.42cd696e.js"><link rel="prefetch" href="/assets/js/118.40e1432e.js"><link rel="prefetch" href="/assets/js/119.3a8957dc.js"><link rel="prefetch" href="/assets/js/12.a654ee1a.js"><link rel="prefetch" href="/assets/js/120.2b0a9300.js"><link rel="prefetch" href="/assets/js/121.04096719.js"><link rel="prefetch" href="/assets/js/122.1a58fe68.js"><link rel="prefetch" href="/assets/js/123.159dcd59.js"><link rel="prefetch" href="/assets/js/124.bd4deaf4.js"><link rel="prefetch" href="/assets/js/125.6e049d24.js"><link rel="prefetch" href="/assets/js/126.bfc57933.js"><link rel="prefetch" href="/assets/js/127.9b253d7c.js"><link rel="prefetch" href="/assets/js/128.ffcac091.js"><link rel="prefetch" href="/assets/js/129.9e23da4e.js"><link rel="prefetch" href="/assets/js/13.1c933f28.js"><link rel="prefetch" href="/assets/js/130.6a87ad19.js"><link rel="prefetch" href="/assets/js/131.231bcc33.js"><link rel="prefetch" href="/assets/js/14.6afb9e3b.js"><link rel="prefetch" href="/assets/js/15.2e4d6ff0.js"><link rel="prefetch" href="/assets/js/16.61f286cd.js"><link rel="prefetch" href="/assets/js/17.ed9f0af6.js"><link rel="prefetch" href="/assets/js/18.e84e6471.js"><link rel="prefetch" href="/assets/js/19.76e080d8.js"><link rel="prefetch" href="/assets/js/20.2b2bf9bd.js"><link rel="prefetch" href="/assets/js/21.63da56e6.js"><link rel="prefetch" href="/assets/js/22.fb3ff4f4.js"><link rel="prefetch" href="/assets/js/23.fdca031f.js"><link rel="prefetch" href="/assets/js/24.92f82c60.js"><link rel="prefetch" href="/assets/js/25.a7a9704b.js"><link rel="prefetch" href="/assets/js/26.069c1e52.js"><link rel="prefetch" href="/assets/js/27.5f9a3c75.js"><link rel="prefetch" href="/assets/js/28.03fc0a93.js"><link rel="prefetch" href="/assets/js/29.cbc373fb.js"><link rel="prefetch" href="/assets/js/3.7be5a5a6.js"><link rel="prefetch" href="/assets/js/30.8681b9c2.js"><link rel="prefetch" href="/assets/js/31.36a09955.js"><link rel="prefetch" href="/assets/js/32.3b0c91db.js"><link rel="prefetch" href="/assets/js/33.d6de13ff.js"><link rel="prefetch" href="/assets/js/34.d9c51bc9.js"><link rel="prefetch" href="/assets/js/35.62ae3575.js"><link rel="prefetch" href="/assets/js/36.58249b42.js"><link rel="prefetch" href="/assets/js/37.c15ea66a.js"><link rel="prefetch" href="/assets/js/38.4ae7765d.js"><link rel="prefetch" href="/assets/js/39.57ec096f.js"><link rel="prefetch" href="/assets/js/4.e3eff0c1.js"><link rel="prefetch" href="/assets/js/40.f6d39637.js"><link rel="prefetch" href="/assets/js/41.08935a30.js"><link rel="prefetch" href="/assets/js/42.16f30978.js"><link rel="prefetch" href="/assets/js/43.9ba5877d.js"><link rel="prefetch" href="/assets/js/44.12534072.js"><link rel="prefetch" href="/assets/js/46.e281b6c7.js"><link rel="prefetch" href="/assets/js/47.7ad6135f.js"><link rel="prefetch" href="/assets/js/48.30bd52b0.js"><link rel="prefetch" href="/assets/js/49.6a40dfb5.js"><link rel="prefetch" href="/assets/js/5.12a90c90.js"><link rel="prefetch" href="/assets/js/50.85a351d0.js"><link rel="prefetch" href="/assets/js/51.78da0798.js"><link rel="prefetch" href="/assets/js/52.2310f240.js"><link rel="prefetch" href="/assets/js/53.d0049f2c.js"><link rel="prefetch" href="/assets/js/54.28aa5c87.js"><link rel="prefetch" href="/assets/js/55.381915f1.js"><link rel="prefetch" href="/assets/js/56.89d6cf82.js"><link rel="prefetch" href="/assets/js/57.a66c0467.js"><link rel="prefetch" href="/assets/js/58.e58969db.js"><link rel="prefetch" href="/assets/js/59.b83e284f.js"><link rel="prefetch" href="/assets/js/6.6e2b9d44.js"><link rel="prefetch" href="/assets/js/60.e860c237.js"><link rel="prefetch" href="/assets/js/61.681c3973.js"><link rel="prefetch" href="/assets/js/62.1659a827.js"><link rel="prefetch" href="/assets/js/63.1d1cf38e.js"><link rel="prefetch" href="/assets/js/64.59592269.js"><link rel="prefetch" href="/assets/js/65.ba2fd2ad.js"><link rel="prefetch" href="/assets/js/66.7aeca197.js"><link rel="prefetch" href="/assets/js/67.465b9930.js"><link rel="prefetch" href="/assets/js/68.4fcb7ca0.js"><link rel="prefetch" href="/assets/js/69.4f596a23.js"><link rel="prefetch" href="/assets/js/7.57edeeaa.js"><link rel="prefetch" href="/assets/js/70.3e6e1486.js"><link rel="prefetch" href="/assets/js/71.e61e28bf.js"><link rel="prefetch" href="/assets/js/72.b1db453c.js"><link rel="prefetch" href="/assets/js/73.a2f3e59e.js"><link rel="prefetch" href="/assets/js/74.bbed54ec.js"><link rel="prefetch" href="/assets/js/75.ac927282.js"><link rel="prefetch" href="/assets/js/76.b8c73cb1.js"><link rel="prefetch" href="/assets/js/77.ef60f934.js"><link rel="prefetch" href="/assets/js/78.5fea10e9.js"><link rel="prefetch" href="/assets/js/79.03d5c3e2.js"><link rel="prefetch" href="/assets/js/8.b6d1b803.js"><link rel="prefetch" href="/assets/js/80.13f6c1be.js"><link rel="prefetch" href="/assets/js/81.d69dc869.js"><link rel="prefetch" href="/assets/js/82.249e8ad4.js"><link rel="prefetch" href="/assets/js/83.95546593.js"><link rel="prefetch" href="/assets/js/84.16a183f4.js"><link rel="prefetch" href="/assets/js/85.bd7c1060.js"><link rel="prefetch" href="/assets/js/86.eaf7a944.js"><link rel="prefetch" href="/assets/js/87.2bd3e7b3.js"><link rel="prefetch" href="/assets/js/88.2578814c.js"><link rel="prefetch" href="/assets/js/89.b21857df.js"><link rel="prefetch" href="/assets/js/9.c4657130.js"><link rel="prefetch" href="/assets/js/90.9bc44c6e.js"><link rel="prefetch" href="/assets/js/91.387c0822.js"><link rel="prefetch" href="/assets/js/92.b05edf47.js"><link rel="prefetch" href="/assets/js/93.7522f244.js"><link rel="prefetch" href="/assets/js/94.87fb34a3.js"><link rel="prefetch" href="/assets/js/95.d77f7cc3.js"><link rel="prefetch" href="/assets/js/96.930684d9.js"><link rel="prefetch" href="/assets/js/97.1c7c9646.js"><link rel="prefetch" href="/assets/js/98.3d1417a1.js"><link rel="prefetch" href="/assets/js/99.ad52d8a0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f4923bad.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Control.</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/30.%E7%AE%97%E6%B3%95/01.%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/30.%E7%AE%97%E6%B3%95/01.%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>算法基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/30.算法/01.算法基础/notes/1课程简介及算法复杂度分析.html" class="sidebar-link">第一章 算法复杂度分析</a></li><li><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html" class="active sidebar-link">第一节 位运算|算法是什么|简单排序</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#算法的分类" class="sidebar-link">算法的分类</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#排序算法" class="sidebar-link">排序算法</a></li></ul></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#_01-位运算、算法是什么、介绍位运算和简单排序" class="sidebar-link">01 位运算、算法是什么、介绍位运算和简单排序</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#_1-实现冒泡排序" class="sidebar-link">1.实现冒泡排序</a></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#_2-实现选择排序" class="sidebar-link">2.实现选择排序</a></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#_3-实现插入排序" class="sidebar-link">3.实现插入排序</a></li></ul></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#_02-数据结构的大分类、介绍前缀和与对数器" class="sidebar-link">02 数据结构的大分类、介绍前缀和与对数器</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#数据结构的分类" class="sidebar-link">数据结构的分类</a></li></ul></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#_03-介绍二分法-介绍时间复杂度、动态数组、哈希表和有序表" class="sidebar-link">03 介绍二分法，介绍时间复杂度、动态数组、哈希表和有序表</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#二分法" class="sidebar-link">二分法</a></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#哈希表-hashmap" class="sidebar-link">哈希表 HashMap</a></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#有序表-treemap" class="sidebar-link">有序表 TreeMap</a></li></ul></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#_04-链表相关的简单面试题" class="sidebar-link">04 链表相关的简单面试题</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#数据结构只分为两种" class="sidebar-link">数据结构只分为两种:</a></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#单双链表的定义" class="sidebar-link">单双链表的定义:</a></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#栈、队列" class="sidebar-link">栈、队列</a></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#双端队列" class="sidebar-link">双端队列</a></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#k个节点的组内逆序调整问题" class="sidebar-link">K个节点的组内逆序调整问题：</a></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#两个链表相加问题" class="sidebar-link">两个链表相加问题</a></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#两个有序链表的合并" class="sidebar-link">两个有序链表的合并</a></li></ul></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#_05-位图、位运算实现加减乘除" class="sidebar-link">05 位图、位运算实现加减乘除</a></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#_06-比较器、优先级队列、二叉树" class="sidebar-link">06 比较器、优先级队列、二叉树</a></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#_07-继续二叉树的很多题目" class="sidebar-link">07 继续二叉树的很多题目</a></li><li class="sidebar-sub-header"><a href="/30.算法/01.算法基础/notes/2位运算 算法是什么简单排序.html#_08-介绍归并排序和快速排序" class="sidebar-link">08 介绍归并排序和快速排序</a></li></ul></li><li><a href="/30.算法/01.算法基础/notes/3数组问题讲解.html" class="sidebar-link">左神数组问题讲解</a></li><li><a href="/30.算法/01.算法基础/notes/4数组问题讲解.html" class="sidebar-link">大厂学院数组问题讲解</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h4 id="问题一-得到一个数字的32位表示方式"><a href="#问题一-得到一个数字的32位表示方式" class="header-anchor">#</a> 问题一: 得到一个数字的32位表示方式:</h4> <p>int 型 4个字节(32位) double 8个字节(64位) 每个字节8位
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-0421ec233bd042eb9b487ba520b03b23.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-b6f0f09df87a4139b743d023e993f83a.png" alt="image.png"></p> <p>每个数字 实际存储的 值都是一个二进制数字;</p> <ul><li><p>左移: 左移都是不带符号的,右移有带符号的;
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-fd15eb56649c49058d132e9a56584f3c.png" alt="image.png"></p></li> <li><p>反码
+有符号整型:2的31次方-1   (java中)
+无复数整形:2的31次方-1   (c++中)
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-e65f664872ca4ce483cb3873e27814eb.png" alt="image.png"></p></li></ul> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-8cd6333c50b349e5b58e2ed6750a1bc2.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-462c4657dc5f4b92a518d33cd908eb0b.png" alt="image.png">
+最小的数字是:
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-f416cdf7c6db45d2ab7acf9dd0c784ed.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-2fa1b574aadf4891b786fb2c4638c384.png" alt="image.png"></p> <h4 id="问题二-负数为啥要取反加一"><a href="#问题二-负数为啥要取反加一" class="header-anchor">#</a> 问题二: 负数为啥要取反加一?</h4> <p>算数符号 + - * / 都是二进制表示,用位运算来表示;
+为了使用一个逻辑门去计算,让计算加快,</p> <ul><li><p>补码</p></li> <li><p>右移:
+带符号右移     和  不带符号有移</p></li></ul> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token operator">&gt;&gt;</span> <span class="token punctuation">(</span>符号位来补<span class="token punctuation">)</span> 和 <span class="token operator">&gt;&gt;&gt;</span> 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>系统最小值  的相反数 (取反加1) 还是他自己;</p> <h1 id="算法"><a href="#算法" class="header-anchor">#</a> 算法</h1> <p>1.具体的问题
+2.设置的具体流程
+3.评价流程的方式 (空间复杂度 时间复杂度)</p> <h2 id="算法的分类"><a href="#算法的分类" class="header-anchor">#</a> 算法的分类</h2> <ol><li>明确知道则么算的流程</li> <li>明确知道则么试的流程</li></ol> <h3 id="排序算法"><a href="#排序算法" class="header-anchor">#</a> 排序算法</h3> <ul><li>选择排序</li></ul> <p>遍历所有找出最小放在第一位,然后在第二位开始 向后找最小的,放在第二位,依次进行;
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-2ba32576b60543c49ff710bf84bc63a7.png" alt="image.png"></p> <ul><li>冒泡排序
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-091551a1656e4a099eb9c873d2738fa5.png" alt="image.png"></li></ul> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-b4270e923c4042a1afe4f1137a508025.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-3f39a752ac0b4a7e98cfe980374b90b9.png" alt="image.png"></p> <ul><li>插入排序</li></ul> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-831977e290a641d8b48cb1bbd7010a80.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-c358f76c641945bda0c81c54fc35c8e7.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-db6ef5c809c14faa857f7dec27a55608.png" alt="image.png"></p> <h1 id="算法和数据结构新手班"><a href="#算法和数据结构新手班" class="header-anchor">#</a> 算法和数据结构新手班</h1> <h2 id="_01-位运算、算法是什么、介绍位运算和简单排序"><a href="#_01-位运算、算法是什么、介绍位运算和简单排序" class="header-anchor">#</a> 01 位运算、算法是什么、介绍位运算和简单排序</h2> <p>内容：</p> <p>讲解二进制、位运算</p> <p>介绍什么是算法</p> <p>讲解冒泡、选择、插入排序</p> <p>题目：</p> <p>实现打印一个整数的二进制</p> <p>给定一个参数N，返回1!+2!+3!+4!+…+N!的结果</p> <h3 id="_1-实现冒泡排序"><a href="#_1-实现冒泡排序" class="header-anchor">#</a> 1.实现冒泡排序</h3> <p>只比较相邻的两个进行比较，如果小（大）于就换 第一次只会让 一个正确的数字归位；每次归位一个，遍历循环 arr.length-1 次就可以了；</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code> <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token class-name">BubbleSortFunction</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> arr<span class="token operator">==</span><span class="token keyword">null</span> <span class="token operator">||</span> arr<span class="token punctuation">.</span>length<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+<span class="token comment">//        for (int end = arr.length - 1; end &gt; 0; end--) {</span>
+<span class="token comment">//            for (int i = 0; i &lt; end; i++) {</span>
+<span class="token comment">//                if (arr[i] &gt; arr[i + 1]) {</span>
+<span class="token comment">//                    swap(arr, i, i + 1);</span>
+<span class="token comment">//                }</span>
+<span class="token comment">//            }</span>
+<span class="token comment">//        }</span>
+<span class="token comment">//       for (int i=arr.length-1 ; i&gt;0 ; i--){</span>
+<span class="token comment">//           for (int j=0 ; j &lt; i ; j++){</span>
+<span class="token comment">//               if (arr[j]&gt;arr[j+1]){</span>
+<span class="token comment">//                   swap(arr,j,j+1);</span>
+<span class="token comment">//               }</span>
+<span class="token comment">//           }</span>
+<span class="token comment">//        }</span>
+       <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+           <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span>arr<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&gt;</span>i<span class="token punctuation">;</span>j<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+               <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&gt;</span>arr<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                   <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>j<span class="token punctuation">,</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token punctuation">}</span>
+           <span class="token punctuation">}</span>
+       <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><h3 id="_2-实现选择排序"><a href="#_2-实现选择排序" class="header-anchor">#</a> 2.实现选择排序</h3> <p>选择排序是遍历完整数组，每次遍历 找出最值 放到他 正确的位置，遍历arr.length-1 次就可以了；</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">selectFunction</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>arr <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> arr<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">int</span> arrayLength<span class="token operator">=</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>arrayLength<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">int</span> minIndex<span class="token operator">=</span>i<span class="token punctuation">;</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span> <span class="token keyword">int</span> j<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>arrayLength<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span><span class="token operator">&gt;</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    minIndex<span class="token operator">=</span>j<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>i<span class="token punctuation">,</span>minIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h3 id="_3-实现插入排序"><a href="#_3-实现插入排序" class="header-anchor">#</a> 3.实现插入排序</h3> <p>插入排序 好比 左手拿着一张扑克牌，然后数组在右手，先把 0 放到左手，
+开始循环 每次拿一个 右手的数组值，和左手的进行比较 让左手的 变成有序的，最终返回左手排好序的数组；</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code>    <span class="token keyword">public</span>  <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">insertionSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span> arr<span class="token operator">==</span><span class="token keyword">null</span> <span class="token operator">||</span> arr<span class="token punctuation">.</span>length<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&gt;=</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>j<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token function">swap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>j<span class="token punctuation">,</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h2 id="_02-数据结构的大分类、介绍前缀和与对数器"><a href="#_02-数据结构的大分类、介绍前缀和与对数器" class="header-anchor">#</a> 02 数据结构的大分类、介绍前缀和与对数器</h2> <h3 id="数据结构的分类"><a href="#数据结构的分类" class="header-anchor">#</a> 数据结构的分类</h3> <h4 id="连续结构"><a href="#连续结构" class="header-anchor">#</a> 连续结构：</h4> <p>（连续结构）  数组<br>
+加减困难 查找困难</p> <h4 id="非连续结构"><a href="#非连续结构" class="header-anchor">#</a> 非连续结构：</h4> <p>（跳转结构）  树 图等
+加减容易 查找困难</p> <p>什么是数据结构、组成各种数据结构最基本的元件</p> <h4 id="前缀和数组"><a href="#前缀和数组" class="header-anchor">#</a> 前缀和数组</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-2fa97d4a065142f8a2e96f20a4afdaa2.png" alt="image.png"></p> <h4 id="随机函数"><a href="#随机函数" class="header-anchor">#</a> 随机函数</h4> <p>java 中的 Math.random() 返回double 的数字 [0,1) 等概率的 返回一个 小数;</p> <h4 id="对数器的使用"><a href="#对数器的使用" class="header-anchor">#</a> 对数器的使用</h4> <p>概率变成x平方:
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-974a43f8732d421da973a893ec474fc6.png" alt="image.png"></p> <h4 id="题目"><a href="#题目" class="header-anchor">#</a> 题目：</h4> <p>实现前缀和数组</p> <h5 id="如何用1到5的随机函数加工出1-7的随机函数"><a href="#如何用1到5的随机函数加工出1-7的随机函数" class="header-anchor">#</a> 如何用1到5的随机函数加工出1~7的随机函数</h5> <p>如何用a~b的随机函数加工出c~d的随机函数
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-ac2c12cc92c2445ca80f33bfcf5ae93d.png" alt="image.png"></p> <h5 id="如何把不等概率随机函数变成等概率随机函数"><a href="#如何把不等概率随机函数变成等概率随机函数" class="header-anchor">#</a> 如何把不等概率随机函数变成等概率随机函数</h5> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-8e8a78c17970444ba88227872778e7f6.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-85ad512a5063462590478e7cade5fa6d.png" alt="image.png"></p> <h5 id="展示对数器的使用"><a href="#展示对数器的使用" class="header-anchor">#</a> 展示对数器的使用</h5> <h5 id="引用传递和按值传递"><a href="#引用传递和按值传递" class="header-anchor">#</a> 引用传递和按值传递</h5> <h6 id="一、基本类型和引用类型的理解"><a href="#一、基本类型和引用类型的理解" class="header-anchor">#</a> 一、基本类型和引用类型的理解</h6> <p>Java中的数据类型分为两种为基本类型和引用类型。</p> <p>1、基本类型的变量保存原始值，所以变量就是数据本身。</p> <div class="language- extra-class"><pre><code>常见的基本类型：byte,short,int,long,char,float,double,Boolean,returnAddress。
+</code></pre></div><p>2、引用类型的变量保存引用值，所谓的引用值就是对象所在内存空间的“首地址值”，通过对这个引用值来操作对象。</p> <div class="language- extra-class"><pre><code>常见的引用类型：类类型，接口类型和数组。
+</code></pre></div><h6 id="二、值传递和引用传递的理解"><a href="#二、值传递和引用传递的理解" class="header-anchor">#</a> 二、值传递和引用传递的理解</h6> <p>1、值传递
+在方法的调用过程中，实参把它的实际值传递给形参，此传递过程就是将实参的值复制一份传递到函数中，这样如果在函数中对该值（形参的值）进行了操作将不会影响实参的值。因为是直接复制，所以这种方式在传递大量数据时，运行效率会特别低下。</p> <p>2、引用传递
+引用传递弥补了值传递的不足，如果传递的数据量很大，直接复过去的话，会占用大量的内存空间，而引用传递就是将对象的地址值传递过去，函数接收的是原始值的首地址值。在方法的执行过程中，形参和实参的内容相同，指向同一块内存地址，也就是说操作的其实都是源数据，所以方法的执行将会影响到实际对象。</p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/04/image-9a91e90254864980892a15f8f5801bb8.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-46db4bf78f05460fa07bd564a7a5829e.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-5d655ad3df2b40708dbddfb3d8210597.png" alt="image.png"></p> <h2 id="_03-介绍二分法-介绍时间复杂度、动态数组、哈希表和有序表"><a href="#_03-介绍二分法-介绍时间复杂度、动态数组、哈希表和有序表" class="header-anchor">#</a> 03 介绍二分法，介绍时间复杂度、动态数组、哈希表和有序表</h2> <h3 id="二分法"><a href="#二分法" class="header-anchor">#</a> 二分法</h3> <p>二分法一定会划分到死才会结束；
+使用二分法解决不同的题目</p> <h4 id="局部最小值"><a href="#局部最小值" class="header-anchor">#</a> 局部最小值</h4> <p>对数器:
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-b0c6552a5a384564a83c759ef76ce165.png" alt="image.png"></p> <h4 id="时间复杂度"><a href="#时间复杂度" class="header-anchor">#</a> 时间复杂度</h4> <p>1.常数时间的操作:(和数据量无关)
+加,减,乘,除,寻址,
+只关心最高阶 系数 等都不看;
+O() 如果n接近与无穷 当 <strong>数据量很大(最难受的)</strong> 的情况下 看程序的运行优略;
+2.常见的时间复杂度
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-ea37a33e8a914b6b8da5c726334690ef.png" alt="image.png"></p> <h4 id="动态数组"><a href="#动态数组" class="header-anchor">#</a> 动态数组</h4> <p>java中的ArrayList 可以动态扩充的数组;
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-10a0c2fd7cb146358de64ff641d6ef2d.png" alt="image.png"></p> <ul><li>总结
+在时间复杂度上 不仅仅不会影响时间复杂度,还支持扩容;
+动态扩容一定是慢但是是常数的慢,和正常的数组差不多,还支持扩容;</li></ul> <p>按值传递、按引用传递</p> <h3 id="哈希表-hashmap"><a href="#哈希表-hashmap" class="header-anchor">#</a> 哈希表 HashMap</h3> <p>按值传递的,记录k-v形式的一个 表;
+put 方法 是插入也是更新操作;
+<strong>哈希表的增删改查都是一个常数时间</strong>时间较长;
+哈希表不管你是不是 一个对象, 只看内容;
+double 和 int flout 等原生类型 都是值传递;
+非原生类型: 按照引用类型传递；只关心内存地址；
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-3b10057457b24d7bab49ca6ad0b9125e.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-59b46414a6294510bf5dc4c262e634fe.png" alt="image.png"></p> <h3 id="有序表-treemap"><a href="#有序表-treemap" class="header-anchor">#</a> 有序表 TreeMap</h3> <p>功能更加强大比 hashMap
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-fe1efca38a0f488994ef80c4db24d9ce.png" alt="image.png"></p> <p>treeMap 是 O(logn) 比hashMap 要慢一点;
+treeMap是按照key 去比较的,想用TreeMap 必须是可以比较的,否则不能装进TreeMap;
+题目：</p> <p>有序数组中找到num</p> <p>有序数组中找到&gt;=num最左的位置</p> <p>有序数组中找到&lt;=num最右的位置</p> <p>局部最小值问题</p> <p>哈希表HashMap使用的code讲解</p> <p>有序表TreeMap使用的code讲解</p> <h2 id="_04-链表相关的简单面试题"><a href="#_04-链表相关的简单面试题" class="header-anchor">#</a> 04 链表相关的简单面试题</h2> <h3 id="数据结构只分为两种"><a href="#数据结构只分为两种" class="header-anchor">#</a> 数据结构只分为两种:</h3> <ul><li>连续结构的</li> <li>跳转结构的</li></ul> <h3 id="单双链表的定义"><a href="#单双链表的定义" class="header-anchor">#</a> 单双链表的定义:</h3> <p>单链表: 值 一条next指针
+双链表: 值 一条last 和一条 next指针;</p> <h4 id="问题"><a href="#问题" class="header-anchor">#</a> 问题:</h4> <p>null 在虚拟机 里面也是一个内存地址;</p> <h5 id="反转单链表"><a href="#反转单链表" class="header-anchor">#</a> 反转单链表</h5> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-2ed2d149bd6843e7a2146bfb298e0b71.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-c47a9917a18d46a78543981612e4fbe1.png" alt="image.png"></p> <h5 id="反转双链表"><a href="#反转双链表" class="header-anchor">#</a> 反转双链表</h5> <h3 id="栈、队列"><a href="#栈、队列" class="header-anchor">#</a> 栈、队列</h3> <p>排队拉屎,站着吐;</p> <h4 id="_1-栈"><a href="#_1-栈" class="header-anchor">#</a> 1.栈:</h4> <p>弹夹 先进后出
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-eed1e49d065544eb8d6130c589acad90.png" alt="image.png">
+(1) 压入栈
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-1fc18be468c843ea8563c9c7f9315026.png" alt="image.png">
+(2)弹出栈
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-b60484220d444c129b02a2e8aa50acc5.png" alt="image.png"></p> <h4 id="_2-队列"><a href="#_2-队列" class="header-anchor">#</a> 2.队列:</h4> <p>拉屎 先进先出<br> <strong>单链表</strong> 实现;
+功能:
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-4c9d71aab66d47398d4aba16892386f3.png" alt="image.png">
+(1) 进入队列:
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-95d62cda665348ee8c0de77caa3ad9bd.png" alt="image.png">
+(2) 弹出队列:
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-29c7945b7bcc4d6aa8f5c4bc5f55ecc4.png" alt="image.png">
+如果最后不修改 tail  会让最后一个数据成为一个脏数据;</p> <h3 id="双端队列"><a href="#双端队列" class="header-anchor">#</a> 双端队列</h3> <p>可以 头尾都支持 插入和弹出的操作;</p> <h4 id="_1-单链表不能支持双端队列"><a href="#_1-单链表不能支持双端队列" class="header-anchor">#</a> (1)单链表不能支持双端队列;</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-edd9643975974d1c8a82c3572c74dec0.png" alt="image.png"></p> <h4 id="_2-用双链表实现双端队列"><a href="#_2-用双链表实现双端队列" class="header-anchor">#</a> (2)用双链表实现双端队列</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-6cf5c79150264d078983d143814c4f64.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-902f8c13702846b8acb8adaac90623cf.png" alt="image.png"></p> <h3 id="k个节点的组内逆序调整问题"><a href="#k个节点的组内逆序调整问题" class="header-anchor">#</a> K个节点的组内逆序调整问题：</h3> <p>测试链接：https://leetcode.com/problems/reverse-nodes-in-k-group/
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-f7fe2515b1b54cba9bbed707512c8095.png" alt="image.png">
+给定一个单链表的头节点head，和一个正数k
+实现k个节点的小组内部逆序，如果最后一组不够k个就不调整
+例子:
+调整前：1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7 -&gt; 8，k = 3
+调整后：3 -&gt; 2 -&gt; 1 -&gt; 6 -&gt; 5 -&gt; 4 -&gt; 7 -&gt; 8</p> <h4 id="方法一-getkgroupend"><a href="#方法一-getkgroupend" class="header-anchor">#</a> 方法一:getKGroupEnd</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-d8962e4e667d4c7a88afa6b18a5ca57e.png" alt="image.png"></p> <h4 id="方法二-reverse"><a href="#方法二-reverse" class="header-anchor">#</a> 方法二 reverse</h4> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-edc27c55a5a44518931934638604e703.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-720933b6e35d43cd9c16475d123d386f.png" alt="image.png"></p> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/05/image-d4f3b96580c84579b87880eb7a94bdb0.png" alt="image.png"></p> <h3 id="两个链表相加问题"><a href="#两个链表相加问题" class="header-anchor">#</a> 两个链表相加问题</h3> <p>先找到 长短链表; 分三种情况; 长短都有 ; 长有短没有; 长短 都没有;
+给定两个链表的头节点head1和head2，
+认为从左到右是某个数字从低位到高位，返回相加之后的链表
+例子     4 -&gt; 3 -&gt; 6        2 -&gt; 5 -&gt; 3
+返回     6 -&gt; 8 -&gt; 9
+解释     634 + 352 = 986</p> <h3 id="两个有序链表的合并"><a href="#两个有序链表的合并" class="header-anchor">#</a> 两个有序链表的合并</h3> <p>给定两个有序链表的头节点head1和head2，
+返回合并之后的大链表，要求依然有序
+例子     1 -&gt; 3 -&gt; 3 -&gt; 5 -&gt; 7   2 -&gt; 2 -&gt; 3 -&gt; 3-&gt; 7
+返回     1 -&gt; 2 -&gt; 2 -&gt; 3 -&gt; 3 -&gt; 3 -&gt; 3 -&gt; 5 -&gt; 7</p> <h2 id="_05-位图、位运算实现加减乘除"><a href="#_05-位图、位运算实现加减乘除" class="header-anchor">#</a> 05 位图、位运算实现加减乘除</h2> <p>内容：</p> <p>位图</p> <p>位运算使用的进一步学习：实现加减乘除</p> <p>题目：</p> <p>现场写位图的code、讲解</p> <p>位运算的加减乘除</p> <h2 id="_06-比较器、优先级队列、二叉树"><a href="#_06-比较器、优先级队列、二叉树" class="header-anchor">#</a> 06 比较器、优先级队列、二叉树</h2> <p>内容：</p> <p>比较器</p> <p>优先级队列</p> <p>二叉树的基本遍历</p> <p>二叉树的递归套路</p> <p>题目：</p> <p>补充了一个链表的题目
+合并多个有序链表
+Leetcode原题，https://leetcode.com/problems/merge-k-sorted-lists</p> <p>判断两颗树是否结构相同
+Leetcode原题，https://leetcode.com/problems/same-tree</p> <p>判断一棵树是否是镜面树
+Leetcode原题，https://leetcode.com/problems/symmetric-tree</p> <p>返回一棵树的最大深度
+Leetcode原题，https://leetcode.com/problems/maximum-depth-of-binary-tree</p> <p>用先序数组和中序数组重建一棵树
+Leetcode原题，https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal</p> <p>用code展示比较器的使用</p> <p>二叉树先序、中序、后序遍历的代码实现、介绍递归序</p> <h2 id="_07-继续二叉树的很多题目"><a href="#_07-继续二叉树的很多题目" class="header-anchor">#</a> 07 继续二叉树的很多题目</h2> <p>内容：</p> <p>进一步讲解二叉树题目，来熟悉二叉树</p> <p>题目：</p> <p>二叉树按层遍历并收集节点
+Leetcode原题，https://leetcode.com/problems/binary-tree-level-order-traversal-ii</p> <p>判断是否是平衡搜索二叉树
+Leetcode原题，https://leetcode.com/problems/balanced-binary-tree</p> <p>在二叉树上能否组成路径和
+Leetcode原题，https://leetcode.com/problems/path-sum</p> <p>在二叉树上收集所有达标的路径和
+Leetcode原题，https://leetcode.com/problems/path-sum-ii</p> <p>判断二叉树是否是搜索二叉树</p> <h2 id="_08-介绍归并排序和快速排序"><a href="#_08-介绍归并排序和快速排序" class="header-anchor">#</a> 08 介绍归并排序和快速排序</h2> <p>内容：</p> <p>讲解一个位运算的题目</p> <p>归并排序</p> <p>快速排序</p> <p>题目：</p> <p>不要用任何比较判断，返回两个数中较大的数</p> <p>归并排序的递归实现和非递归实现</p> <p>快速排序的递归实现和非递归实现</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">5/17/2022, 12:02:13 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/30.算法/01.算法基础/notes/1课程简介及算法复杂度分析.html" class="prev">
+        第一章 算法复杂度分析
+      </a></span> <span class="next"><a href="/30.算法/01.算法基础/notes/3数组问题讲解.html">
+        左神数组问题讲解
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.19543062.js" defer></script><script src="/assets/js/2.0ee43227.js" defer></script><script src="/assets/js/45.17e2d9c7.js" defer></script>
+  </body>
+</html>

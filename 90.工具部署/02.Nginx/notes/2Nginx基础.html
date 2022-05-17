@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Nginx尚硅谷 | Control.</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <script charset="utf-8" src="/js/main.js"></script>
+    <meta name="description" content="去发光,而不是被照亮">
+    
+    <link rel="preload" href="/assets/css/0.styles.f4923bad.css" as="style"><link rel="preload" href="/assets/js/app.19543062.js" as="script"><link rel="preload" href="/assets/js/2.0ee43227.js" as="script"><link rel="preload" href="/assets/js/106.96fc31f2.js" as="script"><link rel="prefetch" href="/assets/js/10.e58b7d3b.js"><link rel="prefetch" href="/assets/js/100.2a9b953a.js"><link rel="prefetch" href="/assets/js/101.859b2f1e.js"><link rel="prefetch" href="/assets/js/102.de57107f.js"><link rel="prefetch" href="/assets/js/103.810791da.js"><link rel="prefetch" href="/assets/js/104.2a858183.js"><link rel="prefetch" href="/assets/js/105.8d220a0b.js"><link rel="prefetch" href="/assets/js/107.30ac6bd5.js"><link rel="prefetch" href="/assets/js/108.f40e9ef7.js"><link rel="prefetch" href="/assets/js/109.7354eeca.js"><link rel="prefetch" href="/assets/js/11.22d06b73.js"><link rel="prefetch" href="/assets/js/110.d2316756.js"><link rel="prefetch" href="/assets/js/111.75dd52f1.js"><link rel="prefetch" href="/assets/js/112.9d8dda4d.js"><link rel="prefetch" href="/assets/js/113.e83d3089.js"><link rel="prefetch" href="/assets/js/114.5211e116.js"><link rel="prefetch" href="/assets/js/115.720242c4.js"><link rel="prefetch" href="/assets/js/116.ffc4f30c.js"><link rel="prefetch" href="/assets/js/117.42cd696e.js"><link rel="prefetch" href="/assets/js/118.40e1432e.js"><link rel="prefetch" href="/assets/js/119.3a8957dc.js"><link rel="prefetch" href="/assets/js/12.a654ee1a.js"><link rel="prefetch" href="/assets/js/120.2b0a9300.js"><link rel="prefetch" href="/assets/js/121.04096719.js"><link rel="prefetch" href="/assets/js/122.1a58fe68.js"><link rel="prefetch" href="/assets/js/123.159dcd59.js"><link rel="prefetch" href="/assets/js/124.bd4deaf4.js"><link rel="prefetch" href="/assets/js/125.6e049d24.js"><link rel="prefetch" href="/assets/js/126.bfc57933.js"><link rel="prefetch" href="/assets/js/127.9b253d7c.js"><link rel="prefetch" href="/assets/js/128.ffcac091.js"><link rel="prefetch" href="/assets/js/129.9e23da4e.js"><link rel="prefetch" href="/assets/js/13.1c933f28.js"><link rel="prefetch" href="/assets/js/130.6a87ad19.js"><link rel="prefetch" href="/assets/js/131.231bcc33.js"><link rel="prefetch" href="/assets/js/14.6afb9e3b.js"><link rel="prefetch" href="/assets/js/15.2e4d6ff0.js"><link rel="prefetch" href="/assets/js/16.61f286cd.js"><link rel="prefetch" href="/assets/js/17.ed9f0af6.js"><link rel="prefetch" href="/assets/js/18.e84e6471.js"><link rel="prefetch" href="/assets/js/19.76e080d8.js"><link rel="prefetch" href="/assets/js/20.2b2bf9bd.js"><link rel="prefetch" href="/assets/js/21.63da56e6.js"><link rel="prefetch" href="/assets/js/22.fb3ff4f4.js"><link rel="prefetch" href="/assets/js/23.fdca031f.js"><link rel="prefetch" href="/assets/js/24.92f82c60.js"><link rel="prefetch" href="/assets/js/25.a7a9704b.js"><link rel="prefetch" href="/assets/js/26.069c1e52.js"><link rel="prefetch" href="/assets/js/27.5f9a3c75.js"><link rel="prefetch" href="/assets/js/28.03fc0a93.js"><link rel="prefetch" href="/assets/js/29.cbc373fb.js"><link rel="prefetch" href="/assets/js/3.7be5a5a6.js"><link rel="prefetch" href="/assets/js/30.8681b9c2.js"><link rel="prefetch" href="/assets/js/31.36a09955.js"><link rel="prefetch" href="/assets/js/32.3b0c91db.js"><link rel="prefetch" href="/assets/js/33.d6de13ff.js"><link rel="prefetch" href="/assets/js/34.d9c51bc9.js"><link rel="prefetch" href="/assets/js/35.62ae3575.js"><link rel="prefetch" href="/assets/js/36.58249b42.js"><link rel="prefetch" href="/assets/js/37.c15ea66a.js"><link rel="prefetch" href="/assets/js/38.4ae7765d.js"><link rel="prefetch" href="/assets/js/39.57ec096f.js"><link rel="prefetch" href="/assets/js/4.e3eff0c1.js"><link rel="prefetch" href="/assets/js/40.f6d39637.js"><link rel="prefetch" href="/assets/js/41.08935a30.js"><link rel="prefetch" href="/assets/js/42.16f30978.js"><link rel="prefetch" href="/assets/js/43.9ba5877d.js"><link rel="prefetch" href="/assets/js/44.12534072.js"><link rel="prefetch" href="/assets/js/45.17e2d9c7.js"><link rel="prefetch" href="/assets/js/46.e281b6c7.js"><link rel="prefetch" href="/assets/js/47.7ad6135f.js"><link rel="prefetch" href="/assets/js/48.30bd52b0.js"><link rel="prefetch" href="/assets/js/49.6a40dfb5.js"><link rel="prefetch" href="/assets/js/5.12a90c90.js"><link rel="prefetch" href="/assets/js/50.85a351d0.js"><link rel="prefetch" href="/assets/js/51.78da0798.js"><link rel="prefetch" href="/assets/js/52.2310f240.js"><link rel="prefetch" href="/assets/js/53.d0049f2c.js"><link rel="prefetch" href="/assets/js/54.28aa5c87.js"><link rel="prefetch" href="/assets/js/55.381915f1.js"><link rel="prefetch" href="/assets/js/56.89d6cf82.js"><link rel="prefetch" href="/assets/js/57.a66c0467.js"><link rel="prefetch" href="/assets/js/58.e58969db.js"><link rel="prefetch" href="/assets/js/59.b83e284f.js"><link rel="prefetch" href="/assets/js/6.6e2b9d44.js"><link rel="prefetch" href="/assets/js/60.e860c237.js"><link rel="prefetch" href="/assets/js/61.681c3973.js"><link rel="prefetch" href="/assets/js/62.1659a827.js"><link rel="prefetch" href="/assets/js/63.1d1cf38e.js"><link rel="prefetch" href="/assets/js/64.59592269.js"><link rel="prefetch" href="/assets/js/65.ba2fd2ad.js"><link rel="prefetch" href="/assets/js/66.7aeca197.js"><link rel="prefetch" href="/assets/js/67.465b9930.js"><link rel="prefetch" href="/assets/js/68.4fcb7ca0.js"><link rel="prefetch" href="/assets/js/69.4f596a23.js"><link rel="prefetch" href="/assets/js/7.57edeeaa.js"><link rel="prefetch" href="/assets/js/70.3e6e1486.js"><link rel="prefetch" href="/assets/js/71.e61e28bf.js"><link rel="prefetch" href="/assets/js/72.b1db453c.js"><link rel="prefetch" href="/assets/js/73.a2f3e59e.js"><link rel="prefetch" href="/assets/js/74.bbed54ec.js"><link rel="prefetch" href="/assets/js/75.ac927282.js"><link rel="prefetch" href="/assets/js/76.b8c73cb1.js"><link rel="prefetch" href="/assets/js/77.ef60f934.js"><link rel="prefetch" href="/assets/js/78.5fea10e9.js"><link rel="prefetch" href="/assets/js/79.03d5c3e2.js"><link rel="prefetch" href="/assets/js/8.b6d1b803.js"><link rel="prefetch" href="/assets/js/80.13f6c1be.js"><link rel="prefetch" href="/assets/js/81.d69dc869.js"><link rel="prefetch" href="/assets/js/82.249e8ad4.js"><link rel="prefetch" href="/assets/js/83.95546593.js"><link rel="prefetch" href="/assets/js/84.16a183f4.js"><link rel="prefetch" href="/assets/js/85.bd7c1060.js"><link rel="prefetch" href="/assets/js/86.eaf7a944.js"><link rel="prefetch" href="/assets/js/87.2bd3e7b3.js"><link rel="prefetch" href="/assets/js/88.2578814c.js"><link rel="prefetch" href="/assets/js/89.b21857df.js"><link rel="prefetch" href="/assets/js/9.c4657130.js"><link rel="prefetch" href="/assets/js/90.9bc44c6e.js"><link rel="prefetch" href="/assets/js/91.387c0822.js"><link rel="prefetch" href="/assets/js/92.b05edf47.js"><link rel="prefetch" href="/assets/js/93.7522f244.js"><link rel="prefetch" href="/assets/js/94.87fb34a3.js"><link rel="prefetch" href="/assets/js/95.d77f7cc3.js"><link rel="prefetch" href="/assets/js/96.930684d9.js"><link rel="prefetch" href="/assets/js/97.1c7c9646.js"><link rel="prefetch" href="/assets/js/98.3d1417a1.js"><link rel="prefetch" href="/assets/js/99.ad52d8a0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f4923bad.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Control.</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/90.%E5%B7%A5%E5%85%B7%E9%83%A8%E7%BD%B2/02.Nginx/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/90.%E5%B7%A5%E5%85%B7%E9%83%A8%E7%BD%B2/02.Nginx/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>nginx</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/90.工具部署/02.Nginx/notes/1Nginx.html" class="sidebar-link">Nginx总结</a></li><li><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html" class="active sidebar-link">Nginx尚硅谷</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#_1-1-nginx概述" class="sidebar-link">1.1 Nginx概述</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#_1-2-nginx-作为-web-服务器" class="sidebar-link">1.2 Nginx 作为 web 服务器</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#_1-3-正向代理" class="sidebar-link">1.3 正向代理</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#_1-4-反向代理" class="sidebar-link">1.4 反向代理</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#_1-5-负载均衡" class="sidebar-link">1.5 负载均衡</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#_1-6-动静分离" class="sidebar-link">1.6 动静分离</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#_2-1-进入-nginx-官网-下载" class="sidebar-link">2.1 进入 nginx 官网，下载</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#_2-2-安装-nginx" class="sidebar-link">2.2 安装 nginx</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#_3-1-nginx-常用的命令" class="sidebar-link">3.1 nginx 常用的命令：</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#nginx-的配置文件" class="sidebar-link">Nginx 的配置文件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#_1、nginx-配置文件位置" class="sidebar-link">1、nginx 配置文件位置</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#_2、配置文件中的内容" class="sidebar-link">2、配置文件中的内容</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#nginx-配置实例-反向代理实例-1" class="sidebar-link">Nginx 配置实例-反向代理实例 1</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#nginx-配置实例-反向代理实例-2" class="sidebar-link">Nginx 配置实例-反向代理实例 2</a></li></ul></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#nginx-配置实例-负载均衡" class="sidebar-link">Nginx 配置实例-负载均衡</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#_1、实现效果" class="sidebar-link">1、实现效果</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#_2、准备工作" class="sidebar-link">2、准备工作</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#_3、在-nginx-的配置文件中进行负载均衡的配置" class="sidebar-link">3、在 nginx 的配置文件中进行负载均衡的配置</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#_4、nginx-分配服务器策略" class="sidebar-link">4、nginx 分配服务器策略</a></li></ul></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#nginx-配置实例-动静分离" class="sidebar-link">Nginx 配置实例-动静分离</a></li><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#nginx-配置高可用的集群" class="sidebar-link">Nginx 配置高可用的集群</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/90.工具部署/02.Nginx/notes/2Nginx基础.html#nginx-的原理" class="sidebar-link">Nginx 的原理</a></li></ul></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="第-1-章-nginx-简介"><a href="#第-1-章-nginx-简介" class="header-anchor">#</a> 第 1 章 Nginx 简介</h1> <h2 id="_1-1-nginx概述"><a href="#_1-1-nginx概述" class="header-anchor">#</a> 1.1 Nginx概述</h2> <p>Nginx (&quot;engine x&quot;) 是一个高性能的 HTTP 和反向代理服务器,特点是占有内存少，并发能
+力强，事实上 nginx 的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用 nginx
+网站用户有：百度、京东、新浪、网易、腾讯、淘宝等</p> <h2 id="_1-2-nginx-作为-web-服务器"><a href="#_1-2-nginx-作为-web-服务器" class="header-anchor">#</a> 1.2 Nginx 作为 web 服务器</h2> <p>Nginx 可以作为静态页面的 web 服务器，同时还支持 CGI 协议的动态语言，比如 perl、php
+等。但是不支持 java。Java 程序只能通过与 tomcat 配合完成。Nginx 专为性能优化而开发，
+性能是其最重要的考量,实现上非常注重效率 ，能经受高负载的考验,有报告表明能支持高
+达 50,000 个并发连接数。</p> <h2 id="_1-3-正向代理"><a href="#_1-3-正向代理" class="header-anchor">#</a> 1.3 正向代理</h2> <p>Nginx 不仅可以做反向代理，实现负载均衡。还能用作正向代理来进行上网等功能。
+正向代理：如果把局域网外的 Internet 想象成一个巨大的资源库，则局域网中的客户端要访问 Internet，则需要通过代理服务器来访问，这种代理服务就称为正向代理。(访问的是 目标地址 <strong>需要配置 代理服务器</strong>)
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-2dd7393402054726bdf3a3303ad29666.png" alt="image.png"></p> <h2 id="_1-4-反向代理"><a href="#_1-4-反向代理" class="header-anchor">#</a> 1.4 反向代理</h2> <p>反向代理，其实客户端对代理是<strong>无感知的</strong>，因为<strong>客户端不需要任何配置</strong>就可以访问，我们只需要将请求发送到<strong>反向代理服务器</strong>，由反向代理服务器去选择目标服务器获取数据后，在返回给客户端，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是<strong>代理服务器地址</strong>，<strong>隐藏了真实服务器 IP</strong> 地址
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-51cf72e281134326a072659055e2dae2.png" alt="image.png"></p> <h2 id="_1-5-负载均衡"><a href="#_1-5-负载均衡" class="header-anchor">#</a> 1.5 负载均衡</h2> <p>客户端发送多个<strong>请求到服务器</strong>，服务器处理请求，有一些可能要与数据库进行交互，服务器处理完毕后，再将结果返回给客户端。这种架构模式对于早期的系统相对单一，并发请求相对较少的情况下是比较适合的，成本也低。但是随着信息数量的不断增长，访问量和数据量的飞速增长，以及系统业务的复杂
+度增加，这种架构会造成服务器相应客户端的请求日益<strong>缓慢</strong>，并发量特别大的时候，还容易造成<strong>服务器直接崩溃</strong>。很明显这是由于服务器性能的瓶颈造成的问题，那么如何解决这种情况呢？
+我们首先想到的可能是****，比升级服务器的配置如提高 CPU 执行频率，加大内存等提高机器的物理性能来解决此问题，但是我们知道摩尔定律的日益失效，硬件的<strong>性能提升已经不能</strong>
+满足日益提升的需求了。最明显的一个例子，天猫双十一当天，某个热销商品的瞬时访问量
+是极其庞大的，那么类似上面的系统架构，将机器都增加到现有的顶级物理配置，都是不能
+够满足需求的。那么怎么办呢？
+上面的分析我们去掉了增加服务器物理配置来解决问题的办法，也就是说纵向解决问题
+的办法行不通了，那么<strong>横向增加服务器的数量</strong>呢？这时候<strong>集群</strong>的概念产生了，单个服务器解决不了，我们增加服务器的数量，然后将请求分发到各个服务器上，将原先请求集中到<strong>单个</strong>服务器上的情况改为将请求分发到<strong>多个服务器</strong>上，将负载分发到不同的服务器，也就是我们所说的<strong>负载均衡</strong> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-dc2a68e9a62e4d8ebb002988893bfaf2.png" alt="image.png"></p> <h2 id="_1-6-动静分离"><a href="#_1-6-动静分离" class="header-anchor">#</a> 1.6 动静分离</h2> <p>为了加快网站的解析速度，可以把动态页面和静态页面由不同的服务器来解析，加快解析速度。降低原来单个服务器的压力。
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-32f6aab626074ac99069d02e74c32873.png" alt="image.png"></p> <h1 id="第-2-章-nginx-安装"><a href="#第-2-章-nginx-安装" class="header-anchor">#</a> 第 2 章 Nginx 安装</h1> <h2 id="_2-1-进入-nginx-官网-下载"><a href="#_2-1-进入-nginx-官网-下载" class="header-anchor">#</a> 2.1 进入 nginx 官网，下载</h2> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-b45f9f2b4a134f99b2ba6204357732c3.png" alt="image.png"></p> <h2 id="_2-2-安装-nginx"><a href="#_2-2-安装-nginx" class="header-anchor">#</a> 2.2 安装 nginx</h2> <ul><li>第一步，安装 pcre （联网下载压缩包的方式）
+wget http://downloads.sourceforge.net/project/pcre/pcre/8.37/pcre-8.37.tar.gz
+解压文件，
+./configure 完成后，回到 pcre 目录下执行 make，
+再执行 make install</li> <li>第二步，安装 openssl</li> <li>第三步，安装 zlib
+yum -y install make zlib zlib-devel gcc-c++ libtool openssl openssl-devel
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-3498aced919c4fa1b3ad8858bdb69020.png" alt="image.png">
+第四步，安装 nginx
+1、 解压缩 nginx-xx.tar.gz 包。
+2、 进入解压缩目录，执行./configure。
+3、 make &amp;&amp; make install（编译和运行）
+查看开放的端口号（Linux是默认是 开着防火墙的 需要开放端口）
+firewall-cmd --list-all（注意空格）
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-1555f5174aeb43bcbe96940e1cbd7bcd.png" alt="image.png">
+设置开放的端口号
+firewall-cmd --add-service=http –permanent
+sudo firewall-cmd --add-port=80/tcp --permanent
+重启防火墙
+firewall-cmd –reload</li></ul> <h1 id="第-3-章-nginx-常用的命令和配置文件"><a href="#第-3-章-nginx-常用的命令和配置文件" class="header-anchor">#</a> 第 3 章 nginx 常用的命令和配置文件</h1> <h2 id="_3-1-nginx-常用的命令"><a href="#_3-1-nginx-常用的命令" class="header-anchor">#</a> 3.1 nginx 常用的命令：</h2> <p>（1）启动命令
+在/usr/local/nginx/sbin 目录下执行 ./nginx
+（2）关闭命令
+在/usr/local/nginx/sbin 目录下执行 ./nginx -s stop
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-ec06a95d846a45378065eaa0ba083a28.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-e9f901344333473e96f1796594b217fb.png" alt="image.png"></p> <h2 id="nginx-的配置文件"><a href="#nginx-的配置文件" class="header-anchor">#</a> Nginx 的配置文件</h2> <h3 id="_1、nginx-配置文件位置"><a href="#_1、nginx-配置文件位置" class="header-anchor">#</a> 1、nginx 配置文件位置</h3> <p>cd /usr/local/nginx/conf/nginx.conf
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-6fd1aaf1429340d884cb91ae1619f138.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-df3f13ee3604445e839fdf7aa2948bcc.png" alt="image.png"></p> <h3 id="_2、配置文件中的内容"><a href="#_2、配置文件中的内容" class="header-anchor">#</a> 2、配置文件中的内容</h3> <p>包含三部分内容
+<strong>（1）全局块</strong>：配置服务器整体运行的配置指令
+比如 worker_processes 1;处理并发数的配置
+<strong>（2）events 块</strong>：影响 Nginx 服务器与用户的网络连接
+比如 worker_connections 1024; 支持的最大连接数为 1024
+<strong>（3）http 块</strong>
+还包含两部分：
+http 全局块
+server 块</p> <h3 id="nginx-配置实例-反向代理实例-1"><a href="#nginx-配置实例-反向代理实例-1" class="header-anchor">#</a> Nginx 配置实例-反向代理实例 1</h3> <p>1、实现效果
+（1）打开浏览器，在浏览器地址栏输入地址 www.123.com，跳转到 liunx 系统 tomcat 主页
+面中
+2、准备工作
+（1）在 liunx 系统安装 tomcat，使用默认端口 8080</p> <ul><li>tomcat 安装文件放到 liunx 系统中，解压</li> <li>进入 tomcat 的 bin 目录中，./startup.sh 启动 tomcat 服务器
+（2）对外开放访问的<strong>端口</strong>
+firewall-cmd --add-port=8080/tcp --permanent
+firewall-cmd –reload
+查看已经开放的端口号
+firewall-cmd --list-all
+（3）在 windows 系统中通过<strong>浏览器</strong>访问 tomcat 服务器
+当输入一个 Ip地址的时候（默认访问 80端口） 就是 用nginx 来监听 80端口
+然后 根据url 来转发；
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-bdb12bb3fdce4b33a21fdd623a40bcc9.png" alt="image.png"> <img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-0c0665dd935649b58478adc01eb2c7f1.png" alt="image.png"></li></ul> <h3 id="nginx-配置实例-反向代理实例-2"><a href="#nginx-配置实例-反向代理实例-2" class="header-anchor">#</a> Nginx 配置实例-反向代理实例 2</h3> <p>1、实现效果
+使用 nginx 反向代理，根据访问的路径跳转到不同端口的服务中
+nginx 监听端口为 9001，
+访问 http://192.168.17.129:9001/edu/ 直接跳转到 127.0.0.1:8080
+访问 http:// 192.168.17.129:9001/vod/ 直接跳转到 127.0.0.1:8081 2、准备工作
+（1）准备两个 tomcat 服务器，一个 8080 端口，一个 8081 端口
+（2）创建文件夹和测试页面
+3、具体配置
+（1）找到 nginx 配置文件，进行反向代理配置
+<img src="5" alt="image.png"> <img src="6" alt="image.png"> <img src="7" alt="image.png"> <img src="8" alt="image.png">可以进行筛选 进行不同的跳转你
+<img src="9" alt="image.png"> <img src="10" alt="image.png"> <img src="11" alt="image.png"></p> <h2 id="nginx-配置实例-负载均衡"><a href="#nginx-配置实例-负载均衡" class="header-anchor">#</a> Nginx 配置实例-负载均衡</h2> <h3 id="_1、实现效果"><a href="#_1、实现效果" class="header-anchor">#</a> 1、实现效果</h3> <p>（1）浏览器地址栏输入地址 http://192.168.17.129/edu/a.html，负载均衡效果，平均 8080 和 8081 端口中</p> <h3 id="_2、准备工作"><a href="#_2、准备工作" class="header-anchor">#</a> 2、准备工作</h3> <p>（1）准备两台 tomcat 服务器，一台 8080，一台 8081
+（2）在两台 tomcat 里面 webapps 目录中，创建名称是 edu 文件夹，在 edu 文件夹中创建
+页面 a.html，用于测试</p> <h3 id="_3、在-nginx-的配置文件中进行负载均衡的配置"><a href="#_3、在-nginx-的配置文件中进行负载均衡的配置" class="header-anchor">#</a> 3、在 nginx 的配置文件中进行负载均衡的配置</h3> <p><img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-8b79f5e5636b478eb36ad71e3d9814be.png" alt="image.png"></p> <h3 id="_4、nginx-分配服务器策略"><a href="#_4、nginx-分配服务器策略" class="header-anchor">#</a> 4、nginx 分配服务器策略</h3> <p>第一种 轮询（默认）
+每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器 down 掉，能自动剔除。
+第二种 weight
+weight 代表权重默认为 1,权重越高被分配的客户端越多
+第三种 ip_hash
+每个请求按访问 ip 的 hash 结果分配，这样每个访客固定访问一个后端服务器
+第四种 fair（第三方）
+按后端服务器的响应时间来分配请求，响应时间短的优先分配。</p> <h2 id="nginx-配置实例-动静分离"><a href="#nginx-配置实例-动静分离" class="header-anchor">#</a> Nginx 配置实例-动静分离</h2> <p>1、什么是动静分离
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-bd921c6da09641d187987eb37446d0e5.png" alt="image.png">
+通过 location 指定不同的<strong>后缀名</strong>实现不同的<strong>请求转发</strong>。通过 <strong>expires <strong>参数设置，可以使浏览器缓存</strong>过期时间</strong>，减少与服务器之前的请求和流量。具体 Expires 定义：是给一个资源
+设定一个过期时间，也就是说无需去服务端验证，直接通过浏览器自身确认是否过期即可，所以不会产生额外的流量。此种方法非常适合不经常变动的资源。（如果经常更新的文件，不建议使用 Expires 来缓存），我这里设置 3d，表示在这 3 天之内访问这个 URL，发送一
+个请求，比对服务器该文件<strong>最后更新时间没有变化</strong>，则不会从服务器抓取，返回状态码** 304**，如果有修改，则直接从服务器重新下载，返回状态码 200。
+2、准备工作
+（1）在 liunx 系统中准备静态资源，用于进行访问
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-8a34d8d9f4644a05982f08a30f25a45d.png" alt="image.png">
+3、具体配置
+（1）在 nginx 配置文件中进行配置
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-83ee1facdd484ff3a71312130bb6b10e.png" alt="image.png">
+4、最终测试
+（1）浏览器中输入地址
+http://192.168.17.129/image/01.jpg</p> <ul><li>因为配置文件 autoindex on
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-219421a6c6454ed4bac6d24a714c796d.png" alt="image.png">
+（2）在浏览器地址栏输入地址
+http://192.168.17.129/www/a.html
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-31bed2a605704f2baed5e3f555de9ab9.png" alt="image.png"></li></ul> <h2 id="nginx-配置高可用的集群"><a href="#nginx-配置高可用的集群" class="header-anchor">#</a> Nginx 配置高可用的集群</h2> <p>1、什么是 nginx 高可用
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-37c2a8590113404ab52e62541b74cf3e.png" alt="image.png">
+（1）需要两台 nginx 服务器
+（2）需要 keepalived
+（3）需要虚拟 ip
+2、配置高可用的准备工作
+（1）需要两台服务器 192.168.17.129 和 192.168.17.131
+（2）在两台服务器安装 nginx
+（3）在两台服务器安装 keepalived</p> <h3 id="nginx-的原理"><a href="#nginx-的原理" class="header-anchor">#</a> Nginx 的原理</h3> <p>1、mater 和 worker
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-4bf96d787fd94d6795cbcd67a2487f11.png" alt="image.png">
+2、worker 如何进行工作的
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-dbbd5333ea574558af8e8c465bc290a0.png" alt="image.png">
+3、一个 master 和多个 woker 有好处
+（1）可以使用 nginx –s reload 热部署，利用 nginx 进行热部署操作
+（2）每个 woker 是独立的进程，如果有其中的一个 woker 出现问题，其他 woker 独立的，
+继续进行争抢，实现请求过程，不会造成服务中断
+4、设置多少个 woker 合适
+worker 数和服务器的 cpu 数相等是最为适宜的
+5、连接数 worker_connection
+第一个：发送请求，占用了 woker 的几个连接数？
+答案：2 或者 4 个
+第二个：nginx 有一个 master，有四个 woker，每个 woker 支持最大的连接数 1024，支持的</p> <h4 id="最大并发数是多少"><a href="#最大并发数是多少" class="header-anchor">#</a> 最大并发数是多少？</h4> <p>普通的静态访问最大并发数是： worker_connections * worker_processes 2， 而如果是 HTTP 作 为反向代理来说，最大并发数量应该是 worker_connections * worker_processes/4。</p> <h4 id="遇到的问题"><a href="#遇到的问题" class="header-anchor">#</a> 遇到的问题</h4> <p>nginx指定文件路径有两种方式root和alias，指令的使用方法和作用域：
+[root]
+语法：root path
+默认值：root html
+配置段：http、server、location、if
+[alias]
+语法：alias path
+配置段：location</p> <p>root与alias主要区别在于nginx如何解释location后面的uri，这会使两者分别以不同的方式将请求映射到服务器文件上。
+root的处理结果是：<strong>root路径＋location路径</strong>
+alias的处理结果是：<strong>使用alias路径替换location路径</strong>
+alias是一个目录别名的定义，root则是最上层目录的定义。
+还有一个重要的区别是alias后面必须要用“/”结束，否则会找不到文件的。。。而root则可有可无~~</p> <p>root实例：</p> <div class="language-location ^~ /t/ { line-numbers-mode"><pre class="language-text"><code>     root /www/root/html/;
+}
+
+location ^~ /t/ {
+     root /www/root/html/;
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>如果一个请求的URI是/t/a.html时，web服务器将会返回服务器上的/www/root/html/t/a.html的文件。</p> <p>alias实例：</p> <div class="language-location ^~ /t/ { line-numbers-mode"><pre class="language-text"><code> alias /www/root/html/new_t/;
+}
+
+location ^~ /t/ {
+ alias /www/root/html/new_t/;
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>如果一个请求的URI是/t/a.html时，web服务器将会返回服务器上的/www/root/html/new_t/a.html的文件。注意这里是new_t，因为alias会把location后面配置的路径丢弃掉，把当前匹配到的目录指向到指定的目录。</p> <p>注意：</p> <ol><li>使用alias时，目录名后面一定要加&quot;/&quot;。</li> <li>alias在使用正则匹配时，必须捕捉要匹配的内容并在指定的内容处使用。</li> <li>alias只能位于location块中。（root可以不放在location中）</li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">5/17/2022, 12:02:13 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/90.工具部署/02.Nginx/notes/1Nginx.html" class="prev">
+        Nginx总结
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.19543062.js" defer></script><script src="/assets/js/2.0ee43227.js" defer></script><script src="/assets/js/106.96fc31f2.js" defer></script>
+  </body>
+</html>

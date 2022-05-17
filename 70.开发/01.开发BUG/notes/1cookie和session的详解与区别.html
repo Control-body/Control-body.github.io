@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>cookie和session的详解与区别 | Control.</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <script charset="utf-8" src="/js/main.js"></script>
+    <meta name="description" content="去发光,而不是被照亮">
+    
+    <link rel="preload" href="/assets/css/0.styles.f4923bad.css" as="style"><link rel="preload" href="/assets/js/app.19543062.js" as="script"><link rel="preload" href="/assets/js/2.0ee43227.js" as="script"><link rel="preload" href="/assets/js/87.2bd3e7b3.js" as="script"><link rel="prefetch" href="/assets/js/10.e58b7d3b.js"><link rel="prefetch" href="/assets/js/100.2a9b953a.js"><link rel="prefetch" href="/assets/js/101.859b2f1e.js"><link rel="prefetch" href="/assets/js/102.de57107f.js"><link rel="prefetch" href="/assets/js/103.810791da.js"><link rel="prefetch" href="/assets/js/104.2a858183.js"><link rel="prefetch" href="/assets/js/105.8d220a0b.js"><link rel="prefetch" href="/assets/js/106.96fc31f2.js"><link rel="prefetch" href="/assets/js/107.30ac6bd5.js"><link rel="prefetch" href="/assets/js/108.f40e9ef7.js"><link rel="prefetch" href="/assets/js/109.7354eeca.js"><link rel="prefetch" href="/assets/js/11.22d06b73.js"><link rel="prefetch" href="/assets/js/110.d2316756.js"><link rel="prefetch" href="/assets/js/111.75dd52f1.js"><link rel="prefetch" href="/assets/js/112.9d8dda4d.js"><link rel="prefetch" href="/assets/js/113.e83d3089.js"><link rel="prefetch" href="/assets/js/114.5211e116.js"><link rel="prefetch" href="/assets/js/115.720242c4.js"><link rel="prefetch" href="/assets/js/116.ffc4f30c.js"><link rel="prefetch" href="/assets/js/117.42cd696e.js"><link rel="prefetch" href="/assets/js/118.40e1432e.js"><link rel="prefetch" href="/assets/js/119.3a8957dc.js"><link rel="prefetch" href="/assets/js/12.a654ee1a.js"><link rel="prefetch" href="/assets/js/120.2b0a9300.js"><link rel="prefetch" href="/assets/js/121.04096719.js"><link rel="prefetch" href="/assets/js/122.1a58fe68.js"><link rel="prefetch" href="/assets/js/123.159dcd59.js"><link rel="prefetch" href="/assets/js/124.bd4deaf4.js"><link rel="prefetch" href="/assets/js/125.6e049d24.js"><link rel="prefetch" href="/assets/js/126.bfc57933.js"><link rel="prefetch" href="/assets/js/127.9b253d7c.js"><link rel="prefetch" href="/assets/js/128.ffcac091.js"><link rel="prefetch" href="/assets/js/129.9e23da4e.js"><link rel="prefetch" href="/assets/js/13.1c933f28.js"><link rel="prefetch" href="/assets/js/130.6a87ad19.js"><link rel="prefetch" href="/assets/js/131.231bcc33.js"><link rel="prefetch" href="/assets/js/14.6afb9e3b.js"><link rel="prefetch" href="/assets/js/15.2e4d6ff0.js"><link rel="prefetch" href="/assets/js/16.61f286cd.js"><link rel="prefetch" href="/assets/js/17.ed9f0af6.js"><link rel="prefetch" href="/assets/js/18.e84e6471.js"><link rel="prefetch" href="/assets/js/19.76e080d8.js"><link rel="prefetch" href="/assets/js/20.2b2bf9bd.js"><link rel="prefetch" href="/assets/js/21.63da56e6.js"><link rel="prefetch" href="/assets/js/22.fb3ff4f4.js"><link rel="prefetch" href="/assets/js/23.fdca031f.js"><link rel="prefetch" href="/assets/js/24.92f82c60.js"><link rel="prefetch" href="/assets/js/25.a7a9704b.js"><link rel="prefetch" href="/assets/js/26.069c1e52.js"><link rel="prefetch" href="/assets/js/27.5f9a3c75.js"><link rel="prefetch" href="/assets/js/28.03fc0a93.js"><link rel="prefetch" href="/assets/js/29.cbc373fb.js"><link rel="prefetch" href="/assets/js/3.7be5a5a6.js"><link rel="prefetch" href="/assets/js/30.8681b9c2.js"><link rel="prefetch" href="/assets/js/31.36a09955.js"><link rel="prefetch" href="/assets/js/32.3b0c91db.js"><link rel="prefetch" href="/assets/js/33.d6de13ff.js"><link rel="prefetch" href="/assets/js/34.d9c51bc9.js"><link rel="prefetch" href="/assets/js/35.62ae3575.js"><link rel="prefetch" href="/assets/js/36.58249b42.js"><link rel="prefetch" href="/assets/js/37.c15ea66a.js"><link rel="prefetch" href="/assets/js/38.4ae7765d.js"><link rel="prefetch" href="/assets/js/39.57ec096f.js"><link rel="prefetch" href="/assets/js/4.e3eff0c1.js"><link rel="prefetch" href="/assets/js/40.f6d39637.js"><link rel="prefetch" href="/assets/js/41.08935a30.js"><link rel="prefetch" href="/assets/js/42.16f30978.js"><link rel="prefetch" href="/assets/js/43.9ba5877d.js"><link rel="prefetch" href="/assets/js/44.12534072.js"><link rel="prefetch" href="/assets/js/45.17e2d9c7.js"><link rel="prefetch" href="/assets/js/46.e281b6c7.js"><link rel="prefetch" href="/assets/js/47.7ad6135f.js"><link rel="prefetch" href="/assets/js/48.30bd52b0.js"><link rel="prefetch" href="/assets/js/49.6a40dfb5.js"><link rel="prefetch" href="/assets/js/5.12a90c90.js"><link rel="prefetch" href="/assets/js/50.85a351d0.js"><link rel="prefetch" href="/assets/js/51.78da0798.js"><link rel="prefetch" href="/assets/js/52.2310f240.js"><link rel="prefetch" href="/assets/js/53.d0049f2c.js"><link rel="prefetch" href="/assets/js/54.28aa5c87.js"><link rel="prefetch" href="/assets/js/55.381915f1.js"><link rel="prefetch" href="/assets/js/56.89d6cf82.js"><link rel="prefetch" href="/assets/js/57.a66c0467.js"><link rel="prefetch" href="/assets/js/58.e58969db.js"><link rel="prefetch" href="/assets/js/59.b83e284f.js"><link rel="prefetch" href="/assets/js/6.6e2b9d44.js"><link rel="prefetch" href="/assets/js/60.e860c237.js"><link rel="prefetch" href="/assets/js/61.681c3973.js"><link rel="prefetch" href="/assets/js/62.1659a827.js"><link rel="prefetch" href="/assets/js/63.1d1cf38e.js"><link rel="prefetch" href="/assets/js/64.59592269.js"><link rel="prefetch" href="/assets/js/65.ba2fd2ad.js"><link rel="prefetch" href="/assets/js/66.7aeca197.js"><link rel="prefetch" href="/assets/js/67.465b9930.js"><link rel="prefetch" href="/assets/js/68.4fcb7ca0.js"><link rel="prefetch" href="/assets/js/69.4f596a23.js"><link rel="prefetch" href="/assets/js/7.57edeeaa.js"><link rel="prefetch" href="/assets/js/70.3e6e1486.js"><link rel="prefetch" href="/assets/js/71.e61e28bf.js"><link rel="prefetch" href="/assets/js/72.b1db453c.js"><link rel="prefetch" href="/assets/js/73.a2f3e59e.js"><link rel="prefetch" href="/assets/js/74.bbed54ec.js"><link rel="prefetch" href="/assets/js/75.ac927282.js"><link rel="prefetch" href="/assets/js/76.b8c73cb1.js"><link rel="prefetch" href="/assets/js/77.ef60f934.js"><link rel="prefetch" href="/assets/js/78.5fea10e9.js"><link rel="prefetch" href="/assets/js/79.03d5c3e2.js"><link rel="prefetch" href="/assets/js/8.b6d1b803.js"><link rel="prefetch" href="/assets/js/80.13f6c1be.js"><link rel="prefetch" href="/assets/js/81.d69dc869.js"><link rel="prefetch" href="/assets/js/82.249e8ad4.js"><link rel="prefetch" href="/assets/js/83.95546593.js"><link rel="prefetch" href="/assets/js/84.16a183f4.js"><link rel="prefetch" href="/assets/js/85.bd7c1060.js"><link rel="prefetch" href="/assets/js/86.eaf7a944.js"><link rel="prefetch" href="/assets/js/88.2578814c.js"><link rel="prefetch" href="/assets/js/89.b21857df.js"><link rel="prefetch" href="/assets/js/9.c4657130.js"><link rel="prefetch" href="/assets/js/90.9bc44c6e.js"><link rel="prefetch" href="/assets/js/91.387c0822.js"><link rel="prefetch" href="/assets/js/92.b05edf47.js"><link rel="prefetch" href="/assets/js/93.7522f244.js"><link rel="prefetch" href="/assets/js/94.87fb34a3.js"><link rel="prefetch" href="/assets/js/95.d77f7cc3.js"><link rel="prefetch" href="/assets/js/96.930684d9.js"><link rel="prefetch" href="/assets/js/97.1c7c9646.js"><link rel="prefetch" href="/assets/js/98.3d1417a1.js"><link rel="prefetch" href="/assets/js/99.ad52d8a0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f4923bad.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Control.</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/70.%E5%BC%80%E5%8F%91/01.%E5%BC%80%E5%8F%91BUG/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="语言" class="dropdown-title"><span class="title">语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="语言" class="mobile-dropdown-title"><span class="title">语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  面向对象基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-集合框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-并发框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-IO框架
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-新版本特性
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  java进阶-JVM相关
+</a></li></ul></li><li class="dropdown-item"><h4>
+          C语言
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/10.语言/10.C/" class="nav-link">
+  C语言基础
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="算法" class="dropdown-title"><span class="title">算法</span> <span class="arrow down"></span></button> <button type="button" aria-label="算法" class="mobile-dropdown-title"><span class="title">算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          算法基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/30.算法/01.算法基础/" class="nav-link">
+  算法基础
+</a></li><li class="dropdown-subitem"><a href="/70.%E5%BC%80%E5%8F%91/01.%E5%BC%80%E5%8F%91BUG/notes/.html" class="nav-link">
+  算法思想
+</a></li></ul></li><li class="dropdown-item"><h4>
+          其他算法
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  头脑风暴
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据库" class="dropdown-title"><span class="title">数据库</span> <span class="arrow down"></span></button> <button type="button" aria-label="数据库" class="mobile-dropdown-title"><span class="title">数据库</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          数据库基础和原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  数据库基础
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  SQL语言
+</a></li></ul></li><li class="dropdown-item"><h4>
+          SQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Mysql详解
+</a></li></ul></li><li class="dropdown-item"><h4>
+          NoSQL数据库
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/baodian/zero/" class="nav-link">
+  Redis详解
+</a></li><li class="dropdown-subitem"><a href="/baodian/high/" class="nav-link">
+  MongoDB详解
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="框架|中间件" class="dropdown-title"><span class="title">框架|中间件</span> <span class="arrow down"></span></button> <button type="button" aria-label="框架|中间件" class="mobile-dropdown-title"><span class="title">框架|中间件</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          WEB容器
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/01.Spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-subitem"><a href="/20.框架/02.SpringMVC/" class="nav-link">
+  SpringMVC
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.SpringBoot/" class="nav-link">
+  SpringBoot
+</a></li></ul></li><li class="dropdown-item"><h4>
+          ORM框架
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li><li class="dropdown-subitem"><a href="/20.框架/04.MybatisPlus/" class="nav-link">
+  MybatisPlus
+</a></li></ul></li><li class="dropdown-item"><h4>
+          前端
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/05.VUE/" class="nav-link">
+  VUE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="408" class="dropdown-title"><span class="title">408</span> <span class="arrow down"></span></button> <button type="button" aria-label="408" class="mobile-dropdown-title"><span class="title">408</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          计算机组成原理
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/10.机组/" class="nav-link">
+  计算机组成原理基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          计算机网络
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/50.408/00.网络/" class="nav-link">
+  计算机网络基础
+</a></li><li class="dropdown-subitem"><a href="/50.408/01.慕课29讲/" class="nav-link">
+  慕课29讲
+</a></li></ul></li><li class="dropdown-item"><h4>
+          操作系统
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          数据结构
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          入门 - 青铜阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/80.项目/01.单体项目/" class="nav-link">
+  单体项目
+</a></li><li class="dropdown-subitem"><a href="/80.项目/02.微服务项目/" class="nav-link">
+  微服务项目
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 白银阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 黄金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 铂金阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 钻石阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 星耀阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li><li class="dropdown-item"><h4>
+          进阶 - 王者阶段
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发" class="dropdown-title"><span class="title">开发</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发" class="mobile-dropdown-title"><span class="title">开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/70.开发/01.开发BUG/" class="nav-link">
+  开发BUG
+</a></li><li class="dropdown-item"><!----> <a href="/baodian/high/" class="nav-link">
+  中高进阶篇
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="方法论" class="dropdown-title"><span class="title">方法论</span> <span class="arrow down"></span></button> <button type="button" aria-label="方法论" class="mobile-dropdown-title"><span class="title">方法论</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          设计模式
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/60.方法论/01.设计模式/" class="nav-link">
+  设计模式基础
+</a></li></ul></li><li class="dropdown-item"><h4>
+          理论|流程|协议
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/20.框架/03.Mybatis/" class="nav-link">
+  Mybatis
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具|部署" class="dropdown-title"><span class="title">工具|部署</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具|部署" class="mobile-dropdown-title"><span class="title">工具|部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/90.工具部署/01.Linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/02.Nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/03.Maven/" class="nav-link">
+  Maven
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/04.部署/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/90.工具部署/05.工具/" class="nav-link">
+  工具
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具箱" class="dropdown-title"><span class="title">工具箱</span> <span class="arrow down"></span></button> <button type="button" aria-label="工具箱" class="mobile-dropdown-title"><span class="title">工具箱</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线编辑
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.aliyun.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯云
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          博客指南
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://blog.csdn.net/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>开发遇到的问题</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html" class="active sidebar-link">cookie和session的详解与区别</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_1-cookie机制" class="sidebar-link">1.Cookie机制</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_1-1-什么是cookie" class="sidebar-link">1.1 什么是Cookie</a></li><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_1-2记录用户访问次数" class="sidebar-link">1.2记录用户访问次数</a></li><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_1-3-cookie的不可跨域名性" class="sidebar-link">1.3 Cookie的不可跨域名性</a></li><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_1-4-设置cookie的所有属性" class="sidebar-link">1.4 设置Cookie的所有属性</a></li><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_1-5-cookie的有效期" class="sidebar-link">1.5 Cookie的有效期</a></li><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_1-6-cookie的修改、删除" class="sidebar-link">1.6 Cookie的修改、删除</a></li><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_1-7cookie的域名" class="sidebar-link">1.7Cookie的域名</a></li><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_1-8-cookie的安全属性" class="sidebar-link">1.8 Cookie的安全属性</a></li></ul></li><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_2-session机制" class="sidebar-link">2.Session机制</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_2-1-什么是session" class="sidebar-link">2.1  什么是Session</a></li><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_1-2-实现用户登录" class="sidebar-link">1.2 实现用户登录</a></li><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_1-3-session的生命周期" class="sidebar-link">1.3 Session的生命周期</a></li><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_1-5-session的常用方法" class="sidebar-link">1.5 Session的常用方法</a></li><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_1-6-session对浏览器的要求" class="sidebar-link">1.6 Session对浏览器的要求</a></li><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_1-7-url地址重写" class="sidebar-link">1.7 URL地址重写</a></li><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_1-8-session中禁止使用cookie" class="sidebar-link">1.8  Session中禁止使用Cookie</a></li></ul></li><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#_3-cookie和session的区别" class="sidebar-link">3.cookie和session的区别</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/70.开发/01.开发BUG/notes/1cookie和session的详解与区别.html#面试常问问题-cookie-被禁用怎么办" class="sidebar-link">面试常问问题 Cookie 被禁用怎么办？？</a></li></ul></li></ul></li><li><a href="/70.开发/01.开发BUG/notes/2JSP的9大内置对象和4大域对象.html" class="sidebar-link">JSP的9大内置对象和4大域对象</a></li><li><a href="/70.开发/01.开发BUG/notes/3跨域问题的解决.html" class="sidebar-link">跨域问题的解决</a></li><li><a href="/70.开发/01.开发BUG/notes/4防止表单重复提交.html" class="sidebar-link">防止表单重复提交的4种方法</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p><strong>会话</strong>（Session）跟踪是Web程序中常用的技术，用来跟踪用户的整个会话。常用的会话跟踪技术是Cookie与Session。Cookie通过在客户端记录信息确定用户身份，Session通过在服务器端记录信息确定用户身份。
+本章将系统地讲述Cookie与Session机制，并比较说明什么时候不能用Cookie，什么时候不能用Session。</p> <h2 id="_1-cookie机制"><a href="#_1-cookie机制" class="header-anchor">#</a> 1.Cookie机制</h2> <p>在程序中，会话跟踪是很重要的事情。理论上，一个<strong>用户的所有请求操作</strong>都应该属于<strong>同一个会话</strong>，而<strong>另一个用户的所有请求操作</strong>则应该属于<strong>另一个会话</strong>，二者不能混淆。例如，用户A在超市购买的任何商品都应该放在A的购物车内，不论是用户A什么时间购买的，这都是属于同一个会话的，不能放入用户B或用户C的购物车内，这不属于同一个会话。</p> <p>而Web应用程序是使用HTTP协议传输数据的。<strong>HTTP协议是无状态的协议</strong>。一旦数据<strong>交换完毕</strong>，客户端与服务器端的<strong>连接就会关闭</strong>，再次交换数据需要建立新的连接。这就意味着服务器无法从连接上跟踪会话。即用户A购买了一件商品放入购物车内，当再次购买商品时服务器已经无法判断该购买行为是属于用户A的会话还是用户B的会话了。要跟踪该会话，必须引入一种机制。</p> <p>Cookie就是这样的一种机制。它可以<strong>弥补HTTP协议无状态的不足</strong>。在Session出现之前，基本上所有的网站都采用Cookie来跟踪会话。</p> <h3 id="_1-1-什么是cookie"><a href="#_1-1-什么是cookie" class="header-anchor">#</a> 1.1 什么是Cookie</h3> <p>由于HTTP是一种无状态的协议，服务器单从网络连接上无从知道客户身份。怎么办呢？就给客户端们颁发一个通行证吧，每人一个，无论谁访问都必须携带自己通行证。这样服务器就能从通行证上确认客户身份了。这就是Cookie的工作原理。</p> <p>Cookie实际上是一小段的文本信息。客户端请求服务器，如果服务器需要记录该用户状态，就使用response向客户端浏览器颁发一个Cookie。客户端浏览器会把Cookie保存起来。当浏览器再请求该网站时，浏览器把请求的网址连同该Cookie一同提交给服务器。服务器检查该Cookie，以此来辨认用户状态。服务器还可以根据需要修改Cookie的内容。
+<img src="https://cdn.jsdelivr.net/gh/Control-body/tuChuang/2022/03/image-4ff2ed4a4be04d58813b88ae541be72c.png" alt="image.png">
+注意：Cookie功能需要浏览器的支持。</p> <p>如果浏览器不支持Cookie（如大部分手机中的浏览器）或者把Cookie禁用了，Cookie功能就会失效。</p> <p>不同的浏览器采用不同的方式保存Cookie。</p> <h3 id="_1-2记录用户访问次数"><a href="#_1-2记录用户访问次数" class="header-anchor">#</a> 1.2记录用户访问次数</h3> <p>Java中把Cookie封装成了javax.servlet.http.Cookie类。每个<strong>Cookie</strong>都是该Cookie类的对象。服务器通过操作Cookie类对象对客户端Cookie进行操作。通过request.getCookie()获取<strong>客户端提交的所有Cookie</strong>（以Cookie[]数组形式返回），通过response.addCookie(Cookiecookie)向客户端设置Cookie。
+　　Cookie对象使用key-value属性对的形式<strong>保存用户状态</strong>，一个Cookie对<strong>象保存一个属性对</strong>，一个request或者response同时使用多个Cookie。因为Cookie类位于包javax.servlet.http.*下面，所以JSP中不需要import该类。</p> <h3 id="_1-3-cookie的不可跨域名性"><a href="#_1-3-cookie的不可跨域名性" class="header-anchor">#</a> 1.3 Cookie的不可跨域名性</h3> <p>很多网站都会使用Cookie。例如，Google会向客户端颁发Cookie，Baidu也会向客户端颁发Cookie。那浏览器访问Google会不会也携带上Baidu颁发的Cookie呢？或者Google能不能修改Baidu颁发的Cookie呢？</p> <p>答案是否定的。Cookie具有不可跨域名性。根据Cookie规范，浏览器访问Google只会携带Google的Cookie，而不会携带Baidu的Cookie。Google也只能操作Google的Cookie，而不能操作Baidu的Cookie。</p> <p>Cookie在客户端是由浏览器来管理的。浏览器能够保证Google只会操作Google的Cookie而不会操作Baidu的Cookie，从而保证用户的隐私安全。浏览器判断一个网站是否能操作另一个网站Cookie的依据是域名。Google与Baidu的域名不一样，因此Google不能操作Baidu的Cookie。</p> <p>需要注意的是，虽然网站images.google.com与网站www.google.com同属于Google，但是域名不一样，二者同样不能互相操作彼此的Cookie。</p> <p>注意：用户登录网站www.google.com之后会发现访问images.google.com时登录信息仍然有效，而普通的Cookie是做不到的。这是因为Google做了特殊处理。本章后面也会对Cookie做类似的处理。</p> <h3 id="_1-4-设置cookie的所有属性"><a href="#_1-4-设置cookie的所有属性" class="header-anchor">#</a> 1.4 设置Cookie的所有属性</h3> <p>除了name与value之外，Cookie还具有其他几个常用的属性。每个属性对应一个getter方法与一个setter方法。Cookie类的所有属性如表1.1所示。
+<strong>String name</strong>  该Cookie的名称。Cookie一旦创建，名称便不可更改
+<strong>Object value</strong>  该Cookie的值。如果值为Unicode字符，需要为字符编码。如果值为二进制数据，则需要使用BASE64编码
+<strong>int maxAgec</strong> 该Cookie失效的时间，单位秒。如果为正数，则该Cookie在maxAge秒之后失效。如果为负数，该Cookie为临时Cookie，关闭浏览器即失效，浏览器也不会以任何形式保存该Cookie。如果为0，表示删除该Cookie。默认为–1
+<strong>boolean secure</strong> 该Cookie是否仅被使用安全协议传输。安全协议。安全协议有HTTPS，SSL等，在网络上传输数据之前先将数据加密。默认为false
+<strong>String path</strong> 该Cookie的使用路径。如果设置为“/sessionWeb/”，则只有contextPath为“/sessionWeb”的程序可以访问该Cookie。如果设置为“/”，则本域名下contextPath都可以访问该Cookie。注意最后一个字符必须为“/”
+<strong>String domain</strong> 可以访问该Cookie的域名。如果设置为“.google.com”，则所有以“google.com”结尾的域名都可以访问该Cookie。注意第一个字符必须为“.”
+String comment 该Cookie的用处说明。浏览器显示Cookie信息的时候显示该说明
+<strong>int version</strong> 该Cookie使用的版本号。0表示遵循Netscape的Cookie规范，1表示遵循W3C的RFC 2109规范</p> <h3 id="_1-5-cookie的有效期"><a href="#_1-5-cookie的有效期" class="header-anchor">#</a> 1.5 Cookie的有效期</h3> <p>Cookie的maxAge决定着Cookie的有效期，单位为秒（Second）。Cookie中通过getMaxAge()方法与setMaxAge(int maxAge)方法来读写maxAge属性。</p> <p>如果maxAge属性为正数，则表示该Cookie会在maxAge秒之后自动失效。浏览器会将maxAge为正数的Cookie持久化，即写到对应的Cookie文件中。无论客户关闭了浏览器还是电脑，只要还在maxAge秒之前，登录网站时该Cookie仍然有效。下面代码中的Cookie信息将永远有效</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token class-name">Cookie</span> cookie <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cookie</span><span class="token punctuation">(</span><span class="token string">&quot;username&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;helloweenvsfei&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// 新建Cookie</span>
+
+cookie<span class="token punctuation">.</span><span class="token function">setMaxAge</span><span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">// 设置生命周期为MAX_VALUE</span>
+
+response<span class="token punctuation">.</span><span class="token function">addCookie</span><span class="token punctuation">(</span>cookie<span class="token punctuation">)</span><span class="token punctuation">;</span>     
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>如果maxAge为<strong>负数</strong>，则表示该Cookie仅在本浏览器窗口以及本窗口打开的子窗口内有效，关闭窗口后该Cookie即失效。maxAge为负数的Cookie，为临时性Cookie，不会被持久化，不会被写到Cookie文件中。Cookie信息保存在浏览器内存中，因此关闭浏览器该Cookie就消失了。Cookie默认的maxAge值为–1。</p> <p>如果maxAge为0，则表示删除该Cookie。Cookie机制没有提供删除Cookie的方法，因此通过设置该Cookie即时失效实现删除Cookie的效果。失效的Cookie会被浏览器从Cookie文件或者内存中删除，</p> <p>例如：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token class-name">Cookie</span> cookie <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cookie</span><span class="token punctuation">(</span><span class="token string">&quot;username&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;helloweenvsfei&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// 新建Cookie</span>
+
+cookie<span class="token punctuation">.</span><span class="token function">setMaxAge</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                          <span class="token comment">// 设置生命周期为0，不能为负数</span>
+
+response<span class="token punctuation">.</span><span class="token function">addCookie</span><span class="token punctuation">(</span>cookie<span class="token punctuation">)</span><span class="token punctuation">;</span>                    <span class="token comment">// 必须执行这一句```</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>response对象提供的Cookie操作方法只有一个添加操作add(Cookie cookie)。</p> <p>要想修改Cookie只能使用一个同名的Cookie来覆盖原来的Cookie，达到修改的目的。删除时只需要把maxAge修改为0即可。</p> <p>注意：从客户端读取Cookie时，包括maxAge在内的其他属性都是不可读的，也不会被提交。浏览器提交Cookie时只会提交name与value属性。maxAge属性<strong>只被浏览器用来判断Cookie是否过期。</strong></p> <h3 id="_1-6-cookie的修改、删除"><a href="#_1-6-cookie的修改、删除" class="header-anchor">#</a> 1.6 Cookie的修改、删除</h3> <p>Cookie并不提<strong>供修改、删除</strong>操作。如果要修改某个Cookie，只需要新建一个同名的Cookie，添加到response中覆盖原来的Cookie。</p> <p>如果要删除某个Cookie，只需要<strong>新建一个同名</strong>的Cookie，并将maxAge设置为0，并添加到response中覆盖原来的Cookie。注意是0而不是负数。负数代表其他的意义。读者可以通过上例的程序进行验证，设置不同的属性。
+　　注意：修改、删除Cookie时，新建的Cookie除value、maxAge之外的所有属性，例如name、path、domain等，都要与原Cookie完全一样。否则，浏览器将视为两个不同的Cookie不予覆盖，导致修改、删除失败。</p> <h3 id="_1-7cookie的域名"><a href="#_1-7cookie的域名" class="header-anchor">#</a> 1.7Cookie的域名</h3> <p>Cookie是不可跨域名的。域名www.google.com颁发的Cookie不会被提交到域名www.baidu.com去。这是由Cookie的隐私安全机制决定的。隐私安全机制能够禁止网站非法获取其他网站的Cookie。</p> <p>正常情况下，同一个一级域名下的两个二级域名如www.helloweenvsfei.com和images.helloweenvsfei.com也不能交互使用Cookie，因为二者的域名并不严格相同。如果想所有helloweenvsfei.com名下的二级域名都可以使用该Cookie，需要设置Cookie的domain参数，例如：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token class-name">Cookie</span> cookie <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cookie</span><span class="token punctuation">(</span><span class="token string">&quot;time&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;20080808&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 新建Cookie</span>
+
+cookie<span class="token punctuation">.</span><span class="token function">setDomain</span><span class="token punctuation">(</span><span class="token string">&quot;.helloweenvsfei.com&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">// 设置域名</span>
+
+cookie<span class="token punctuation">.</span><span class="token function">setPath</span><span class="token punctuation">(</span><span class="token string">&quot;/&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                              <span class="token comment">// 设置路径</span>
+
+cookie<span class="token punctuation">.</span><span class="token function">setMaxAge</span><span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">)</span><span class="token punctuation">;</span>               <span class="token comment">// 设置有效期</span>
+
+response<span class="token punctuation">.</span><span class="token function">addCookie</span><span class="token punctuation">(</span>cookie<span class="token punctuation">)</span><span class="token punctuation">;</span>                       <span class="token comment">// 输出到客户端</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>读者可以修改本机C:\WINDOWS\system32\drivers\etc下的hosts文件来配置多个临时域名，然后使用setCookie.jsp程序来设置跨域名Cookie验证domain属性。</p> <p>注意：domain参数必须以点(&quot;.&quot;)开始。另外，name相同但domain不同的两个Cookie是两个不同的Cookie。如果想要两个域名完全不同的网站共有Cookie，可以生成两个Cookie，domain属性分别为两个域名，输出到客户端。</p> <h3 id="_1-8-cookie的安全属性"><a href="#_1-8-cookie的安全属性" class="header-anchor">#</a> 1.8 Cookie的安全属性</h3> <p>HTTP协议不仅是无状态的，而且是不安全的。使用HTTP协议的数据不经过任何加密就直接在网络上传播，有被截获的可能。使用HTTP协议传输很机密的内容是一种隐患。如果不希望Cookie在HTTP等非安全协议中传输，可以设置Cookie的secure属性为true。浏览器只会在HTTPS和SSL等安全协议中传输此类Cookie。下面的代码设置secure属性为true：</p> <p>Cookie cookie = new Cookie(&quot;time&quot;, &quot;20080808&quot;); // 新建Cookie</p> <p>cookie.setSecure(true);                           // 设置安全属性</p> <p>response.addCookie(cookie);                        // 输出到客户端</p> <p>提示：secure属性并不能对Cookie内容加密，因而不能保证绝对的安全性。如果需要高安全性，需要在程序中对Cookie内容加密、解密，以防泄密。</p> <h2 id="_2-session机制"><a href="#_2-session机制" class="header-anchor">#</a> 2.Session机制</h2> <p>除了使用Cookie，Web应用程序中还经常使用<strong>Session</strong>来记录客户端状态。Session是<strong>服务器端使用的一种记录客户端状态的机制</strong>，使用上比Cookie简单一些，相应的也增加了服务器的存储压力。</p> <h3 id="_2-1-什么是session"><a href="#_2-1-什么是session" class="header-anchor">#</a> 2.1  什么是Session</h3> <p>Session是另一种记录客户状态的机制，不同的是Cookie保存在<strong>客户端浏览器</strong>中，而Session<strong>保存在服务器上</strong>。客户端浏览器访问服务器的时候，服务器把客户端信息以某种形式<strong>记录在服务器上</strong>。这就是Session。客户端浏览器再次访问时只需要<strong>从该Session</strong>中查找该客户的状态就可以了。</p> <p>如果说Cookie机制是通过检查<strong>客户身上</strong>的“通行证”来确定客户身份的话，那么Session机制就是通过检查服务器上的**“客户明细表”<strong>来确认客户身份。Session相当于程序在服务器上建立的一份</strong>客户档案**，客户来访的时候只需要查询客户档案表就可以了。</p> <h3 id="_1-2-实现用户登录"><a href="#_1-2-实现用户登录" class="header-anchor">#</a> 1.2 实现用户登录</h3> <p>Session对应的类为javax.servlet.http.HttpSession类。每个<strong>来访者</strong>对应一个Session对象，所有该<strong>客户的状态信息</strong>都保存在这个Session对象里。Session对象是在客户端第一次请求服务器的时候创建的。Session也是一种<strong>key-value</strong>的属性对，通过getAttribute(Stringkey)和setAttribute(String key，Objectvalue)方法读<strong>写客户状态信息</strong>。Servlet里通过request.getSession()方法获<strong>取该客户</strong>的Session，</p> <p>例如：
+HttpSession session = request.getSession();       // 获取Session对象</p> <p>session.setAttribute(&quot;loginTime&quot;, new Date());     // 设置Session中的属性</p> <p>out.println(&quot;登录时间为：&quot; +(Date)session.getAttribute(&quot;loginTime&quot;));      // 获取Session属性</p> <p><strong>request</strong>还可以使用getSession(boolean create)来获取<strong>Session</strong>。区别是如果该客户的Session不存在，request.getSession()方法会返回null，而getSession(true)会先创建Session再将Session返回。</p> <p>Servlet中必须使用request来编程式获取<strong>HttpSession</strong>对象，而<strong>JSP中内置了Session隐藏对象</strong>，可以直接使用。如果使用声明了《%@page session=&quot;false&quot; %》，<strong>则Session隐藏对象不可用</strong>。下面的例子使用Session记录客户账号信息。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token operator">&lt;</span><span class="token operator">%</span>@ page language<span class="token operator">=</span><span class="token string">&quot;java&quot;</span> pageEncoding<span class="token operator">=</span><span class="token string">&quot;UTF-8&quot;</span><span class="token operator">%</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>jsp<span class="token operator">:</span>directive<span class="token punctuation">.</span>page <span class="token keyword">import</span><span class="token operator">=</span><span class="token string">&quot;com.helloweenvsfei.sessionWeb.bean.Person&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>jsp<span class="token operator">:</span>directive<span class="token punctuation">.</span>page <span class="token keyword">import</span><span class="token operator">=</span><span class="token string">&quot;java.text.SimpleDateFormat&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>jsp<span class="token operator">:</span>directive<span class="token punctuation">.</span>page <span class="token keyword">import</span><span class="token operator">=</span><span class="token string">&quot;java.text.DateFormat&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>jsp<span class="token operator">:</span>directive<span class="token punctuation">.</span>page <span class="token keyword">import</span><span class="token operator">=</span><span class="token string">&quot;java.util.Date&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">!</span>
+
+    <span class="token class-name">DateFormat</span> dateFormat <span class="token operator">=</span> <span class="token function">newSimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">&quot;yyyy-MM-dd&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// 日期格式化器</span>
+
+<span class="token operator">%</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">%</span>
+
+    response<span class="token punctuation">.</span><span class="token function">setCharacterEncoding</span><span class="token punctuation">(</span><span class="token string">&quot;UTF-8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// 设置request编码</span>
+
+    <span class="token class-name">Person</span><span class="token punctuation">[</span><span class="token punctuation">]</span> persons <span class="token operator">=</span>
+
+    <span class="token punctuation">{</span>          
+
+       <span class="token comment">// 基础数据，保存三个人的信息</span>
+
+        <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">&quot;Liu Jinghua&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;password1&quot;</span><span class="token punctuation">,</span> <span class="token number">34</span><span class="token punctuation">,</span> dateFormat<span class="token punctuation">.</span>parse
+        <span class="token punctuation">(</span><span class="token string">&quot;1982-01-01&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+        <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">&quot;Hello Kitty&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;hellokitty&quot;</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">,</span> dateFormat<span class="token punctuation">.</span>parse
+        <span class="token punctuation">(</span><span class="token string">&quot;1984-02-21&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+        <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">&quot;Garfield&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;garfield_pass&quot;</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">,</span> dateFormat<span class="token punctuation">.</span>parse
+        <span class="token punctuation">(</span><span class="token string">&quot;1994-09-12&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+     <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+   
+
+    <span class="token class-name">String</span> message <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>                      <span class="token comment">// 要显示的消息</span>
+
+   
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">getMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">&quot;POST&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token punctuation">{</span>
+
+        <span class="token comment">// 如果是POST登录       </span>
+
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">Person</span> person <span class="token operator">:</span>persons<span class="token punctuation">)</span>
+
+        <span class="token punctuation">{</span>          
+
+            <span class="token comment">// 遍历基础数据，验证账号、密码</span>
+
+            <span class="token comment">// 如果用户名正确且密码正确</span>
+
+           <span class="token keyword">if</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equalsIgnoreCase</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">getParameter</span><span class="token punctuation">(</span><span class="token string">&quot;username&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span>person<span class="token punctuation">.</span><span class="token function">getPassword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">getParameter</span><span class="token punctuation">(</span><span class="token string">&quot;password&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+           <span class="token punctuation">{</span>              
+
+               <span class="token comment">// 登录成功，设置将用户的信息以及登录时间保存到Session</span>
+
+               session<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">&quot;person&quot;</span><span class="token punctuation">,</span> person<span class="token punctuation">)</span><span class="token punctuation">;</span>                   <span class="token comment">// 保存登录的Person</span>
+
+               session<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">&quot;loginTime&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment">// 保存登录的时间              </span>
+
+               response<span class="token punctuation">.</span><span class="token function">sendRedirect</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">getContextPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot;/welcome.jsp&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+               <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+            <span class="token punctuation">}</span>
+
+        <span class="token punctuation">}</span>      
+
+        message <span class="token operator">=</span> <span class="token string">&quot;用户名密码不匹配，登录失败。&quot;</span><span class="token punctuation">;</span>       <span class="token comment">// 登录失败</span>
+
+    <span class="token punctuation">}</span>
+
+<span class="token operator">%</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE HTML PUBLIC <span class="token string">&quot;-//W3C//DTD HTML 4.01Transitional//EN&quot;</span><span class="token operator">&gt;</span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span>html<span class="token punctuation">&gt;</span></span>
+
+    <span class="token comment">// ... HTML代码为一个FORM表单，代码略，请看随书光盘</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">&gt;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br></div></div><p>登录界面验证用户登录信息，如果登录正确，就把用户信息以及登录时间保存进Session，然后转到欢迎页面welcome.jsp。welcome.jsp中从Session中获取信息，并将用户资料显示出来。</p> <p>welcome.jsp代码如下：</p> <p>代码1.10  welcome.jsp</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token operator">&lt;</span><span class="token operator">%</span>@ page language<span class="token operator">=</span><span class="token string">&quot;java&quot;</span> pageEncoding<span class="token operator">=</span><span class="token string">&quot;UTF-8&quot;</span><span class="token operator">%</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>jsp<span class="token operator">:</span>directive<span class="token punctuation">.</span>pageimport<span class="token operator">=</span><span class="token string">&quot;com.helloweenvsfei.sessionWeb.bean.Person&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>jsp<span class="token operator">:</span>directive<span class="token punctuation">.</span>page <span class="token keyword">import</span><span class="token operator">=</span><span class="token string">&quot;java.text.SimpleDateFormat&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>jsp<span class="token operator">:</span>directive<span class="token punctuation">.</span>page <span class="token keyword">import</span><span class="token operator">=</span><span class="token string">&quot;java.text.DateFormat&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>jsp<span class="token operator">:</span>directive<span class="token punctuation">.</span>page <span class="token keyword">import</span><span class="token operator">=</span><span class="token string">&quot;java.util.Date&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">!</span>
+
+    <span class="token class-name">DateFormat</span> dateFormat <span class="token operator">=</span> <span class="token function">newSimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">&quot;yyyy-MM-dd&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// 日期格式化器</span>
+
+<span class="token operator">%</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">%</span>
+
+    <span class="token class-name">Person</span> person <span class="token operator">=</span><span class="token punctuation">(</span><span class="token class-name">Person</span><span class="token punctuation">)</span>session<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">&quot;person&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                       <span class="token comment">// 获取登录的person</span>
+
+    <span class="token class-name">Date</span> loginTime <span class="token operator">=</span><span class="token punctuation">(</span><span class="token class-name">Date</span><span class="token punctuation">)</span>session<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">&quot;loginTime&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                     <span class="token comment">// 获取登录时间</span>
+
+<span class="token operator">%</span><span class="token operator">&gt;</span>
+
+    <span class="token comment">// ... 部分HTML代码略</span>
+
+            <span class="token generics"><span class="token punctuation">&lt;</span>table<span class="token punctuation">&gt;</span></span>
+
+               <span class="token generics"><span class="token punctuation">&lt;</span>tr<span class="token punctuation">&gt;</span></span><span class="token generics"><span class="token punctuation">&lt;</span>td<span class="token punctuation">&gt;</span></span>您的姓名：<span class="token operator">&lt;</span><span class="token operator">/</span>td<span class="token operator">&gt;</span>
+
+                   <span class="token generics"><span class="token punctuation">&lt;</span>td<span class="token punctuation">&gt;</span></span><span class="token operator">&lt;</span><span class="token operator">%=</span> person<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>td<span class="token operator">&gt;</span>
+
+               <span class="token operator">&lt;</span><span class="token operator">/</span>tr<span class="token operator">&gt;</span>
+
+               <span class="token generics"><span class="token punctuation">&lt;</span>tr<span class="token punctuation">&gt;</span></span><span class="token generics"><span class="token punctuation">&lt;</span>td<span class="token punctuation">&gt;</span></span>登录时间：<span class="token operator">&lt;</span><span class="token operator">/</span>td<span class="token operator">&gt;</span>
+
+                   <span class="token generics"><span class="token punctuation">&lt;</span>td<span class="token punctuation">&gt;</span></span><span class="token operator">&lt;</span><span class="token operator">%=</span> loginTime<span class="token operator">%</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>td<span class="token operator">&gt;</span>
+
+               <span class="token operator">&lt;</span><span class="token operator">/</span>tr<span class="token operator">&gt;</span>
+
+               <span class="token generics"><span class="token punctuation">&lt;</span>tr<span class="token punctuation">&gt;</span></span><span class="token generics"><span class="token punctuation">&lt;</span>td<span class="token punctuation">&gt;</span></span>您的年龄：<span class="token operator">&lt;</span><span class="token operator">/</span>td<span class="token operator">&gt;</span>
+
+                   <span class="token generics"><span class="token punctuation">&lt;</span>td<span class="token punctuation">&gt;</span></span><span class="token operator">&lt;</span><span class="token operator">%=</span> person<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>td<span class="token operator">&gt;</span>
+
+               <span class="token operator">&lt;</span><span class="token operator">/</span>tr<span class="token operator">&gt;</span>
+
+               <span class="token generics"><span class="token punctuation">&lt;</span>tr<span class="token punctuation">&gt;</span></span><span class="token generics"><span class="token punctuation">&lt;</span>td<span class="token punctuation">&gt;</span></span>您的生日：<span class="token operator">&lt;</span><span class="token operator">/</span>td<span class="token operator">&gt;</span>
+
+                   <span class="token generics"><span class="token punctuation">&lt;</span>td<span class="token punctuation">&gt;</span></span><span class="token operator">&lt;</span><span class="token operator">%=</span>dateFormat<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getBirthday</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>td<span class="token operator">&gt;</span>
+
+               <span class="token operator">&lt;</span><span class="token operator">/</span>tr<span class="token operator">&gt;</span>
+
+            <span class="token operator">&lt;</span><span class="token operator">/</span>table<span class="token operator">&gt;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br></div></div><p>图1.8  使用Session记录用户信息</p> <p>注意程序中Session中直接保存了Person类对象与Date类对象，使用起来要比Cookie方便。</p> <p>当多个客户端执行程序时，服务器会保存多个客户端的Session。获取Session的时候也不需要声明获取谁的Session。Session机制决定了当前客户只会获取到自己的Session，而不会获取到别人的Session。各客户的Session也彼此独立，互不可见。</p> <p>提示：<strong>Session的使用比Cookie方便</strong>，但是过多的Session存储在服务器内存中，会对<strong>服务器造成压力</strong>。</p> <h3 id="_1-3-session的生命周期"><a href="#_1-3-session的生命周期" class="header-anchor">#</a> 1.3 Session的生命周期</h3> <p>Session保存在服务器端。为了获得更高的存取速度，服务器一般把Session放在<strong>内存里</strong>。每个<strong>用户都会有一个独立的Session</strong>。如果Session内容过于复杂，当大量客户访问服务器时可能会导致内存溢出。因此，Session里的信息应该尽量精简。</p> <p>Session在用户第一次访问服务器的时<strong>候自动创建</strong>。需要注意只有访问JSP、Servlet(动态 服务器的内容)等程序时才会创建Session，只访问HTML、IMAGE等**(静态资源)**并不会创建Session。如果尚未生成Session，也可以使用request.getSession(true)<strong>强制生成Session</strong>。</p> <p>Session生成后，只要用户继续访问，服务器就会更新Session的最后访问时间，并维护该Session。用户每访问服务器一次，无论是否读写Session，服务器都认为该用户的Session“活跃（active）”了一次。
+###1.4  Session的有效期
+　　由于会有越来越多的用户访问服务器，因此Session也会越来越多。为防止内存溢出，服务器会把<strong>长时间内没有活跃</strong>的Session从内存<strong>删除</strong>。这个时间就是Session的超时时间。如果超过了超时时间没访问过服务器，Session就自动失效了。</p> <p>Session的超时时间为maxInactiveInterval属性，可以通过对应的getMaxInactiveInterval()获取，通过setMaxInactiveInterval(longinterval)修改。</p> <p>Session的<strong>超时时间也</strong>可以在<strong>web.xml中</strong>修改。另外，通过调用Session的invalidate()方法可以使Session失效</p> <h3 id="_1-5-session的常用方法"><a href="#_1-5-session的常用方法" class="header-anchor">#</a> 1.5 Session的常用方法</h3> <p>Session中包括各种方法，使用起来要比Cookie方便得多。Session的常用方法如表1.2所示。</p> <p>表1.2  HttpSession的常用方法</p> <p>Tomcat中Session的默认超时时间为20分钟。通过setMaxInactiveInterval(int seconds)修改超时时间。可以修改web.xml改变Session的默认超时时间。例如修改为60分钟：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code> <span class="token operator">|</span>方  法  名<span class="token operator">|</span>描    述
+<span class="token operator">|</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span><span class="token operator">|</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+<span class="token operator">|</span><span class="token keyword">void</span> <span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token class-name">String</span> attribute<span class="token punctuation">,</span> <span class="token class-name">Object</span> value<span class="token punctuation">)</span><span class="token operator">|</span>设置<span class="token class-name">Session</span>属性。value参数可以为任何<span class="token class-name">Java</span> <span class="token class-name">Object</span>。通常为<span class="token class-name">Java</span> <span class="token class-name">Bean</span>。value信息不宜过大
+<span class="token operator">|</span><span class="token class-name">String</span> <span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token class-name">String</span> attribute<span class="token punctuation">)</span><span class="token operator">|</span>返回<span class="token class-name">Session</span>属性
+<span class="token operator">|</span><span class="token class-name">Enumeration</span> <span class="token function">getAttributeNames</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">|</span>返回<span class="token class-name">Session</span>中存在的属性名
+<span class="token operator">|</span><span class="token keyword">void</span> <span class="token function">removeAttribute</span><span class="token punctuation">(</span><span class="token class-name">String</span> attribute<span class="token punctuation">)</span><span class="token operator">|</span>移除<span class="token class-name">Session</span>属性
+<span class="token operator">|</span><span class="token class-name">String</span> <span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">|</span>返回<span class="token class-name">Session</span>的ID。该ID由服务器自动创建，不会重复
+<span class="token operator">|</span><span class="token keyword">long</span> <span class="token function">getCreationTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">|</span>返回<span class="token class-name">Session</span>的最后活跃时间。返回类型为<span class="token keyword">long</span>
+<span class="token operator">|</span><span class="token keyword">int</span> <span class="token function">getMaxInactiveInterval</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">|</span>返回<span class="token class-name">Session</span>的超时时间。单位为秒。超过该时间没有访问，服务器认为该<span class="token class-name">Session</span>失效
+<span class="token operator">|</span><span class="token keyword">void</span> <span class="token function">setMaxInactiveInterval</span><span class="token punctuation">(</span><span class="token keyword">int</span> second<span class="token punctuation">)</span><span class="token operator">|</span>设置<span class="token class-name">Session</span>的超时时间。单位为秒
+<span class="token operator">|</span><span class="token keyword">boolean</span> <span class="token function">isNew</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">|</span>返回该<span class="token class-name">Session</span>是否是新创建的
+<span class="token operator">|</span><span class="token keyword">void</span> <span class="token function">invalidate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">|</span>使该<span class="token class-name">Session</span>失效
+<span class="token operator">&lt;</span>session<span class="token operator">-</span>config<span class="token operator">&gt;</span>
+
+   <span class="token operator">&lt;</span>session<span class="token operator">-</span>timeout<span class="token operator">&gt;</span><span class="token number">60</span><span class="token operator">&lt;</span><span class="token operator">/</span>session<span class="token operator">-</span>timeout<span class="token operator">&gt;</span>      <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 单位：分钟 <span class="token operator">--</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>session<span class="token operator">-</span>config<span class="token operator">&gt;</span>
+注意：<span class="token operator">&lt;</span>session<span class="token operator">-</span>timeout<span class="token operator">&gt;</span>参数的单位为分钟，而<span class="token function">setMaxInactiveInterval</span><span class="token punctuation">(</span><span class="token keyword">int</span> s<span class="token punctuation">)</span>单位为秒。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h3 id="_1-6-session对浏览器的要求"><a href="#_1-6-session对浏览器的要求" class="header-anchor">#</a> 1.6 Session对浏览器的要求</h3> <p>虽然Session保存在<strong>服务器</strong>，对客户端是<strong>透明的</strong>，它的正常运行仍然需要客户端浏览器的支持。这是因为Session需要使用Cookie作为识别标志。HTTP协议是无状态的，Session不能依据HTTP连接来判断是否为同一客户，因此服务器向客户端浏览器发送一个名为<strong>JSESSIONID</strong>的Cookie，它的值为该<strong>Session的id</strong>（也就是HttpSession.getId()的返回值）。Session依据该Cookie来识别是否为同一用户。</p> <p>该Cookie为服务器自动生成的，它的<strong>maxAge属性一般为–1</strong>，表示仅当前浏览器内有效，并且各浏览器窗口间不共享，关闭浏览器就会失效。</p> <p>因此同一机器的<strong>两个浏览器窗口</strong>访问服务器时，会生成两个不同的Session。但是由浏览器窗口内的链接、脚本等打开的新窗口（也就是说不是双击桌面浏览器图标等打开的窗口）除外。这类子窗口会共享父窗口的Cookie，因此会共享一个Session。</p> <h3 id="_1-7-url地址重写"><a href="#_1-7-url地址重写" class="header-anchor">#</a> 1.7 URL地址重写</h3> <p>URL地址<strong>重写</strong>是对<strong>客户端不支持Cookie</strong>的<strong>解决方案</strong>。URL地址重写的原理是将该用户Session的id信息<strong>重写到URL地址</strong>中。服务器能够解析重写后的URL获取Session的id。这样即使客户端不支持Cookie，也可以使用Session来记录用户状态。HttpServletResponse类提供了encodeURL(Stringurl)实现URL地址重写，</p> <p>注意：新开的浏览器窗口会<strong>生成新的Session</strong>，但子窗口除外。子窗口会共用父窗口的Session。例如，在链接上右击，在弹出的快捷菜单中选择“在新窗口中打开”时，子窗口便可以访问父窗口的Session。</p> <p>如果客户端浏览器将Cookie功能禁用，或者不支持Cookie怎么办？例如，绝大多数的手机浏览器都不支持Cookie。Java Web提供了另一种解决方案：URL地址重写。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token generics"><span class="token punctuation">&lt;</span>td<span class="token punctuation">&gt;</span></span>
+
+    <span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">&quot;&lt;%=response.encodeURL(&quot;</span>index<span class="token punctuation">.</span>jsp<span class="token operator">?</span>c<span class="token operator">=</span><span class="token number">1</span><span class="token operator">&amp;</span>wd<span class="token operator">=</span><span class="token class-name">Java</span><span class="token string">&quot;) %&gt;&quot;</span><span class="token operator">&gt;</span> 
+    <span class="token class-name">Homepage</span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>td<span class="token operator">&gt;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>该方法会自动判断客户端是否支持Cookie。如果客户端支持Cookie，会将URL原封不动地输出来。如果客户端不支持Cookie，则会将用户Session的id重写到URL中。</p> <p>重写后的输出可能是这样的：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token generics"><span class="token punctuation">&lt;</span>td<span class="token punctuation">&gt;</span></span>
+
+    <span class="token operator">&lt;</span>ahref<span class="token operator">=</span>&quot;index<span class="token punctuation">.</span>jsp<span class="token punctuation">;</span>jsessionid<span class="token operator">=</span><span class="token number">0</span>CCD096E7F8D97B0BE608AFDC3E1931E<span class="token operator">?</span>c<span class="token operator">=</span>
+    <span class="token number">1</span><span class="token operator">&amp;</span>wd<span class="token operator">=</span><span class="token class-name">Java</span>&quot;<span class="token operator">&gt;</span><span class="token class-name">Homepage</span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>td<span class="token operator">&gt;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>即在文件名的后面，在URL参数的前面添加了<strong>字符串</strong>“;jsessionid=XXX”。其中XXX为Session的id。分析一下可以知道，增添的jsessionid字符串既不会影响请求的文件名，也不会影响提交的地址栏参数。用户单击这个链接的时候会把Session的id通过URL提交到服务器上，<strong>服务器通过解析URL地址获得Session</strong>的id。</p> <p>如果是页面重定向（Redirection），URL地址重写可以这样写：</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token operator">&lt;</span><span class="token operator">%</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>“administrator”<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>userName<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token punctuation">{</span>
+
+       response<span class="token punctuation">.</span><span class="token function">sendRedirect</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span><span class="token function">encodeRedirectURL</span><span class="token punctuation">(</span>“administrator<span class="token punctuation">.</span>jsp”<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+<span class="token operator">%</span><span class="token operator">&gt;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>效果跟response.encodeURL(String url)是一样的：如果客户端支持Cookie，生成原URL地址，如果不支持Cookie，传回重写后的带有jsessionid字符串的地址。</p> <p>对于WAP程序，由于大部分的手机浏览器都不支持Cookie，WAP程序都会采用URL地址重写来跟踪用户会话。比如用友集团的移动商街等。</p> <p>注意：<strong>TOMCAT</strong>判断客户端浏览器是否支持Cookie的依据是请求中是否含有Cookie。尽管客户端可能会支持Cookie，但是由于第一次请求时不会携带任何Cookie（因为并无任何Cookie可以携带），URL地址重写后的地址中仍然会带有jsessionid。当第二次访问时服务器已经在浏览器中写入Cookie了，因此URL地址重写后的地址中就不会带有jsessionid了。</p> <h3 id="_1-8-session中禁止使用cookie"><a href="#_1-8-session中禁止使用cookie" class="header-anchor">#</a> 1.8  Session中禁止使用Cookie</h3> <p>既然WAP上大部分的客户浏览器都不支持Cookie，索性禁止Session使用Cookie，统一使用URL地址重写会更好一些。Java Web规范支持通过配置的方式禁用Cookie。下面举例说一下怎样通过配置禁止使用Cookie。</p> <p>打开项目sessionWeb的WebRoot目录下的META-INF文件夹（跟WEB-INF文件夹同级，如果没有则创建），打开context.xml（如果没有则创建），编辑内容如下：</p> <p>代码1.11** /META-INF/context.xml**</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token operator">&lt;</span><span class="token operator">?</span>xml version<span class="token operator">=</span><span class="token char">'1.0'</span> encoding<span class="token operator">=</span><span class="token char">'UTF-8'</span><span class="token operator">?</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token class-name">Context</span> path<span class="token operator">=</span><span class="token string">&quot;/sessionWeb&quot;</span>cookies<span class="token operator">=</span><span class="token string">&quot;false&quot;</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span><span class="token class-name">Context</span><span class="token operator">&gt;</span>
+或者修改<span class="token operator">*</span><span class="token operator">*</span><span class="token class-name">Tomcat</span>全局的conf<span class="token operator">/</span>context<span class="token punctuation">.</span>xml<span class="token operator">*</span><span class="token operator">*</span>，修改内容如下：
+
+代码<span class="token number">1.12</span>  context<span class="token punctuation">.</span>xml
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> <span class="token class-name">The</span> contents of <span class="token keyword">this</span> file will be loaded <span class="token keyword">for</span> eachweb application <span class="token operator">--</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token class-name">Context</span> cookies<span class="token operator">=</span><span class="token string">&quot;false&quot;</span><span class="token operator">&gt;</span>
+
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> 中间代码略 <span class="token operator">--</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span><span class="token class-name">Context</span><span class="token operator">&gt;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>部署后TOMCAT便不会自动生成名JSESSIONID的Cookie，Session也不会以Cookie为识别标志，而仅仅以重写后的URL地址为识别标志了。</p> <p>注意：该配置只是禁止Session使用Cookie作为识别标志，并不能阻止其他的Cookie读写。也就是说服务器不会自动维护名为JSESSIONID的Cookie了，但是程序中仍然可以读写其他的Cookie。</p> <h2 id="_3-cookie和session的区别"><a href="#_3-cookie和session的区别" class="header-anchor">#</a> 3.cookie和session的区别</h2> <p>1、cookie数据存放在客户的<strong>浏览器</strong>上，session数据放在<strong>服务器</strong>上.</p> <div class="language- extra-class"><pre><code>   简单的说，当你登录一个网站的时候，如果web服务器端使用的是session,那么所有的数据都保存在**服务器上面**，
+</code></pre></div><p>客户端每次请求服务器的时候会发送 当前会话的session_id，服务器根据当前session_id判断相应的<strong>用户数据标志</strong>，以确定用户是否登录，或具有某种权限。
+由于数据是存储在<strong>服务器 <strong>上面，所以你不能伪造，但是如果你能够获取某个登录用户的session_id，用特殊的浏览器</strong>伪造该用户的请求</strong>也是能够<strong>成功</strong>的。
+session_id****，一般是服务器和客户端链接时候随机分配的来说是不会有重复，但如果有<strong>大量的并发请求</strong>，也不是没有<strong>重复的可能性</strong>。</p> <p>Session是由应用服务器维持的一个服务器端的<strong>存储空间</strong>，用户在连接服务器时，会由服务器生成一个唯一的<strong>SessionID</strong>,用该SessionID 为标识符来存取服务器端的Session存储空间。而SessionID这一数据则是保存到客户端，用Cookie保存的，用户提交页面时，会将这一 SessionID提交到服务器端，来存取Session数据。这一过程，<strong>是不用开发人员干预的</strong>。所以一旦客户端禁用Cookie，那么<strong>Session也会失效</strong>。</p> <p>2、cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗考虑到安全应当使用<strong>session</strong>。</p> <p>3、设置cookie时间可以使cookie过期。但是使用session-destory（），我们将会销毁会话。</p> <p>4、session会在一定时间内保存在服务器上。当<strong>访问增多</strong>，会比较占用你服务器的性能考虑到减轻服务器性能方面，应当使用cookie。</p> <p>5、单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。(Session对象没有对存储的数据量的限制，其中可以保存更为复杂的数据类型)
+注意:
+session很容易<strong>失效</strong>,用户体验很差;
+虽然cookie不安全,但是可以加密 ;
+cookie也分为<strong>永久</strong>（设置了过期时间）和<strong>暂时</strong>(就是 和会话的 一样 关闭就失效了)存在的;
+浏览器 有禁止cookie功能 ,但一般用户都不会设置;
+一定要设置失效时间,要不然浏览器关闭就消失了（就是暂时Cookie）;
+例如:
+记住密码功能就是使用<strong>永久cookie</strong>写在客户端电脑，下次登录时，自动将cookie信息附加发送给服务端。
+application是<strong>全局性信息</strong>，是所有<strong>用户共享的信息</strong>，如可以记录有多少用户现在登录过本网站，并把该信息展示个所有用户。</p> <p>两者最大的区别在于生存周期，一个是IE启动到IE关闭.(浏览器页面一关 ,session就消失了)，一个是<strong>预先设置的生存周期</strong>，或永久的保存于本地的文件。(cookie)
+Session信息是存放在<strong>server端</strong>，但session id是存放在client cookie的，当然php的session存放方法是多样化的，这样就算禁用cookie一样可以跟踪</p> <p>Cookie是完全保持在客户端的如：IE firefox 当客户端禁止cookie时将不能再使用</p> <h3 id="面试常问问题-cookie-被禁用怎么办"><a href="#面试常问问题-cookie-被禁用怎么办" class="header-anchor">#</a> 面试常问问题 Cookie 被禁用怎么办？？</h3> <p>在web开发过程中，cookie是我们常用的功能；最基本的用来存储服务端返回的jsessionid来识别用户，甚至保存其它更多的客户信息。假如客户端浏览器禁用了cookie，将会导致很多基于cookie的功能出现异常，甚至无法使用，作为开发者，我们怎么来解决这种问题呢？</p> <p>百度了下，网上出现最多的回答就是URL重写，其原理就是通过response.encodeURL(**<em>)或者response.sendRedirect(response.encodeRedirectURL(<em><strong>))对要返回</strong>前端的url</em></em>进行重写。这两个方法都可以通过request判断前端是否禁用了cookie，如果禁用了cookie，会自动将;jsessionid=xxx添加到要返回前端的url后，前端进行请求时就会再url后带上jsessioonid。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">5/17/2022, 12:02:13 PM</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/70.开发/01.开发BUG/notes/2JSP的9大内置对象和4大域对象.html">
+        JSP的9大内置对象和4大域对象
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.19543062.js" defer></script><script src="/assets/js/2.0ee43227.js" defer></script><script src="/assets/js/87.2bd3e7b3.js" defer></script>
+  </body>
+</html>
